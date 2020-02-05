@@ -1,3 +1,3 @@
 color elflord
-set columns=160
+set columns=170
 set lines=40
