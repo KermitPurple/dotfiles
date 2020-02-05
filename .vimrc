@@ -3,6 +3,7 @@ set rnu
 set nu
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
+color elflord
 set makeprg=g++\ -o\ %<\ %
 set undofile
 set directory=C://users/Shane/vim/undos//
