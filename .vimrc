@@ -19,6 +19,7 @@ autocmd filetype javascript,css,html nmap <F5> :!index.html<ENTER>
 nmap <leader>r <F5>
 nmap <leader>q :qa<ENTER>
 nmap <leader>w :wa<ENTER>
+nmap <leader>x :xa<ENTER>
 nmap <leader>n :!start cmd<ENTER>
 map <leader>y "*y
 map <leader>d "*d
