@@ -15,7 +15,7 @@ let g:netrw_winsize = 25
 let mapleader = ' '
 autocmd filetype python nmap <F5> :!py main.py<ENTER>
 autocmd filetype c,cpp nmap <F5> :!make test<ENTER>
-autocmd filetype javascript, css, html nmap <F5> :!index.html<ENTER>
+autocmd filetype javascript,css,html nmap <F5> :!index.html<ENTER>
 nmap <leader>r <F5>
 nmap <leader>q :wqa<ENTER>
 nmap <leader>w :wa<ENTER>
