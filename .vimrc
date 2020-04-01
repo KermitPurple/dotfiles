@@ -13,15 +13,32 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let mapleader = ' '
+map <s-space> <leader>
 autocmd filetype python nmap <F5> :!py main.py<ENTER>
 autocmd filetype c,cpp nmap <F5> :!make test<ENTER>
 autocmd filetype javascript,css,html nmap <F5> :!index.html<ENTER>
 nmap <leader>r <F5>
 nmap <leader>q :qa<ENTER>
+nmap <leader>Q :q<ENTER>
 nmap <leader>w :wa<ENTER>
+nmap <leader>W :w<ENTER>
 nmap <leader>x :xa<ENTER>
+nmap <leader>X :x<ENTER>
 nmap <leader>n :!start cmd<ENTER>
 map <leader>y "*y
 map <leader>d "*d
 map <leader>p "*p
 map <leader>c "*c
+map <leader>h <c-w>h
+map <leader>j <c-w>j
+map <leader>k <c-w>k
+map <leader>l <c-w>l
+map <leader>- <c-w>-
+map <leader>+ <c-w>+
+map <leader>= <c-w>=
+map <leader>< <c-w><
+map <leader>> <c-w>>
+map <leader>_ <c-w>_
+map <leader><Bar> <c-w><Bar>
+nmap <leader>5 :ls<ENTER>
+nmap <leader>6 :bnext<ENTER>
