@@ -43,4 +43,4 @@ nmap <leader><Bar> <c-w><Bar>
 nmap <leader>5 :ls<ENTER>
 nmap <leader>6 :bnext<ENTER>
 nmap <leader>z zf%
-nmap <leader>p zfip
+nmap <leader>i zfip
