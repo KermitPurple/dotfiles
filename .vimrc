@@ -13,34 +13,51 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let mapleader = ' '
-map <s-space> <leader>
-autocmd filetype python nmap <F5> :!py main.py<ENTER>
-autocmd filetype c,cpp nmap <F5> :!make test<ENTER>
-autocmd filetype javascript,css,html nmap <F5> :!index.html<ENTER>
-nmap <leader>r <F5>
-nmap <leader>q :qa<ENTER>
-nmap <leader>Q :q<ENTER>
-nmap <leader>w :wa<ENTER>
-nmap <leader>W :w<ENTER>
-nmap <leader>x :xa<ENTER>
-nmap <leader>X :x<ENTER>
-nmap <leader>n :!start cmd<ENTER>
-map <leader>y "*y
-map <leader>d "*d
-map <leader>p "*p
-map <leader>c "*c
-nmap <leader>h <c-w>h
-nmap <leader>j <c-w>j
-nmap <leader>k <c-w>k
-nmap <leader>l <c-w>l
-nmap <leader>- <c-w>-
-nmap <leader>+ <c-w>+
-nmap <leader>= <c-w>=
-nmap <leader>< <c-w><
-nmap <leader>> <c-w>>
-nmap <leader>_ <c-w>_
-nmap <leader><Bar> <c-w><Bar>
-nmap <leader>5 :ls<ENTER>
-nmap <leader>6 :bnext<ENTER>
-nmap <leader>z zf%
-nmap <leader>i zfip
+noremap <s-space> <leader>
+autocmd filetype python nnoremap <F5> <leader>w:!py main.py<ENTER>
+autocmd filetype c,cpp,h nnoremap <F5> <leader>w:!make test<ENTER>
+autocmd filetype javascript,css,html nnoremap <F5> <leader>w:!index.html<ENTER>
+nnoremap <leader>r <F5>
+nnoremap <leader>q :qa<ENTER>
+nnoremap <leader>Q :q<ENTER>
+nnoremap <leader>w :wa<ENTER>
+nnoremap <leader>W :w<ENTER>
+nnoremap <leader>x :xa<ENTER>
+nnoremap <leader>X :x<ENTER>
+nnoremap <leader>n :!start cmd<ENTER>
+noremap <leader>y "*y
+noremap <leader>Y "*Y
+noremap <leader>d "*d
+noremap <leader>D "*D
+noremap <leader>p "*p
+noremap <leader>P "*P
+nnoremap <leader>h <c-w>h
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
+nnoremap <leader>l <c-w>l
+nnoremap <leader>- <c-w>-
+nnoremap <leader>+ <c-w>+
+nnoremap <leader>= <c-w>=
+nnoremap <leader>< <c-w><
+nnoremap <leader>> <c-w>>
+nnoremap <leader>_ <c-w>_
+nnoremap <leader><Bar> <c-w><Bar>
+nnoremap <leader>5 :ls<ENTER>
+nnoremap <leader>6 :bnext<ENTER>
+nnoremap <leader>i zfip
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>z :wqa!<enter>
+nnoremap <leader>c :!start chrome<ENTER>
+nnoremap <leader>cs <leader>c
+nnoremap <leader>cg :!start https://github.com/KermitPurple?tab=repositories<ENTER>
+nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
+nnoremap <leader>cy :!start https://youtube.com/<ENTER>
+nnoremap <leader>cn :!start https://github.com/new<ENTER>
