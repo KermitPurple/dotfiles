@@ -17,13 +17,11 @@ noremap <s-space> <leader>
 autocmd filetype python nnoremap <F5> <leader>w:!py main.py<ENTER>
 autocmd filetype c,cpp,h nnoremap <F5> <leader>w:!make test<ENTER>
 autocmd filetype javascript,css,html nnoremap <F5> <leader>w:!index.html<ENTER>
-nnoremap <leader>r <F5>
-nnoremap <leader>q :qa<ENTER>
-nnoremap <leader>Q :q<ENTER>
+nnoremap <leader>r <c-w>r
+nnoremap <leader>q :wqa<ENTER>
+nnoremap <leader>Q :wq<ENTER>
 nnoremap <leader>w :wa<ENTER>
 nnoremap <leader>W :w<ENTER>
-nnoremap <leader>x :xa<ENTER>
-nnoremap <leader>X :x<ENTER>
 nnoremap <leader>n :!start cmd<ENTER>
 noremap <leader>y "*y
 noremap <leader>Y "*Y
@@ -61,3 +59,4 @@ nnoremap <leader>cg :!start https://github.com/KermitPurple?tab=repositories<ENT
 nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
 nnoremap <leader>cy :!start https://youtube.com/<ENTER>
 nnoremap <leader>cn :!start https://github.com/new<ENTER>
+nmap <leader>m <leader>n<leader>q
