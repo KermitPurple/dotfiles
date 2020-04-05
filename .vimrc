@@ -54,7 +54,6 @@ nnoremap <leader>9 9gt
 nnoremap <leader>z :qa!<enter>
 nnoremap <leader>Z :q!<enter>
 nnoremap <leader>c :!start chrome<ENTER>
-nnoremap <leader>cs <leader>c
 nnoremap <leader>cg :!start https://github.com/KermitPurple?tab=repositories<ENTER>
 nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
 nnoremap <leader>cy :!start https://youtube.com/<ENTER>
