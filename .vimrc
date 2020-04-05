@@ -1,6 +1,7 @@
 source C:\Users\Shane\vim\_vimrc
 set rnu
 set nu
+set nowrap
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 set makeprg=g++\ -o\ %<\ %
@@ -60,4 +61,4 @@ nnoremap <leader>cg :!start https://github.com/KermitPurple?tab=repositories<ENT
 nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
 nnoremap <leader>cy :!start https://youtube.com/<ENTER>
 nnoremap <leader>cn :!start https://github.com/new<ENTER>
-nmap <leader>m <leader>n<leader>q
+nmap <leader>m <leader>n:sleep 500ms<enter><leader>q
