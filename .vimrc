@@ -41,8 +41,6 @@ nnoremap <leader>< <c-w><
 nnoremap <leader>> <c-w>>
 nnoremap <leader>_ <c-w>_
 nnoremap <leader><Bar> <c-w><Bar>
-nnoremap <leader>5 :ls<ENTER>
-nnoremap <leader>6 :bnext<ENTER>
 nnoremap <leader>i zfip
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
