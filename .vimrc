@@ -63,5 +63,4 @@ nmap <leader>m <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/thiagoalessio/rainbow_levels.vim'
 call plug#end()
-autocmd BufWinEnter *.* silent RainbowLevelsOn
 nnoremap <leader><tab> :RainbowLevelsToggle<enter>
