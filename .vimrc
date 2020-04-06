@@ -63,6 +63,7 @@ nmap <leader>m <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
 call plug#begin('C:\users\shane\Vim\plugged\')
 Plug 'https://github.com/thiagoalessio/rainbow_levels.vim'
 Plug 'https://github.com/luochen1990/rainbow'
+Plug 'preservim/nerdtree'
 call plug#end()
 let g:rainbow_active = 1
 autocmd BufWinEnter * silent set tabstop=4 noexpandtab shiftwidth=4
@@ -75,4 +76,5 @@ nnoremap <left> <<
 nnoremap <right> >>
 nnoremap <up> ddkP
 nnoremap <down> ddp
+nnoremap <leader>t :NERDTreeToggle<enter>
 
