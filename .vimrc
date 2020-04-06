@@ -62,6 +62,8 @@ Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
 call plug#end()
 let g:rainbow_active = 1
+let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks=1
 autocmd BufWinEnter * silent set tabstop=4 noexpandtab shiftwidth=4
 nnoremap <leader><tab> :RainbowLevelsToggle<enter>
 nnoremap <leader>] :RainbowToggle<enter>
@@ -73,3 +75,4 @@ nnoremap <right> >>
 nnoremap <up> ddkP
 nnoremap <down> ddp
 nnoremap <leader>t :NERDTreeToggle<enter>
+nnoremap <leader><leader> :
