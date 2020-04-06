@@ -71,4 +71,8 @@ nnoremap <leader>] :RainbowToggle<enter>
 nnoremap <leader>b :ls<enter>
 nnoremap <leader>bn :bnext<enter>
 nnoremap <leader>bN :bprev<enter>
+nnoremap <left> <<
+nnoremap <right> >>
+nnoremap <up> ddkP
+nnoremap <down> ddp
 
