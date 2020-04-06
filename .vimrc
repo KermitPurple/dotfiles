@@ -3,7 +3,6 @@ color lord
 set rnu
 set nu
 set nowrap
-set tabstop=4 noexpandtab shiftwidth=4
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 set makeprg=g++\ -o\ %<\ %
@@ -66,5 +65,6 @@ Plug 'https://github.com/thiagoalessio/rainbow_levels.vim'
 Plug 'https://github.com/luochen1990/rainbow'
 call plug#end()
 let g:rainbow_active = 1
+autocmd BufWinEnter * silent set tabstop=4 noexpandtab shiftwidth=4
 nnoremap <leader><tab> :RainbowLevelsToggle<enter>
 nnoremap <leader>] :RainbowToggle<enter>
