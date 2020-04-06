@@ -10,12 +10,8 @@ set undofile
 set directory=C://users/Shane/vim/undos//
 set undodir=C://users/Shane/vim/undos//
 set backupdir=C://users/Shane/vim/undos//
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
 let mapleader = ' '
-noremap <s-space> <leader>
+nmap <s-space> <leader>
 autocmd filetype python nnoremap <F5> <leader>w:!py main.py<ENTER>
 autocmd filetype c,cpp,h nnoremap <F5> <leader>w:!make test<ENTER>
 autocmd filetype javascript,css,html nnoremap <F5> <leader>w:!index.html<ENTER>
@@ -53,7 +49,7 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>z :qa!<enter>
-nnoremap <leader>Z :q!<enter>
+nnoremap <leader>a :q!<enter>
 nnoremap <leader>c :!start chrome<ENTER>
 nnoremap <leader>cg :!start https://github.com/KermitPurple?tab=repositories<ENTER>
 nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
@@ -77,4 +73,3 @@ nnoremap <right> >>
 nnoremap <up> ddkP
 nnoremap <down> ddp
 nnoremap <leader>t :NERDTreeToggle<enter>
-
