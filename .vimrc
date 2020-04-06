@@ -68,3 +68,7 @@ let g:rainbow_active = 1
 autocmd BufWinEnter * silent set tabstop=4 noexpandtab shiftwidth=4
 nnoremap <leader><tab> :RainbowLevelsToggle<enter>
 nnoremap <leader>] :RainbowToggle<enter>
+nnoremap <leader>b :ls<enter>
+nnoremap <leader>bn :bnext<enter>
+nnoremap <leader>bN :bprev<enter>
+
