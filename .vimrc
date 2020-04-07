@@ -27,6 +27,8 @@ noremap <leader>d "*d
 noremap <leader>D "*D
 noremap <leader>p "*p
 noremap <leader>P "*P
+nnoremap <leader>s <c-w>s
+nnoremap <leader>v <c-w>v
 nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
