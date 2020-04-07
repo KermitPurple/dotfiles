@@ -72,7 +72,7 @@ nnoremap <leader>bn :bnext<enter>
 nnoremap <leader>bN :bprev<enter>
 nnoremap <left> <<
 nnoremap <right> >>
-nnoremap <up> ddkP
-nnoremap <down> ddp
+nnoremap <up> <c-u>
+nnoremap <down> <c-d>
 nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap <leader><leader> :
