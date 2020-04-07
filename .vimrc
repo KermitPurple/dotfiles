@@ -12,9 +12,9 @@ set undodir=C://users/Shane/vim/undos//
 set backupdir=C://users/Shane/vim/undos//
 let mapleader = ' '
 nmap <s-space> <leader>
-autocmd filetype python nnoremap <F5> <leader>w:!py main.py<ENTER>
-autocmd filetype c,cpp,h nnoremap <F5> <leader>w:!make test<ENTER>
-autocmd filetype javascript,css,html nnoremap <F5> <leader>w:!index.html<ENTER>
+autocmd BufWinEnter *.py nnoremap <F5> <leader>w:!py main.py<ENTER>
+autocmd BufWinEnter *.c,*.cpp,*.h nnoremap <F5> <leader>w:!make test<ENTER>
+autocmd BufWinEnter *.js,*.css,*.html nnoremap <F5> <leader>w:!index.html<ENTER>
 nnoremap <leader>r <c-w>r
 nnoremap <leader>q :wqa<ENTER>
 nnoremap <leader>Q :wq<ENTER>
