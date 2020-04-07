@@ -76,3 +76,8 @@ nnoremap <up> ddkP
 nnoremap <down> ddp
 nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap <leader><leader> :
+nnoremap <leader>gd :!git diff<enter>
+nnoremap <leader>gc :!git commit <enter>
+nnoremap <leader>gca :!git commit -a <enter>
+nnoremap <leader>ga :!git add
+nnoremap <leader>gp :!git push
