@@ -1,4 +1,4 @@
-source C:\Users\Shane\vim\_vimrc
+source C:\Users\Shane\vim\DefaultVimrc
 color lord
 set rnu
 set nu
