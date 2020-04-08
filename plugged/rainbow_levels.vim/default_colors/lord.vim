@@ -28,16 +28,26 @@
 "#0a0029
 "#1f0029
 "#290011
+"Default Ctermbg
+"240
+"239
+"238
+"237
+"236
+"235
+"234
+"233
+"232
 "active
-hi! RainbowLevel0 ctermbg=240 guibg=#000000
-hi! RainbowLevel1 ctermbg=239 guibg=#290200
-hi! RainbowLevel2 ctermbg=238 guibg=#291200
-hi! RainbowLevel3 ctermbg=237 guibg=#252900
-hi! RainbowLevel4 ctermbg=236 guibg=#052900
-hi! RainbowLevel5 ctermbg=235 guibg=#00291b
-hi! RainbowLevel6 ctermbg=234 guibg=#001329
-hi! RainbowLevel7 ctermbg=233 guibg=#0a0029
-hi! RainbowLevel8 ctermbg=232 guibg=#1f0029
+hi! RainbowLevel0 ctermbg=232 guibg=#000000
+hi! RainbowLevel1 ctermbg=236 guibg=#290200
+hi! RainbowLevel2 ctermbg=240 guibg=#291200
+hi! RainbowLevel3 ctermbg=244 guibg=#252900
+hi! RainbowLevel4 ctermbg=248 guibg=#052900
+hi! RainbowLevel5 ctermbg=252 guibg=#00291b
+hi! RainbowLevel6 ctermbg=256 guibg=#001329
+hi! RainbowLevel7 ctermbg=270 guibg=#0a0029
+hi! RainbowLevel8 ctermbg=274 guibg=#1f0029
 
 for level in range(1, 8)
 	exe 'hi! link RainbowLevel'.(level+8).' RainbowLevel'.level
