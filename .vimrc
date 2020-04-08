@@ -79,3 +79,4 @@ nnoremap <up> <c-u>
 nnoremap <down> <c-d>
 nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap <leader><leader> :
+nnoremap ; :
