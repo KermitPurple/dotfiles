@@ -32,3 +32,21 @@ hi! RainbowLevel8 ctermbg=232 guibg=#290011
 for level in range(0, 8)
 	exe 'hi! link RainbowLevel'.(level+9).' RainbowLevel'.level
 endfor
+"test
+	"test
+		"test
+			"test
+				"test
+					"test
+						"test
+							"test
+								"test
+									"test
+										"test
+											"test
+												"test
+													"test
+														"test
+															"test
+																"test
+																	"test
