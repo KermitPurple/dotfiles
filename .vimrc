@@ -82,4 +82,4 @@ nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap ; :
 nnoremap <leader>g :tabnew<enter>
 map <leader><leader> gc
-map <leader><leader><leader> gcc
+nmap <leader><leader><leader> gcc
