@@ -3,6 +3,7 @@ color lord
 set rnu
 set nu
 set nowrap
+set spell
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 set makeprg=g++\ -o\ %<\ %
