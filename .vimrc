@@ -74,10 +74,10 @@ nnoremap <leader>] :RainbowToggle<enter>
 nnoremap <leader>b :ls<enter>
 nnoremap <leader>bn :bnext<enter>
 nnoremap <leader>bN :bprev<enter>
-nnoremap <left> <<
-nnoremap <right> >>
-nnoremap <up> <c-u>
-nnoremap <down> <c-d>
+nnoremap <left> 2<c-w><
+nnoremap <right> 2<c-w>>
+nnoremap <up> 2<c-w>+
+nnoremap <down> 2<c-w>-
 nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap ; :
 nnoremap <leader>g :tabnew<enter>
