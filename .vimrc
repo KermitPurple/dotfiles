@@ -63,6 +63,7 @@ Plug 'https://github.com/thiagoalessio/rainbow_levels.vim'
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
 Plug 'https://github.com/gko/vim-coloresque'
+Plug 'tomtom/tcomment_vim'
 call plug#end()
 let g:rainbow_active = 1
 let NERDTreeShowHidden=1
@@ -78,6 +79,6 @@ nnoremap <right> >>
 nnoremap <up> <c-u>
 nnoremap <down> <c-d>
 nnoremap <leader>t :NERDTreeToggle<enter>
-nnoremap <leader><leader> :
 nnoremap ; :
 nnoremap <leader>g :tabnew<enter>
+map <leader><leader> gc
