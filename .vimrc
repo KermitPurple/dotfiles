@@ -80,3 +80,4 @@ nnoremap <down> <c-d>
 nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap <leader><leader> :
 nnoremap ; :
+nnoremap <leader>g :tabnew<enter>
