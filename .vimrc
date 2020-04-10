@@ -3,7 +3,6 @@ color lord
 set rnu
 set nu
 set nowrap
-set spell
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 set makeprg=g++\ -o\ %<\ %
@@ -16,6 +15,7 @@ nmap <s-space> <leader>
 autocmd FileType python nnoremap <buffer> <F5> <leader>w:!py main.py<ENTER>
 autocmd FileType c,cpp,h nnoremap <buffer> <F5> <leader>w:!make test<ENTER>
 autocmd FileType javascripte,css,html nnoremap <buffer> <F5> <leader>w:!index.html<ENTER>
+autocmd BufWinEnter *.txt set spell
 nnoremap <leader>r <c-w>r
 nnoremap <leader>q :wqa<ENTER>
 nnoremap <leader>Q :wq<ENTER>
