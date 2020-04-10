@@ -23,7 +23,7 @@ hi Repeat	term=underline	ctermfg=White		guifg=white
 hi Operator				ctermfg=Blue			guifg=Blue
 hi Ignore				ctermfg=black		guifg=bg
 hi Error	term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
-hi Todo	term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
+hi Todo	term=standout ctermbg=Yellow ctermfg=Black guifg=Black guibg=Yellow
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
