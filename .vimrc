@@ -5,7 +5,6 @@ set nu
 set nowrap
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
-autocmd BufWinEnter *.txt setlocal spell
 set makeprg=g++\ -o\ %<\ %
 set undofile
 set directory=C://users/Shane/vim/undos//
