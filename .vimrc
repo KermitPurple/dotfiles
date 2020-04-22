@@ -61,6 +61,7 @@ Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
 Plug 'https://github.com/gko/vim-coloresque'
 Plug 'tomtom/tcomment_vim'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 call plug#end()
 let g:rainbow_active = 1
 let NERDTreeShowHidden=1
