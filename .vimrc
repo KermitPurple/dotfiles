@@ -56,18 +56,19 @@ nnoremap <leader>cy :!start https://youtube.com/<ENTER>
 nnoremap <leader>cn :!start https://github.com/new<ENTER>
 nmap <leader>m <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
 call plug#begin('C:\users\shane\Vim\plugged\')
-Plug 'https://github.com/thiagoalessio/rainbow_levels.vim'
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
 Plug 'https://github.com/gko/vim-coloresque'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
-let g:rainbow_active = 1
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
-autocmd BufWinEnter * silent set tabstop=4 noexpandtab shiftwidth=4
-nnoremap <leader><tab> :RainbowLevelsToggle<enter>
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+autocmd BufWinEnter * silent set tabstop=4 expandtab shiftwidth=4
 nnoremap <leader>] :RainbowToggle<enter>
 nnoremap <leader>b :ls<enter>
 nnoremap <leader>bn :bnext<enter>
