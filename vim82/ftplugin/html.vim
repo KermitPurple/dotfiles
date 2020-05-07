@@ -7,7 +7,7 @@
 if exists("b:did_ftplugin") | finish | endif
 let b:did_ftplugin = 1
 
-nnoremap <buffer> <F5> <leader>w:!index.html<ENTER>
+nnoremap <buffer> <F5> <leader>w:!index.html<ENTER><ENTER>
 
 " Make sure the continuation lines below do not cause problems in
 " compatibility mode.

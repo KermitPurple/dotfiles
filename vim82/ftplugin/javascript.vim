@@ -9,8 +9,8 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-nnoremap <buffer> <F5> <leader>w:!index.html<ENTER>
-nnoremap <buffer> <c-F5> <leader>w:!node sketch.js<ENTER>
+nnoremap <buffer> <F5> <leader>w:!index.html<ENTER><ENTER>
+nnoremap <buffer> <c-F5> <leader>w:!node sketch.js<ENTER><ENTER>
 
 let s:cpo_save = &cpo
 set cpo-=C

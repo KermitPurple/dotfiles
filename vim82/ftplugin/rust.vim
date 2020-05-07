@@ -10,7 +10,7 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-nnoremap <buffer> <F5> :!cargo run<cr>
+nnoremap <buffer> <F5> :!cargo run<cr><ENTER>
 
 let s:save_cpo = &cpo
 set cpo&vim
