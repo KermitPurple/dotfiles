@@ -62,6 +62,7 @@ Plug 'https://github.com/gko/vim-coloresque'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
