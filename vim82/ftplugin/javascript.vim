@@ -10,7 +10,7 @@ endif
 let b:did_ftplugin = 1
 
 nnoremap <buffer> <F5> <leader>w:!index.html<ENTER><ENTER>
-nnoremap <buffer> <c-F5> <leader>w:!node sketch.js<ENTER><ENTER>
+nnoremap <buffer> <c-F5> <leader>w:!node %<ENTER><ENTER>
 
 let s:cpo_save = &cpo
 set cpo-=C
