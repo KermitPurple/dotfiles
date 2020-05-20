@@ -8,7 +8,7 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-nnoremap <buffer> <F5> <leader>w:!index.html<ENTER><ENTER>
+nnoremap <buffer> <F5> <leader>w:silent !index.html<ENTER>
 
 let s:cpo_save = &cpo
 set cpo&vim
