@@ -88,3 +88,4 @@ nnoremap ; :
 nnoremap <leader>g :tabnew<enter>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
+nnoremap <f2> :silent source C:\users\shane\vim\.vimrc<enter>
