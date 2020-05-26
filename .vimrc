@@ -1,4 +1,5 @@
 source C:\Users\Shane\vim\DefaultVimrc
+set nocp
 color lord
 set rnu
 set nu
@@ -70,7 +71,10 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 40
-autocmd BufWinEnter * silent set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+set tabstop=4 
+set expandtab 
+set shiftwidth=4 
+set softtabstop=4
 nnoremap <leader>] :RainbowToggle<enter>
 nnoremap <leader>b :ls<enter>
 nnoremap <leader>bn :bnext<enter>
