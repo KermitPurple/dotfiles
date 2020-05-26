@@ -9,8 +9,8 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-nnoremap <buffer> <F5> <leader>w:silent !index.html<ENTER>
-nnoremap <buffer> <c-F5> <leader>w:!node %<ENTER><ENTER>
+nnoremap <buffer> <F5> :wa<ENTER>:silent !index.html<ENTER>
+nnoremap <buffer> <c-F5> :wa<ENTER>:!node %<ENTER><ENTER>
 
 let s:cpo_save = &cpo
 set cpo-=C

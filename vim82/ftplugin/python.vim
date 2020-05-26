@@ -8,7 +8,7 @@
 
 if exists("b:did_ftplugin") | finish | endif
 
-nnoremap <buffer> <F5> <leader>w:!py main.py<ENTER><ENTER>
+nnoremap <buffer> <F5> :wa<ENTER>:!py main.py<ENTER><ENTER>
 
 let b:did_ftplugin = 1
 let s:keepcpo= &cpo
