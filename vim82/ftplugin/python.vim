@@ -149,6 +149,7 @@ if g:pydoc_executable
     endif
 endif
 
+
 " Script for filetype switching to undo the local stuff we may have changed
 let b:undo_ftplugin = 'setlocal cinkeys<'
       \ . '|setlocal comments<'
