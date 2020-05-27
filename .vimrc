@@ -77,8 +77,19 @@ set shiftwidth=4
 set softtabstop=4
 nnoremap <leader>] :RainbowToggle<enter>
 nnoremap <leader>b :ls<enter>
+nnoremap <leader>bb :ls<enter>
 nnoremap <leader>bn :bnext<enter>
 nnoremap <leader>bN :bprev<enter>
+nnoremap <leader>bd :bd<enter>
+nnoremap <leader>b1 :b1<enter>
+nnoremap <leader>b2 :b2<enter>
+nnoremap <leader>b3 :b3<enter>
+nnoremap <leader>b4 :b4<enter>
+nnoremap <leader>b5 :b5<enter>
+nnoremap <leader>b6 :b6<enter>
+nnoremap <leader>b7 :b7<enter>
+nnoremap <leader>b8 :b8<enter>
+nnoremap <leader>b9 :b9<enter>
 nnoremap <left> 2<c-w><
 nnoremap <right> 2<c-w>>
 nnoremap <up> 2<c-w>+
