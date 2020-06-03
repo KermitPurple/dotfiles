@@ -13,6 +13,9 @@ setlocal spell
 let b:undo_ftplugin = 'setlocal comments< commentstring<'
 
 " We intentionally don't set formatoptions-=t since text should wrap as text.
+" I added formatoptions-=t
+setlocal fo-=t
+setlocal wrap
 
 " Pseudo comment leaders to indent bulleted lists with '-' and '*'.  And allow
 " for Mail quoted text with '>'.
