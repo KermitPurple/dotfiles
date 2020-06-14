@@ -106,3 +106,5 @@ nnoremap <leader>g :tabnew<enter>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
 nnoremap <f2> :silent source C:\users\shane\vim\.vimrc<enter>
+nnoremap <leader>; :ter<cr>
+nnoremap <leader>: :vert ter<cr>
