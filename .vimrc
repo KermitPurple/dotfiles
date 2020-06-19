@@ -18,7 +18,7 @@ nnoremap <leader>q :wqa<ENTER>
 nnoremap <leader>Q :wq<ENTER>
 nnoremap <leader>w :wa<ENTER>
 nnoremap <leader>W :w<ENTER>
-nnoremap <leader>n :shell<ENTER>
+nnoremap <leader>n :silent !start cmd<ENTER>
 noremap <leader>y "*y
 noremap <leader>Y "*Y
 noremap <leader>d "*d
