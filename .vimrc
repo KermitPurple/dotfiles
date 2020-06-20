@@ -12,6 +12,9 @@ set undofile
 set directory=C://users/Shane/vim/undos//
 set undodir=C://users/Shane/vim/undos//
 set backupdir=C://users/Shane/vim/undos//
+set complete+=kspell
+set completeopt=menu,preview,menuone
+set shortmess+=c
 let mapleader = ' '
 nmap <s-space> <leader>
 nnoremap <leader>r <c-w>r
