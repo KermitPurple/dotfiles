@@ -25,6 +25,7 @@ hi Ignore				ctermfg=black		guifg=bg
 hi Error	term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
 hi Todo	term=standout ctermbg=Yellow ctermfg=Black guifg=Black guibg=Yellow
 hi Folded guifg=cyan guibg=#454545
+hi PmenuSel guifg=Black
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
