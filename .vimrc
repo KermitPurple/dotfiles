@@ -4,6 +4,7 @@ color lord
 set rnu
 set nu
 set nowrap
+set bri
 set fo-=tcq
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
