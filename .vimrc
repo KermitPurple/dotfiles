@@ -43,7 +43,7 @@ nnoremap <leader>< <c-w><
 nnoremap <leader>> <c-w>>
 nnoremap <leader>_ <c-w>_
 nnoremap <leader><Bar> <c-w><Bar>
-nnoremap <leader>i zfip
+nnoremap <leader>i gg=G<c-o><c-o>
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -76,6 +76,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 40
+let g:indent_guides_default_mapping = 0
 set tabstop=4 
 set expandtab 
 set shiftwidth=4 
