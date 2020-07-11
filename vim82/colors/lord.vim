@@ -17,8 +17,8 @@ hi Special	term=bold		ctermfg=DarkMagenta	guifg=Red
 hi Identifier term=underline	cterm=bold			ctermfg=Cyan guifg=#40ffff
 hi Statement term=bold		ctermfg=LightRed gui=bold	guifg=#aa4444
 hi PreProc	term=underline	ctermfg=lightmagenta	guifg=#ff80ff
-hi Type	term=underline		ctermfg=LightGreen	guifg=#60ff60 gui=bold
-hi Function	term=bold		ctermfg=LightGreen guifg=#60ff60 
+hi Type	term=underline		ctermfg=blue	guifg=blue gui=bold
+hi Function	term=bold		ctermfg=LightGreen guifg=#60ff60
 hi Repeat	term=underline	ctermfg=White		guifg=white
 hi Operator				ctermfg=Blue			guifg=Blue
 hi Ignore				ctermfg=black		guifg=bg
