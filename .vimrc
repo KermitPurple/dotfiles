@@ -69,6 +69,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/AutoComplPop'
+Plug 'vim-python/python-syntax'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
@@ -77,6 +78,7 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 40
 let g:indent_guides_default_mapping = 0
+let g:python_highlight_all = 1
 set tabstop=4 
 set expandtab 
 set shiftwidth=4 
@@ -108,3 +110,4 @@ nmap <leader><leader><leader> gcc
 nnoremap <f2> :silent source C:\users\shane\vim\.vimrc<enter>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
+
