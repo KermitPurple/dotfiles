@@ -70,6 +70,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'vim-python/python-syntax'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
