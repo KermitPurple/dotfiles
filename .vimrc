@@ -80,7 +80,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 40
 let g:indent_guides_default_mapping = 0
 let g:python_highlight_all = 1
-let g:cpp_member_variable_highlight = 1
+let g:cpp_member_variable_highlight = 0
 let g:cpp_class_decl_highlight = 1
 set tabstop=4 
 set expandtab 
