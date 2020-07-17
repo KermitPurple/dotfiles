@@ -71,6 +71,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'vim-python/python-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
