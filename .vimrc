@@ -72,7 +72,6 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'vim-python/python-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
-Plug 'vim-syntastic/syntastic'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
@@ -84,13 +83,6 @@ let g:indent_guides_default_mapping = 0
 let g:python_highlight_all = 1
 let g:cpp_member_variable_highlight = 0
 let g:cpp_class_decl_highlight = 1
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 set tabstop=4 
 set expandtab 
 set shiftwidth=4 
