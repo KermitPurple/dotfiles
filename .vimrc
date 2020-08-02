@@ -107,7 +107,6 @@ nnoremap <right> 2<c-w>>
 nnoremap <up> 2<c-w>+
 nnoremap <down> 2<c-w>-
 nnoremap <leader>t :NERDTreeToggle<enter>
-nnoremap ; :
 nnoremap <leader>g :tabnew<enter>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
