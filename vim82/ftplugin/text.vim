@@ -9,6 +9,8 @@ endif
 let b:did_ftplugin = 1
 
 setlocal spell
+setlocal wrap
+setlocal linebreak
 
 let b:undo_ftplugin = 'setlocal comments< commentstring<'
 
@@ -16,7 +18,6 @@ let b:undo_ftplugin = 'setlocal comments< commentstring<'
 " I added formatoptions-=t
 setlocal fo-=t
 setlocal fo-=c
-setlocal wrap
 
 " Pseudo comment leaders to indent bulleted lists with '-' and '*'.  And allow
 " for Mail quoted text with '>'.
