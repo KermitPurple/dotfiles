@@ -111,7 +111,7 @@ nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap <leader>g :tabnew<enter>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
-nnoremap <f2> :silent source C:\users\shane\vim\.vimrc<enter>
+nnoremap <f2> :silent source C:\users\shane\vim\.vimrc \| execute "setlocal ft=".&ft <CR>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
 
