@@ -1,6 +1,6 @@
 source $VIMRUNTIME/defaults.vim
 set nocp
-color elflord
+color default
 set rnu
 set nu
 set nowrap
