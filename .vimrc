@@ -1,18 +1,18 @@
-source C:\Users\Shane\vim\DefaultVimrc
 set nocp
-color lord
+color elflord
 set rnu
 set nu
 set nowrap
 set bri
 set fo-=tcq
+set hlsearch
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 set makeprg=g++\ -o\ %<\ %
 set undofile
-set directory=C://users/Shane/vim/undos//
-set undodir=C://users/Shane/vim/undos//
-set backupdir=C://users/Shane/vim/undos//
+set directory=$HOME/.vim/trash/
+set undodir=$HOME/.vim/trash/
+set backupdir=$HOME/.vim/trash/
 set complete+=kspell
 set completeopt=menu,preview,menuone
 set shortmess+=c
@@ -61,33 +61,6 @@ nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
 nnoremap <leader>cy :!start https://youtube.com/<ENTER>
 nnoremap <leader>cn :!start https://github.com/new<ENTER>
 nmap <leader>m <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
-call plug#begin('C:\users\shane\Vim\plugged\')
-Plug 'https://github.com/luochen1990/rainbow'
-Plug 'preservim/nerdtree'
-Plug 'ap/vim-css-color'
-Plug 'tomtom/tcomment_vim'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-scripts/AutoComplPop'
-Plug 'vim-python/python-syntax'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'pangloss/vim-javascript'
-call plug#end()
-let NERDTreeShowHidden=1
-let NERDTreeShowBookmarks=1
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_color_change_percent = 40
-let g:indent_guides_default_mapping = 0
-let g:python_highlight_all = 1
-let g:cpp_member_variable_highlight = 0
-let g:cpp_class_decl_highlight = 1
-set tabstop=4 
-set expandtab 
-set shiftwidth=4 
-set softtabstop=4
-let g:tex_flavor = "latex"
 nnoremap <leader>] :RainbowToggle<enter>
 nnoremap <leader>b :ls<enter>
 nnoremap <leader>bb :ls<enter>
@@ -111,7 +84,7 @@ nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap <leader>g :tabnew<enter>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
-nnoremap <f2> :silent source C:\users\shane\vim\.vimrc \| execute "setlocal ft=".&ft <CR>
+nnoremap <f2> :silent source $HOME/.vim/.vimrc \| execute "setlocal ft=".&ft <CR>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
 
