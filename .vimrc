@@ -1,3 +1,4 @@
+source $VIMRUNTIME/defaults.vim
 set nocp
 color elflord
 set rnu
