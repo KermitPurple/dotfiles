@@ -100,7 +100,6 @@ let g:startify_custom_footer = 'startify#pad(startify#fortune#boxed())'
 let g:startify_commands = [
     \ {'n': ['open NERDTree', 'NERDTree']},
     \ ]
-autocmd User StartifyReady NERDTree | call feedkeys("\<C-w>l")
 set tabstop=4 
 set expandtab 
 set shiftwidth=4 
