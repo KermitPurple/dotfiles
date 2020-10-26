@@ -97,6 +97,9 @@ let g:ascii_art_header = [
 
 let g:startify_custom_header = 'startify#pad(g:ascii_art_header + startify#fortune#cowsay())'
 let g:startify_custom_footer = 'startify#pad(startify#fortune#boxed())'
+let g:startify_commands = [
+    \ {'n': ['open NERDTree', 'NERDTree']},
+    \ ]
 autocmd User StartifyReady NERDTree | call feedkeys("\<C-w>l")
 set tabstop=4 
 set expandtab 
