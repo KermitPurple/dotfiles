@@ -84,6 +84,7 @@ let g:indent_guides_default_mapping = 0
 let g:python_highlight_all = 1
 let g:cpp_member_variable_highlight = 0
 let g:cpp_class_decl_highlight = 1
+let g:indent_guides_auto_colors = 0
 set tabstop=4 
 set expandtab 
 set shiftwidth=4 
@@ -115,4 +116,3 @@ nmap <leader><leader><leader> gcc
 nnoremap <f2> :silent source C:\users\shane\vim\.vimrc \| execute "setlocal ft=".&ft <CR>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
-
