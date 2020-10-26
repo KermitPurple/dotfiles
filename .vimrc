@@ -92,7 +92,6 @@ set expandtab
 set shiftwidth=4 
 set softtabstop=4
 let g:tex_flavor = "latex"
-nnoremap <leader>] :RainbowToggle<enter>
 nnoremap <leader>b :ls<enter>
 nnoremap <leader>bb :ls<enter>
 nnoremap <leader>bn :bnext<enter>
