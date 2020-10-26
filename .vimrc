@@ -64,7 +64,6 @@ nmap <leader>m <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
 call plug#begin('C:\users\shane\Vim\plugged\')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
-Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -73,6 +72,7 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'vim-python/python-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
+Plug 'mhinz/vim-startify'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
