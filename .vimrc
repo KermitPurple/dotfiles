@@ -64,6 +64,7 @@ nmap <leader>m <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
 call plug#begin('C:\users\shane\Vim\plugged\')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
+Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
