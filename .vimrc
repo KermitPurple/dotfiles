@@ -85,7 +85,6 @@ let g:python_highlight_all = 1
 let g:cpp_member_variable_highlight = 0
 let g:cpp_class_decl_highlight = 1
 let g:indent_guides_auto_colors = 0
-let g:startify_bookmarks = [{'r': 'C:\Users\Shane\Vim\.vimrc'}]
 let g:ascii_art_header = [
             \ '*---------------------------------------------------------------------------------*',
             \ '|  ____          ____                 ____           ____      _                  |',
@@ -98,6 +97,7 @@ let g:ascii_art_header = [
             \]
 
 let g:startify_custom_header = 'startify#pad(g:ascii_art_header + startify#fortune#boxed())'
+let g:startify_bookmarks = [{'r': 'C:\Users\Shane\Vim\.vimrc'}]
 let g:startify_commands = [
     \ {'n': ['open NERDTree', 'NERDTree']},
     \ ]
