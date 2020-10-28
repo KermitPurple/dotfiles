@@ -97,10 +97,22 @@ let g:ascii_art_header = [
             \]
 
 let g:startify_custom_header = 'startify#pad(g:ascii_art_header + startify#fortune#boxed())'
-let g:startify_bookmarks = [{'r': 'C:\Users\Shane\Vim\.vimrc'}]
+let g:startify_bookmarks = [
+            \ {'r': 'C:\Users\Shane\Vim\.vimrc'},
+            \ {'c': 'C:\Users\Shane\Desktop\Coding\c++\'},
+            \ {'p': 'C:\Users\Shane\Desktop\Coding\python\'},
+            \ {'w': 'C:\Users\Shane\Desktop\Coding\web\'},
+            \ {'R': 'C:\Users\Shane\Desktop\Coding\rust\'},
+            \ {'T': 'C:\Users\Shane\Desktop\Coding\temp\'},
+            \ ]
 let g:startify_commands = [
-    \ {'n': ['open NERDTree', 'NERDTree']},
-    \ ]
+            \ {'n': ['open NERDTree', 'NERDTree']},
+            \ {'gc': 'cd C:\Users\Shane\Desktop\Coding\c++\'},
+            \ {'gp': 'cd C:\Users\Shane\Desktop\Coding\python\'},
+            \ {'gw': 'cd C:\Users\Shane\Desktop\Coding\web\'},
+            \ {'gR': 'cd C:\Users\Shane\Desktop\Coding\rust\'},
+            \ {'gT': 'cd C:\Users\Shane\Desktop\Coding\temp\'},
+            \ ]
 set tabstop=4 
 set expandtab 
 set shiftwidth=4 
