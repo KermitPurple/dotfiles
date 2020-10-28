@@ -96,7 +96,7 @@ let g:ascii_art_header = [
             \ '*---------------------------------------------------------------------------------*',
             \]
 let g:startify_custom_header = 'startify#pad(g:ascii_art_header + startify#fortune#boxed())'
-let g:startify_custom_footer = ['Also you''re gay']
+let g:startify_custom_footer = ['Also you''re gay!']
 let g:startify_bookmarks = [
             \ {'r': 'C:\Users\Shane\Vim\.vimrc'},
             \ {'c': 'C:\Users\Shane\Desktop\Coding\c++\'},
