@@ -44,7 +44,6 @@ nnoremap <leader>< <c-w><
 nnoremap <leader>> <c-w>>
 nnoremap <leader>_ <c-w>_
 nnoremap <leader><Bar> <c-w><Bar>
-nnoremap <leader>i gg=G<c-o><c-o>
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -114,7 +113,7 @@ let g:startify_commands = [
 let g:ycm_autoclose_preview_window_after_completion = 1 " close preview window automatically
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
-nmap <leader>H <plug>(YCMHover)
+nmap <leader>i <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gi :YcmCompleter GoToInclude<cr>
