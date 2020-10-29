@@ -114,7 +114,7 @@ let g:startify_commands = [
 let g:ycm_autoclose_preview_window_after_completion = 1 " close preview window automatically
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
-nnoremap <leader>H <plug>(YCMHover)
+nmap <leader>H <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gi :YcmCompleter GoToInclude<cr>
