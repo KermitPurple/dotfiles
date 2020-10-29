@@ -1,4 +1,5 @@
 source C:\Users\Shane\vim\DefaultVimrc
+set encoding=utf-8
 set nocp
 color lord
 set rnu
@@ -68,11 +69,11 @@ Plug 'ap/vim-css-color'
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-scripts/AutoComplPop'
 Plug 'vim-python/python-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'mhinz/vim-startify'
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
@@ -110,6 +111,13 @@ let g:startify_commands = [
             \ {'S': ['change to School Directory', 'cd C:\Users\Shane\Dropbox\School\fall2020\']},
             \ {'o': ['Open current Directory', 'e .']},
             \ ]
+let g:ycm_autoclose_preview_window_after_completion = 1 " close preview window automatically
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+nnoremap <leader>H <plug>(YCMHover)
+nnoremap <leader>gg :YcmCompleter GoTo<cr>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
+nnoremap <leader>gi :YcmCompleter GoToInclude<cr>
 set tabstop=4 
 set expandtab 
 set shiftwidth=4 
@@ -134,7 +142,7 @@ nnoremap <right> 2<c-w>>
 nnoremap <up> 2<c-w>+
 nnoremap <down> 2<c-w>-
 nnoremap <leader>t :NERDTreeToggle<enter>
-nnoremap <leader>g :tabnew<enter>
+nnoremap <leader>T :tabnew<enter>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
 nnoremap <f2> :silent source C:\users\shane\vim\.vimrc \| execute "setlocal ft=".&ft <CR>
