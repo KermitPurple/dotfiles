@@ -113,7 +113,7 @@ let g:startify_commands = [
 let g:ycm_autoclose_preview_window_after_completion = 1 " close preview window automatically
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
-" let g:ycm_global_ycm_extra_conf = 'C:\Users\Shane\Vim\.ycm_extra_conf.py' " not working for whatever reason
+let g:ycm_global_ycm_extra_conf = 'C:\Users\Shane\Vim\.ycm_extra_conf.py' " not working for whatever reason
 let g:ycm_confirm_extra_conf = 0 " don't have to confirm ycm conf
 nmap <leader>i <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
