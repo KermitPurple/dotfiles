@@ -11,6 +11,7 @@ endif
 let b:did_ftplugin = 1
 
 nnoremap <buffer> <F5> :wa<ENTER>:!cargo run<ENTER><ENTER>
+nnoremap <buffer> <F6> :wa<ENTER>:!start cargo run<ENTER><ENTER>
 
 let s:save_cpo = &cpo
 set cpo&vim
