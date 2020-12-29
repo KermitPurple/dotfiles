@@ -12,4 +12,4 @@ nnoremap - :silent! let &guifont = substitute(
  \ ':h\zs\d\+',
  \ '\=eval(submatch(0)-1)',
  \ '')<CR>
-nnoremap <leader>= :set gfn=Lucida_Console:h7<cr>
+nmap <m-=> :set gfn=Lucida_Console:h7<cr>
