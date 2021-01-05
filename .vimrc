@@ -60,7 +60,9 @@ nnoremap <leader>cg :!start https://github.com/KermitPurple?tab=repositories<ENT
 nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
 nnoremap <leader>cy :!start https://youtube.com/<ENTER>
 nnoremap <leader>cn :!start https://github.com/new<ENTER>
-nmap <leader>m <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
+nmap <leader>N <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
+nnoremap <leader>m :!make <cr><cr>
+nnoremap <leader>M :!make test<cr><cr>
 call plug#begin('C:\users\shane\Vim\plugged\')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
