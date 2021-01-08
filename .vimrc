@@ -19,7 +19,7 @@ set completeopt=menu,preview,menuone
 set shortmess+=c
 let mapleader = ' '
 nmap <s-space> <leader>
-nnoremap <leader>r <c-w>r
+nnoremap <leader>r :%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>q :wqa<ENTER>
 nnoremap <leader>Q :wq<ENTER>
 nnoremap <leader>w :wa<ENTER>
