@@ -66,10 +66,12 @@ nnoremap <leader>cy :!start https://youtube.com/<ENTER>
 nnoremap <leader>cn :!start https://github.com/new<ENTER>
 nmap <leader>N <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
 nnoremap <leader>m :!make <cr><cr>
+nnoremap <leader>mn :!make 
 nnoremap <leader>mt :!make test<cr><cr>
 nnoremap <leader>mc :!make clean<cr><cr>
 nnoremap <leader>mct :!make clean test<cr><cr>
 nnoremap <leader>M :!start make <cr><cr>
+nnoremap <leader>Mn :!start make 
 nnoremap <leader>Mt :!start make<cr><cr>
 nnoremap <leader>Mc :!start make clean<cr><cr>
 nnoremap <leader>Mct :!start make clean test<cr><cr>
