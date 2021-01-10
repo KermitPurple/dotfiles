@@ -75,6 +75,7 @@ nnoremap <leader>Mn :!start make
 nnoremap <leader>Mt :!start make<cr><cr>
 nnoremap <leader>Mc :!start make clean<cr><cr>
 nnoremap <leader>Mct :!start make clean test<cr><cr>
+nnoremap <leader>e :!start Explorer .<cr><cr>
 nmap <leader>i <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
