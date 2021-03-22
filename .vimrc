@@ -59,7 +59,7 @@ nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>z :qa!<enter>
 nnoremap <leader>a :q!<enter>
-nnoremap <leader>c :!start chrome<ENTER>
+nnoremap <leader>c :!start firefox<ENTER>
 nnoremap <leader>cg :!start https://github.com/KermitPurple?tab=repositories<ENTER>
 nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
 nnoremap <leader>cy :!start https://youtube.com/<ENTER>
