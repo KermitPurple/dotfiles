@@ -83,7 +83,8 @@ nmap <leader><leader><leader> gcc
 nnoremap <f2> :silent source C:\users\shane\vim\.vimrc \| execute "setlocal ft=".&ft <CR>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
-nnoremap <leader>f :Startify<cr>
+nnoremap <leader>s :Startify<cr>
+nnoremap <leader>l :!start live-server<cr>
 call plug#begin('C:\users\shane\Vim\plugged\')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
