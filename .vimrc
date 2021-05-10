@@ -97,6 +97,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'mhinz/vim-startify'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
