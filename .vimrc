@@ -99,6 +99,7 @@ Plug 'mhinz/vim-startify'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
