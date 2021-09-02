@@ -19,6 +19,8 @@ set tabstop=4
 set expandtab 
 set shiftwidth=4 
 set softtabstop=4
+set sc
+set incsearch
 let mapleader = ' '
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
@@ -96,7 +98,7 @@ Plug 'vim-python/python-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'mhinz/vim-startify'
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
