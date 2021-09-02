@@ -98,6 +98,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 call plug#end()
+let g:UltiSnipsListSnippets = "<s-tab>"
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let g:indent_guides_enable_on_vim_startup = 1
