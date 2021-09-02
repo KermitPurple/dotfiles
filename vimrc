@@ -22,6 +22,7 @@ set softtabstop=4
 set sc
 set incsearch
 set backspace=indent,eol,start
+set shell=zsh\ -i "Allow the zshrc to take effect in the vim shell
 let mapleader = ' '
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
@@ -31,7 +32,7 @@ nnoremap <leader>q :wqa<ENTER>
 nnoremap <leader>Q :wq<ENTER>
 nnoremap <leader>w :wa<ENTER>
 nnoremap <leader>W :w<ENTER>
-nnoremap <leader>n :silent !start cmd<ENTER>
+nnoremap <leader>n :!new_window<cr><cr>
 noremap <leader>y "*y
 noremap <leader>Y "*Y
 noremap <leader>d "*d
