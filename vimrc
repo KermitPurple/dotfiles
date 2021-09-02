@@ -1,4 +1,4 @@
-color lord
+color molokai
 set hls
 set encoding=utf-8
 set nocp

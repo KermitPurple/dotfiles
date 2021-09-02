@@ -11,7 +11,7 @@ if exists("b:did_ftplugin")
 endif
 
 " Start with plain TeX.  This will also define b:did_ftplugin .
-source $VIMRUNTIME/ftplugin/plaintex.vim
+source ~/.vim/ftplugin/plaintex.vim
 
 " Avoid problems if running in 'compatible' mode.
 let s:save_cpo = &cpo
