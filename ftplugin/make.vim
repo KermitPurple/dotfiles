@@ -10,7 +10,6 @@ endif
 let b:did_ftplugin = 1
 
 nnoremap <buffer> <F5> :wa<ENTER>:!make test<ENTER><ENTER>
-nnoremap <buffer> <c-F5> :wa<ENTER>:!make clean test<ENTER><ENTER>
 
 let b:undo_ftplugin = "setl et< sts< fo< com< cms< inc<"
 

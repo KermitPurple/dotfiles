@@ -9,9 +9,6 @@ if exists("b:did_ftplugin")
 endif
 
 nnoremap <buffer> <F5> :wa<ENTER>:!lua main.lua<ENTER><ENTER>
-nnoremap <buffer> <c-F5> :wa<ENTER>:!lua %<ENTER><ENTER>
-nnoremap <buffer> <F6> :wa<ENTER>:!start lua main.lua<ENTER><ENTER>
-nnoremap <buffer> <c-F6> :wa<ENTER>:!start lua %<ENTER><ENTER>
 
 " Don't load another plugin for this buffer
 let b:did_ftplugin = 1

@@ -9,7 +9,6 @@ if exists("b:did_ftplugin")
   finish
 endif
 
-map <buffer> <c-F5> :wa<ENTER>:silent !pdflatex % && %:r.pdf <ENTER>
 map <buffer> <F5> :wa<ENTER>:silent !pdflatex % <ENTER>
 
 " Start with initex.  This will also define b:did_ftplugin and b:undo_ftplugin .
