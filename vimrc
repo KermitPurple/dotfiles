@@ -1,5 +1,5 @@
-source C:\Users\Shane\vim\DefaultVimrc
 color lord
+set hls
 set encoding=utf-8
 set nocp
 set rnu
@@ -9,9 +9,9 @@ set bri
 set fo-=tcq
 set makeprg=g++\ -o\ %<\ %
 set undofile
-set directory=C://users/Shane/vim/undos//
-set undodir=C://users/Shane/vim/undos//
-set backupdir=C://users/Shane/vim/undos//
+set directory=~/.vim/trash/
+set undodir=~/.vim/trash/
+set backupdir=~/.vim/trash/
 set complete+=kspell
 set completeopt=menu,preview,menuone
 set shortmess+=c
@@ -80,17 +80,17 @@ nnoremap <leader>t :NERDTreeToggle<enter>
 nnoremap <leader>T :tabnew<enter>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
-nnoremap <f2> :silent source C:\users\shane\vim\.vimrc \| execute "setlocal ft=".&ft <CR>
+nnoremap <f2> :silent source ~/.vim/vimrc \| execute "setlocal ft=".&ft <CR>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
 nnoremap <leader>s :Startify<cr>
 nnoremap <leader>l :!start live-server<cr>
-call plug#begin('C:\users\shane\Vim\plugged\')
+call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
 Plug 'ap/vim-css-color'
 Plug 'tomtom/tcomment_vim'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-python/python-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -125,21 +125,20 @@ let g:ascii_art_header = [
 let g:startify_custom_header = 'startify#pad(g:ascii_art_header + startify#fortune#boxed())'
 let g:startify_custom_footer = ['Also you''re gay!']
 let g:startify_bookmarks = [
-            \ {'r': 'C:\Users\Shane\Vim\.vimrc'},
+            \ {'r': '~/.vim/vimrc'},
             \ ]
 let g:startify_commands = [
             \ {'n': ['Open NERDTree', 'NERDTree']},
-            \ {'c': ['change to C++ Directory', 'cd C:\Users\Shane\Desktop\Coding\c++\']},
-            \ {'p': ['change to Python Directory', 'cd C:\Users\Shane\Desktop\Coding\python\']},
-            \ {'w': ['change to Web Directory', 'cd C:\Users\Shane\Desktop\Coding\web\']},
-            \ {'R': ['change to Rust Directory', 'cd C:\Users\Shane\Desktop\Coding\rust\']},
-            \ {'T': ['change to temp Directory', 'cd C:\Users\Shane\Desktop\Coding\temp\']},
-            \ {'S': ['change to School Directory', 'cd C:\Users\Shane\Dropbox\School\fall2020\']},
+            \ {'c': ['change to C++ Directory', 'cd ~/coding/c++']},
+            \ {'p': ['change to Python Directory', 'cd ~/coding/python']},
+            \ {'w': ['change to Web Directory', 'cd ~/coding/web']},
+            \ {'R': ['change to Rust Directory', 'cd ~/coding/rust']},
+            \ {'T': ['change to temp Directory', 'cd ~/temp']},
+            \ {'S': ['change to School Directory', 'cd ~/dropbox/school/fall2021']},
             \ {'o': ['Open current Directory', 'e .']},
             \ ]
 let g:ycm_autoclose_preview_window_after_completion = 1 " close preview window automatically
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_global_ycm_extra_conf = 'C:\Users\Shane\Vim\.ycm_extra_conf.py' " not working for whatever reason
 let g:ycm_confirm_extra_conf = 0 " don't have to confirm ycm conf
 let g:tex_flavor = "latex"
