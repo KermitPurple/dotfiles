@@ -40,23 +40,17 @@ noremap <leader>p "*p
 noremap <leader>P "*P
 nnoremap <leader>z :qa!<enter>
 nnoremap <leader>a :q!<enter>
-nnoremap <leader>c :!start firefox<ENTER>
-nnoremap <leader>cg :!start https://github.com/KermitPurple?tab=repositories<ENTER>
-nnoremap <leader>cd :!start https://devdocs.io/<ENTER>
-nnoremap <leader>cy :!start https://youtube.com/<ENTER>
-nnoremap <leader>cn :!start https://github.com/new<ENTER>
+nnoremap <leader>c :!open -a "Google Chrome"<ENTER><ENTER>
+nnoremap <leader>cg :!open https://github.com/KermitPurple?tab=repositories<ENTER><ENTER>
+nnoremap <leader>cd :!open https://devdocs.io/<ENTER><ENTER>
+nnoremap <leader>cy :!open https://youtube.com/<ENTER><ENTER>
+nnoremap <leader>cn :!open https://github.com/new<ENTER><ENTER>
 nmap <leader>N <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
 nnoremap <leader>m :!make <cr><cr>
 nnoremap <leader>mn :!make 
 nnoremap <leader>mt :!make test<cr><cr>
 nnoremap <leader>mc :!make clean<cr><cr>
 nnoremap <leader>mct :!make clean test<cr><cr>
-nnoremap <leader>M :!start make <cr><cr>
-nnoremap <leader>Mn :!start make 
-nnoremap <leader>Mt :!start make<cr><cr>
-nnoremap <leader>Mc :!start make clean<cr><cr>
-nnoremap <leader>Mct :!start make clean test<cr><cr>
-nnoremap <leader>e :!start Explorer .<cr><cr>
 nmap <leader>i <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
@@ -87,7 +81,7 @@ nnoremap <f2> :silent source ~/.vim/vimrc \| execute "setlocal ft=".&ft <CR>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
 nnoremap <leader>s :Startify<cr>
-nnoremap <leader>l :!start live-server<cr>
+nnoremap <leader>l :!live-server<cr>
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
