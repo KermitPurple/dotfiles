@@ -52,6 +52,5 @@ hi link SpecialComment Special
 hi link Debug		Special
 
 " indent guides plugin
-"
 hi IndentGuidesOdd ctermbg=darkgrey guibg=#606060
 hi IndentGuidesEven ctermbg=lightgrey guibg=white
