@@ -33,6 +33,7 @@ nnoremap <leader>Q :wq<ENTER>
 nnoremap <leader>w :wa<ENTER>
 nnoremap <leader>W :w<ENTER>
 nnoremap <leader>n :!new_window<cr><cr>
+nnoremap <leader>N :!new_tab<cr><cr>
 noremap <leader>y "*y
 noremap <leader>Y "*Y
 noremap <leader>d "*d
@@ -141,3 +142,17 @@ let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_confirm_extra_conf = 0 " don't have to confirm ycm conf
 let g:tex_flavor = "latex"
+" https://gist.github.com/bignimbus/1da46a18416da4119778
+" Set the title of the Terminal to the currently open file
+function! SetTerminalTitle()
+    let titleString = expand('%:t')
+    if len(titleString) > 0
+        let &titlestring = expand('%:t')
+        " this is the format iTerm2 expects when setting the window title
+        let args = "\033];".&titlestring."\007"
+        let cmd = 'silent !echo -e "'.args.'"'
+        execute cmd
+        redraw!
+    endif
+endfunction
+autocmd BufEnter * call SetTerminalTitle()
