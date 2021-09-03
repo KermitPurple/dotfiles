@@ -9,8 +9,8 @@ if exists("b:did_ftplugin")
   finish
 endif
 
-map <buffer> <F5> :wa<ENTER>:!pdflatex %<cr><cr>
-map <buffer> <s-F5> :wa<ENTER>:!pdflatex % && open -a "Google Chrome" %:r.pdf<cr><cr>
+map <buffer> <F5> :wa<cr>:!pdflatex %<cr>
+map <buffer> <s-F5> :wa<cr>:!pdflatex % && open -a "Google Chrome" %:r.pdf<cr>
 
 " Start with initex.  This will also define b:did_ftplugin and b:undo_ftplugin .
 source $VIMRUNTIME/ftplugin/initex.vim

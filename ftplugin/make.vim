@@ -9,8 +9,8 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-nnoremap <buffer> <F5> :wa<ENTER>:!make test<ENTER><ENTER>
-nnoremap <buffer> <s-F5> :wa<ENTER>:!make clean test<ENTER><ENTER>
+nnoremap <buffer> <F5> :wa<cr>:!make test<cr>
+nnoremap <buffer> <s-F5> :wa<cr>:!make clean test<cr>
 
 let b:undo_ftplugin = "setl et< sts< fo< com< cms< inc<"
 
