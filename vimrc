@@ -22,7 +22,6 @@ set softtabstop=4
 set sc
 set incsearch
 set backspace=indent,eol,start
-set shell=zsh\ -i "Allow the zshrc to take effect in the vim shell
 let mapleader = ' '
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
@@ -47,7 +46,6 @@ nnoremap <leader>cg :!open https://github.com/KermitPurple?tab=repositories<ENTE
 nnoremap <leader>cd :!open https://devdocs.io/<ENTER><ENTER>
 nnoremap <leader>cy :!open https://youtube.com/<ENTER><ENTER>
 nnoremap <leader>cn :!open https://github.com/new<ENTER><ENTER>
-nmap <leader>N <leader>w:sleep 250ms<ENTER><leader>n:sleep 250ms<ENTER><leader>q
 nnoremap <leader>m :!make <cr><cr>
 nnoremap <leader>mn :!make 
 nnoremap <leader>mt :!make test<cr><cr>
