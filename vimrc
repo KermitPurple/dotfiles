@@ -124,6 +124,7 @@ let g:startify_custom_header = 'startify#pad(g:ascii_art_header + startify#fortu
 let g:startify_custom_footer = ['Also you''re gay!']
 let g:startify_bookmarks = [
             \ {'r': '~/.vim/vimrc'},
+            \ {'z': '~/.zshrc'},
             \ ]
 let g:startify_commands = [
             \ {'n': ['Open NERDTree', 'NERDTree']},
