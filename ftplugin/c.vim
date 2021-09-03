@@ -8,8 +8,8 @@ if exists("b:did_ftplugin")
   finish
 endif
 
-nnoremap <buffer> <F5> :wa<ENTER>:!make test<ENTER><ENTER>
-nnoremap <buffer> <F6> :wa<ENTER>:!make clean test<ENTER><ENTER>
+nnoremap <buffer> <F5> :wa<cr>:!make test<cr><cr>
+nnoremap <buffer> <F6> :wa<cr>:!make clean test<cr><cr>
 
 " Don't load another plugin for this buffer
 let b:did_ftplugin = 1

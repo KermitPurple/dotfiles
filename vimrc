@@ -27,10 +27,10 @@ autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 nmap <s-space> <leader>
 nnoremap <leader>r :%s/\<<c-r><c-w>\>//g<left><left>
-nnoremap <leader>q :wqa<ENTER>
-nnoremap <leader>Q :wq<ENTER>
-nnoremap <leader>w :wa<ENTER>
-nnoremap <leader>W :w<ENTER>
+nnoremap <leader>q :wqa<cr>
+nnoremap <leader>Q :wq<cr>
+nnoremap <leader>w :wa<cr>
+nnoremap <leader>W :w<cr>
 nnoremap <leader>n :!new_window<cr><cr>
 nnoremap <leader>N :!new_tab<cr><cr>
 noremap <leader>y "*y
@@ -39,42 +39,42 @@ noremap <leader>d "*d
 noremap <leader>D "*D
 noremap <leader>p "*p
 noremap <leader>P "*P
-nnoremap <leader>z :qa!<enter>
-nnoremap <leader>a :q!<enter>
-nnoremap <leader>c :!open -a "Google Chrome"<ENTER><ENTER>
-nnoremap <leader>cg :!open https://github.com/KermitPurple?tab=repositories<ENTER><ENTER>
-nnoremap <leader>cd :!open https://devdocs.io/<ENTER><ENTER>
-nnoremap <leader>cy :!open https://youtube.com/<ENTER><ENTER>
-nnoremap <leader>cn :!open https://github.com/new<ENTER><ENTER>
-nnoremap <leader>m :!make <cr><cr>
+nnoremap <leader>z :qa!<cr>
+nnoremap <leader>a :q!<cr>
+nnoremap <leader>c :!open -a "Google Chrome"<cr><cr>
+nnoremap <leader>cg :!open "https://github.com/KermitPurple?tab=repositories"<cr><cr>
+nnoremap <leader>cd :!open https://devdocs.io/<cr><cr>
+nnoremap <leader>cy :!open https://youtube.com/<cr><cr>
+nnoremap <leader>cn :!open https://github.com/new<cr><cr>
+nnoremap <leader>m :!make <cr>
 nnoremap <leader>mn :!make 
-nnoremap <leader>mt :!make test<cr><cr>
-nnoremap <leader>mc :!make clean<cr><cr>
-nnoremap <leader>mct :!make clean test<cr><cr>
+nnoremap <leader>mt :!make test<cr>
+nnoremap <leader>mc :!make clean<cr>
+nnoremap <leader>mct :!make clean test<cr>
 nmap <leader>i <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gi :YcmCompleter GoToInclude<cr>
-nnoremap <leader>b :ls<enter>
-nnoremap <leader>bb :ls<enter>
-nnoremap <leader>bn :bnext<enter>
-nnoremap <leader>bN :bprev<enter>
-nnoremap <leader>bd :bd<enter>
-nnoremap <leader>b1 :b1<enter>
-nnoremap <leader>b2 :b2<enter>
-nnoremap <leader>b3 :b3<enter>
-nnoremap <leader>b4 :b4<enter>
-nnoremap <leader>b5 :b5<enter>
-nnoremap <leader>b6 :b6<enter>
-nnoremap <leader>b7 :b7<enter>
-nnoremap <leader>b8 :b8<enter>
-nnoremap <leader>b9 :b9<enter>
+nnoremap <leader>b :ls<cr>
+nnoremap <leader>bb :ls<cr>
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bN :bprev<cr>
+nnoremap <leader>bd :bd<cr>
+nnoremap <leader>b1 :b1<cr>
+nnoremap <leader>b2 :b2<cr>
+nnoremap <leader>b3 :b3<cr>
+nnoremap <leader>b4 :b4<cr>
+nnoremap <leader>b5 :b5<cr>
+nnoremap <leader>b6 :b6<cr>
+nnoremap <leader>b7 :b7<cr>
+nnoremap <leader>b8 :b8<cr>
+nnoremap <leader>b9 :b9<cr>
 nnoremap <left> 2<c-w><
 nnoremap <right> 2<c-w>>
 nnoremap <up> 2<c-w>+
 nnoremap <down> 2<c-w>-
-nnoremap <leader>t :NERDTreeToggle<enter>
-nnoremap <leader>T :tabnew<enter>
+nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>T :tabnew<cr>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
 nnoremap <f2> :silent source ~/.vim/vimrc \| execute "setlocal ft=".&ft <CR>
