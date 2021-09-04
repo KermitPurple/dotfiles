@@ -81,7 +81,7 @@ nnoremap <f2> :silent source ~/.vim/vimrc \| execute "setlocal ft=".&ft <CR>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
 nnoremap <leader>s :Startify<cr>
-nnoremap <leader>l :!live-server<cr>
+nnoremap <leader>l :!new_tab live-server<cr><cr>
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
