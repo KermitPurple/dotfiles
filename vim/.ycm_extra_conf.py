@@ -4,7 +4,8 @@ def Settings(**kwargs):
             '-xc++',
             '-Iinclude',
             '-Isrc',
-            '-isystem',
-            'C:\\LIBINC',
+            '-I/opt/homebrew/Cellar/raylib/3.7.0/include',
+            '-L/opt/homebrew/Cellar/raylib/3.7.0/lib',
+            '-lraylib',
         ],
     }
