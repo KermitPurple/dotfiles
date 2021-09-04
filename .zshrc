@@ -76,7 +76,7 @@ new(){~/coding/python/AutoProj/main.py $@}
 
 silent_bg(){
     setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
-    "$@" &
+    "$@" & disown
 }
 
 alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/test"
