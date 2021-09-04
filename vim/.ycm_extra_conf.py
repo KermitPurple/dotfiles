@@ -1,11 +1,17 @@
+import subprocess
+
 def Settings(**kwargs):
+    raylib_process = subprocess.Popen(
+            '/bin/zsh -c "pkg-config --libs --cflags raylib"',
+            shell=True,
+            stdout=subprocess.PIPE
+            )
+    raylib_flags = raylib_process.stdout.read().decode('utf-8').split()
+    print(raylib_flags)
     return {
         'flags': [
             '-xc++',
             '-Iinclude',
             '-Isrc',
-            '-I/opt/homebrew/Cellar/raylib/3.7.0/include',
-            '-L/opt/homebrew/Cellar/raylib/3.7.0/lib',
-            '-lraylib',
-        ],
+        ] + raylib_flags,
     }
