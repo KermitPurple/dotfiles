@@ -79,4 +79,6 @@ silent_bg(){
     "$@" & disown
 }
 
-alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/test"
+# built with:
+# make clean test TARGET=bin/conway
+alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/conway"
