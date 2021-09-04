@@ -144,9 +144,9 @@ let g:tex_flavor = "latex"
 " https://gist.github.com/bignimbus/1da46a18416da4119778
 " Set the title of the Terminal to the currently open file
 function! SetTerminalTitle()
-    let titleString = expand('%:t')
+    let titleString = expand('%:~')
     if len(titleString) > 0
-        let &titlestring = expand('%:t')
+        let &titlestring = expand('%:~')
         " this is the format iTerm2 expects when setting the window title
         let args = "\033];".&titlestring."\007"
         let cmd = 'silent !echo -e "'.args.'"'
