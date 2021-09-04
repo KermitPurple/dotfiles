@@ -85,3 +85,10 @@ end tell"
 # Make a new project using a python script
 # https:/github.com/kermitpurple/AutoProj
 new(){~/coding/python/AutoProj/main.py $@}
+
+silent_bg(){
+    setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
+    "$@" &
+}
+
+alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/test"
