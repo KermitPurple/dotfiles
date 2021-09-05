@@ -21,6 +21,8 @@ j()cd ~/coding/java/$1
 
 web()cd ~/coding/web/$1
 
+z()cd ~/coding/zsh/$1
+
 # https://gist.github.com/vyder/96891b93f515cb4ac559e9132e1c9086
 new_tab(){
     local cmd=""
