@@ -1,9 +1,7 @@
 # Load version control information
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-precmd() {
-    vcs_info
-}
+precmd()vcs_info
 
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:git:*' formats '%F{red}on %B%b%f '
@@ -11,17 +9,17 @@ zstyle ':vcs_info:git:*' formats '%F{red}on %B%b%f '
 setopt prompt_subst
 PROMPT='%F{magenta}%~%f ${vcs_info_msg_0_}%b%# '
 
-school(){cd ~/dropbox/school/fall2021/$1}
+school()cd ~/dropbox/school/fall2021/$1
 
-c(){cd ~/coding/c++/$1}
+c()cd ~/coding/c++/$1
 
-rust(){cd ~/coding/rust/$1}
+rust()cd ~/coding/rust/$1
 
-pyth(){cd ~/coding/python/$1}
+pyth()cd ~/coding/python/$1
 
-j(){cd ~/coding/java/$1}
+j()cd ~/coding/java/$1
 
-web(){cd ~/coding/web/$1}
+web()cd ~/coding/web/$1
 
 # https://gist.github.com/vyder/96891b93f515cb4ac559e9132e1c9086
 new_tab(){
@@ -72,7 +70,7 @@ end tell"
 
 # Make a new project using a python script
 # https:/github.com/kermitpurple/AutoProj
-new(){~/coding/python/AutoProj/main.py $@}
+new()~/coding/python/AutoProj/main.py $@
 
 silent_bg(){
     setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
@@ -80,7 +78,7 @@ silent_bg(){
 }
 
 # Open chrome with args
-chrome(){open -a "Google Chrome" $@}
+chrome()open -a "Google Chrome" $@
 
 # built with:
 # make clean test TARGET=bin/conway
