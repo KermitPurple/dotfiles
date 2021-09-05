@@ -79,6 +79,9 @@ silent_bg(){
     "$@" & disown
 }
 
+# Open chrome with args
+chrome(){open -a "Google Chrome" $@}
+
 # built with:
 # make clean test TARGET=bin/conway
 alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/conway"
