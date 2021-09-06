@@ -3,10 +3,8 @@ set_prompt(){ # function that loads the prompt with git info
     autoload -Uz vcs_info
     zstyle ':vcs_info:*' enable git svn
     precmd()vcs_info
-
     # Format the vcs_info_msg_0_ variable
     zstyle ':vcs_info:git:*' formats '%F{red}on %B%b%f '
-
     #Set the prompt to the 
     setopt prompt_subst
     PROMPT='%F{magenta}%~%f ${vcs_info_msg_0_}%b%# '
@@ -90,8 +88,10 @@ new()~/coding/python/AutoProj/main.py $@
 chrome()open -a "Google Chrome" $@
 
 # built with:
-# make clean test TARGET=bin/conway
+# make clean all TARGET=bin/conway
 alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/conway"
+
 # built with:
 # make clean all TARGET=bin/fib
 alias fib="silent_bg ~/coding/c++/fib/bin/fib"
+
