@@ -76,7 +76,7 @@ new()~/coding/python/AutoProj/main.py $@
 
 silent_bg(){
     setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
-    "$@" & disown
+    "$@" 2>&1 > /dev/null & disown
 }
 
 # Open chrome with args
@@ -85,3 +85,4 @@ chrome()open -a "Google Chrome" $@
 # built with:
 # make clean test TARGET=bin/conway
 alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/conway"
+alias fib="silent_bg ~/coding/c++/fib/bin/fib"
