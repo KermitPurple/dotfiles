@@ -7,7 +7,6 @@ set nu
 set nowrap
 set bri
 set fo-=tcq
-set makeprg=g++\ -o\ %<\ %
 set undofile
 set directory=~/.vim/trash/
 set undodir=~/.vim/trash/
