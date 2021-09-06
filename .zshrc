@@ -92,6 +92,8 @@ new()~/coding/python/AutoProj/main.py $@
 # Open chrome with args
 chrome()open -a "Google Chrome" $@
 
+rnex()~/coding/rust/rename_ext/target/release/rename_ext $@
+
 # built with:
 # make clean all TARGET=bin/conway
 alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/conway"
