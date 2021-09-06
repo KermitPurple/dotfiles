@@ -1,4 +1,5 @@
-set_prompt(){ # function that loads the prompt with git info
+# function that loads the prompt with git info
+set_prompt(){
     # Load version control information
     autoload -Uz vcs_info
     zstyle ':vcs_info:*' enable git svn
@@ -11,14 +12,18 @@ set_prompt(){ # function that loads the prompt with git info
 }
 set_prompt #Immediately call the function
 
+# Global Environment variables
+SCHOOL_DIR="/Users/shane/dropbox/school/fall2021"
+CODING_DIR="/Users/shane/coding"
+
 # directory movement functions
-school()cd ~/dropbox/school/fall2021/$1
-c()cd ~/coding/c++/$1
-rust()cd ~/coding/rust/$1
-pyth()cd ~/coding/python/$1
-j()cd ~/coding/java/$1
-web()cd ~/coding/web/$1
-z()cd ~/coding/zsh/$1
+school()cd $SCHOOL_DIR/$1
+c()cd $CODING_DIR/c++/$1
+rust()cd $CODING_DIR/rust/$1
+pyth()cd $CODING_DIR/python/$1
+j()cd $CODING_DIR/java/$1
+web()cd $CODING_DIR/web/$1
+z()cd $CODING_DIR/zsh/$1
 
 # open a new tab in iterm
 # first arg is a path [optional]
