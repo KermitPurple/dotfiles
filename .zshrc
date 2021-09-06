@@ -77,7 +77,7 @@ end tell"
 
 # run the arguments to this
 silent_bg(){
-    if [[ $# -le 1 ]]; then # if there is less than one argument
+    if [[ $# -lt 1 ]]; then # if there is less than one argument
         print "Invalid number of arguments: $#"
         return 1
     fi
