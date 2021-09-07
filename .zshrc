@@ -85,13 +85,15 @@ silent_bg(){
     "$@" 2>&1 > /dev/null & disown
 }
 
+# Open chrome with args
+chrome()open -a "Google Chrome" $@
+
 # Make a new project using a python script
 # https:/github.com/kermitpurple/AutoProj
 new()~/coding/python/AutoProj/main.py $@
 
-# Open chrome with args
-chrome()open -a "Google Chrome" $@
-
+# built with:
+# cargo build --release
 rnex()~/coding/rust/rename_ext/target/release/rename_ext $@
 
 # built with:
