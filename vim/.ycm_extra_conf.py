@@ -9,13 +9,12 @@ def get_pkg_config_flags(package: str) -> [str, ...]:
     return process.stdout.read().decode('utf-8').split()
 
 def Settings(**kwargs):
-    print(raylib_flags)
     return {
         'flags': [
             '-xc++',
             '-Iinclude',
             '-Isrc',
         ] + get_pkg_config_flags('raylib')
-        + get_pkg_config_flags('ncurses'),
+        + get_pkg_config_flags('ncurses')
         + get_pkg_config_flags('glut'),
     }
