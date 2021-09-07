@@ -94,17 +94,17 @@ chrome()open -a "Google Chrome" $@
 
 # Make a new project using a python script
 # https:/github.com/kermitpurple/AutoProj
-new()$CODING/python/AutoProj/main.py $@
+new()$CODING_DIR/python/AutoProj/main.py $@
 
 # built with:
 # cargo build --release
-rna()$CODING/rust/rename_all/target/release/rename_all $@
+rna()$CODING_DIR/rust/rename_all/target/release/rename_all $@
 
 # built with:
 # make clean all TARGET=bin/conway
-alias conway="silent_bg $CODING/c++/ConwaysGameOfLifeCpp/bin/conway"
+alias conway="silent_bg $CODING_DIR/c++/ConwaysGameOfLifeCpp/bin/conway"
 
 # built with:
 # make clean all TARGET=bin/fib
-alias fib="silent_bg $CODING/c++/fib/bin/fib"
+alias fib="silent_bg $CODING_DIR/c++/fib/bin/fib"
 
