@@ -1,24 +1,21 @@
 import subprocess
 
+def get_pkg_config_flags(package: str) -> [str, ...]:
+    process = subprocess.Popen(
+            f'/bin/zsh -c "pkg-config --libs --cflags {package}"',
+            shell=True,
+            stdout=subprocess.PIPE
+            )
+    return process.stdout.read().decode('utf-8').split()
+
 def Settings(**kwargs):
-    raylib_process = subprocess.Popen(
-            '/bin/zsh -c "pkg-config --libs --cflags raylib"',
-            shell=True,
-            stdout=subprocess.PIPE
-            )
-    raylib_flags = raylib_process.stdout.read().decode('utf-8').split()
-    ncurses_process = subprocess.Popen(
-            '/bin/zsh -c "pkg-config --libs --cflags ncurses"',
-            shell=True,
-            stdout=subprocess.PIPE
-            )
-    ncurses_flags = raylib_process.stdout.read().decode('utf-8').split()
     print(raylib_flags)
     return {
         'flags': [
             '-xc++',
             '-Iinclude',
             '-Isrc',
-        ] + raylib_flags
-        + ncurses_flags,
+        ] + get_pkg_config_flags('raylib')
+        + get_pkg_config_flags('ncurses'),
+        + get_pkg_config_flags('glut'),
     }
