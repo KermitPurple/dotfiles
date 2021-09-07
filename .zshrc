@@ -13,16 +13,20 @@ set_prompt(){
 set_prompt #Immediately call the function
 
 # Global Environment variables
-SCHOOL_DIR="/Users/shane/dropbox/school/fall2021"
-CODING_DIR="/Users/shane/coding"
+DOTFILES_DIR="$HOME/dotfiles"
+SCHOOL_DIR="$HOME/dropbox/school/fall2021"
+CODING_DIR="$HOME/coding"
+TEMP_DIR="$HOME/temp"
 
 # directory movement functions
+dotfiles()cd $DOTFILES_DIR/$1
 school()cd $SCHOOL_DIR/$1
-c()cd $CODING_DIR/c++/$1
+temp()cd $TEMP_DIR/$1
 rust()cd $CODING_DIR/rust/$1
 pyth()cd $CODING_DIR/python/$1
-j()cd $CODING_DIR/java/$1
 web()cd $CODING_DIR/web/$1
+c()cd $CODING_DIR/c++/$1
+j()cd $CODING_DIR/java/$1
 z()cd $CODING_DIR/zsh/$1
 
 # open a new tab in iterm
@@ -90,17 +94,17 @@ chrome()open -a "Google Chrome" $@
 
 # Make a new project using a python script
 # https:/github.com/kermitpurple/AutoProj
-new()~/coding/python/AutoProj/main.py $@
+new()$CODING/python/AutoProj/main.py $@
 
 # built with:
 # cargo build --release
-rnex()~/coding/rust/rename_ext/target/release/rename_ext $@
+rna()$CODING/rust/rename_all/target/release/rename_all $@
 
 # built with:
 # make clean all TARGET=bin/conway
-alias conway="silent_bg ~/coding/c++/ConwaysGameOfLifeCpp/bin/conway"
+alias conway="silent_bg $CODING/c++/ConwaysGameOfLifeCpp/bin/conway"
 
 # built with:
 # make clean all TARGET=bin/fib
-alias fib="silent_bg ~/coding/c++/fib/bin/fib"
+alias fib="silent_bg $CODING/c++/fib/bin/fib"
 
