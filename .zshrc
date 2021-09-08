@@ -90,15 +90,15 @@ silent_bg(){
 }
 
 # Open chrome with args
-chrome()open -a "Google Chrome" $@
+alias chrome="open -a \"Google Chrome\""
 
 # Make a new project using a python script
 # https:/github.com/kermitpurple/AutoProj
-new()$CODING_DIR/python/AutoProj/main.py $@
+alias new="$CODING_DIR/python/AutoProj/main.py"
 
 # built with:
 # cargo build --release
-rna()$CODING_DIR/rust/rename_all/target/release/rename_all $@
+alias rna="$CODING_DIR/rust/rename_all/target/release/rename_all"
 
 # built with:
 # make clean all TARGET=bin/conway
@@ -108,3 +108,5 @@ alias conway="silent_bg $CODING_DIR/c++/ConwaysGameOfLifeCpp/bin/conway"
 # make clean all TARGET=bin/fib
 alias fib="silent_bg $CODING_DIR/c++/fib/bin/fib"
 
+# command-line "rotn" tool
+alias rotn="$CODING_DIR/python/ROTN/main.py"
