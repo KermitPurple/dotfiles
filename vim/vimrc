@@ -56,8 +56,9 @@ nmap <leader>i <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gi :YcmCompleter GoToInclude<cr>
-nnoremap <leader>b :ls<cr>
-nnoremap <leader>bb :ls<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>bb :Buffers<cr>
+nnoremap <leader>bl :ls<cr>
 nnoremap <leader>bn :bnext<cr>
 nnoremap <leader>bN :bprev<cr>
 nnoremap <leader>bd :bd<cr>
