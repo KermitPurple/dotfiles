@@ -19,15 +19,15 @@ CODING_DIR="$HOME/coding"
 TEMP_DIR="$HOME/temp"
 
 # directory movement functions
-dotfiles()cd $DOTFILES_DIR/$1
-school()cd $SCHOOL_DIR/$1
-temp()cd $TEMP_DIR/$1
-rust()cd $CODING_DIR/rust/$1
-pyth()cd $CODING_DIR/python/$1
-web()cd $CODING_DIR/web/$1
-c()cd $CODING_DIR/c++/$1
-j()cd $CODING_DIR/java/$1
-z()cd $CODING_DIR/zsh/$1
+dotfiles()cd "$DOTFILES_DIR/$*"
+school()cd "$SCHOOL_DIR/$*"
+temp()cd "$TEMP_DIR/$*"
+rust()cd "$CODING_DIR/rust/$*"
+pyth()cd "$CODING_DIR/python/$*"
+web()cd "$CODING_DIR/web/$*"
+c()cd "$CODING_DIR/c++/$*"
+j()cd "$CODING_DIR/java/$*"
+z()cd "$CODING_DIR/zsh/$*"
 
 # open a new tab in iterm
 # first arg is a path [optional]
