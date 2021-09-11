@@ -49,7 +49,7 @@ new_tab(){
     tell current window
         set newTab to (create tab with default profile)
         tell current session of newTab
-            write text \"cd $dir$cmd\"
+            write text \"cd '$dir'$cmd\"
         end tell
     end tell
 end tell"
@@ -74,7 +74,7 @@ new_window(){
 "tell application \"iterm2\"
     set newWin to (create window with default profile)
     tell current session of newWin
-        write text \"cd $dir$cmd\"
+        write text \"cd '$dir'$cmd\"
     end tell
 end tell"
 }
