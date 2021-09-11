@@ -29,6 +29,17 @@ c()cd "$CODING_DIR/c++/$*"
 j()cd "$CODING_DIR/java/$*"
 z()cd "$CODING_DIR/zsh/$*"
 
+# show dotfiles in fzf
+# export FZF_DEFAULT_COMMAND="find -L"
+
+# fd - cd to selected directory
+# http://sourabhbajaj.com/mac-setup/iTerm/fzf.html
+fd() {
+    local dir
+    dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) &&
+        cd "$dir"
+}
+
 # open a new tab in iterm
 # first arg is a path [optional]
 # other args are the command passed to the terminal
