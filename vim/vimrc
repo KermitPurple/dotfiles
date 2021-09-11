@@ -96,6 +96,8 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 let g:UltiSnipsListSnippets = "<s-tab>"
 let NERDTreeShowHidden=1
@@ -141,6 +143,7 @@ let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_confirm_extra_conf = 0 " don't have to confirm ycm conf
 let g:ycm_global_ycm_extra_conf = '/Users/shane/.vim/.ycm_extra_conf.py'
 let g:tex_flavor = "latex"
+nnoremap <leader>f :Files<cr>
 " https://gist.github.com/bignimbus/1da46a18416da4119778
 " Set the title of the Terminal to the currently open file
 function! SetTerminalTitle()
