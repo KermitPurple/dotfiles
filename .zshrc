@@ -13,10 +13,10 @@ set_prompt(){
 set_prompt #Immediately call the function
 
 # Global Environment variables
-DOTFILES_DIR="$HOME/dotfiles"
-SCHOOL_DIR="$HOME/dropbox/school/fall2021"
-CODING_DIR="$HOME/coding"
-TEMP_DIR="$HOME/temp"
+export DOTFILES_DIR="$HOME/dotfiles"
+export SCHOOL_DIR="$HOME/dropbox/school/fall2021"
+export CODING_DIR="$HOME/coding"
+export TEMP_DIR="$HOME/temp"
 
 # directory movement functions
 dotfiles()cd "$DOTFILES_DIR/$*"
