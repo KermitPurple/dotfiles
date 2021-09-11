@@ -30,7 +30,7 @@ j()cd "$CODING_DIR/java/$*"
 z()cd "$CODING_DIR/zsh/$*"
 
 # show dotfiles in fzf
-# export FZF_DEFAULT_COMMAND="find -L"
+export FZF_DEFAULT_COMMAND="find . -type f"
 
 # fd - cd to selected directory
 # http://sourabhbajaj.com/mac-setup/iTerm/fzf.html
