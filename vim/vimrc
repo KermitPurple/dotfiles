@@ -79,7 +79,7 @@ nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>T :tabnew<cr>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
-nnoremap <f2> :silent source ~/.vim/vimrc \| execute "setlocal ft=".&ft <CR>
+nnoremap <f2> :silent source ~/.vim/vimrc \| execute "setlocal ft=".&ft \| call SetTerminalTitle()<CR>
 nnoremap <leader>; :ter<cr>
 nnoremap <leader>: :vert ter<cr>
 nnoremap <leader>s :Startify<cr>
