@@ -101,6 +101,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'dkarter/bullets.vim'
 call plug#end()
 let g:UltiSnipsListSnippets = "<s-tab>"
 let NERDTreeShowHidden=1
