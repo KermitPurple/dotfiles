@@ -13,6 +13,7 @@ set_prompt(){
 set_prompt #Immediately call the function
 
 # Global Environment variables
+export NOTE_FOLDER="$HOME/dropbox/note_folder"
 export DOTFILES_DIR="$HOME/dotfiles"
 export SCHOOL_DIR="$HOME/dropbox/school/fall2021"
 export CODING_DIR="$HOME/coding"
