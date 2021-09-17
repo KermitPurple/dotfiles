@@ -11,6 +11,8 @@ endif
 
 map <buffer> <F5> :wa<cr>:!pdflatex %<cr><cr>
 map <buffer> <s-F5> :wa<cr>:!pdflatex % && open -a "Google Chrome" %:r.pdf<cr><cr>
+map <buffer> <F6> :wa<cr>:!xelatex %<cr><cr>
+map <buffer> <s-F6> :wa<cr>:!xelatex % && open -a "Google Chrome" %:r.pdf<cr><cr>
 
 " Start with initex.  This will also define b:did_ftplugin and b:undo_ftplugin .
 source $VIMRUNTIME/ftplugin/initex.vim
