@@ -19,6 +19,9 @@ export SCHOOL_DIR="$HOME/dropbox/school/fall2021"
 export CODING_DIR="$HOME/coding"
 export TEMP_DIR="$HOME/temp"
 
+# import other zsh files
+. "$DOTFILES_DIR/zsh/iterm2_shell_integration.zsh"
+
 # directory movement functions
 dotfiles()cd "$DOTFILES_DIR/$*"
 school()cd "$SCHOOL_DIR/$*"
