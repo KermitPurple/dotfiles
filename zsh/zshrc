@@ -126,8 +126,11 @@ alias fib="silent_bg $CODING_DIR/c++/fib/bin/fib"
 # command-line "rotn" tool
 alias rotn="$CODING_DIR/python/ROTN/main.py"
 
-# make a java project and run it
+# make a java project and run it in temp folder
 alias java_make="javac *.java -d \"$TEMP_DIR\" && java -cp \"$TEMP_DIR\""
+
+# make a c++ project and run it in temp folder
+alias c++_make="clang++ */*.cpp -Iinclude -o\"$TEMP_DIR/test\" && \"$TEMP_DIR/test\""
 
 # reload the zshrc
 alias refresh=". ~/.zshrc"
