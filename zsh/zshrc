@@ -104,6 +104,9 @@ silent_bg(){
     "$@" 2>&1 > /dev/null & disown
 }
 
+# calls new alias then exits
+newe(){new "$@"&&exit}
+
 # Open chrome with args
 alias chrome="open -a \"Google Chrome\""
 
