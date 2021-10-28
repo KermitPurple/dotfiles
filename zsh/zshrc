@@ -101,8 +101,20 @@ silent_bg(){
         return 1
     fi
     setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
-    "$@" 2>&1 > /dev/null & disown
+    ("$@" 2>&1 > /dev/null & disown) 2> /dev/null
 }
+
+snake()(
+    cd "$CODING_DIR/python/PygameSnake"
+    . venv/bin/activate
+    silent_bg ./pysnake.py
+)
+
+tetris()(
+    cd "$CODING_DIR/python/PyTetrisV2"
+    . venv/bin/activate
+    silent_bg ./pytetris.py
+)
 
 # calls new alias then exits
 newe(){new "$@"&&exit}
@@ -121,6 +133,13 @@ alias rna="$CODING_DIR/rust/rename_all/target/release/rename_all"
 # built with:
 # make clean all TARGET=bin/conway
 alias conway="silent_bg $CODING_DIR/c++/ConwaysGameOfLifeCpp/bin/conway"
+
+# built with:
+# make release
+alias tess="open -a XQuartz&&\
+sleep 1&&\
+export DISPLAY=:0&&\
+silent_bg $CODING_DIR/c++/TesseractV2/bin/tess"
 
 # built with:
 # make clean all TARGET=bin/fib
