@@ -116,6 +116,12 @@ tetris()(
     silent_bg ./pytetris.py
 )
 
+graph()(
+    cd "$CODING_DIR/python/graphs"
+    . venv/bin/activate
+    silent_bg ./draw_graph.py
+)
+
 # calls new alias then exits
 newe(){new "$@"&&exit}
 
