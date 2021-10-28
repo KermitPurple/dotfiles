@@ -104,18 +104,21 @@ silent_bg(){
     ("$@" 2>&1 > /dev/null & disown) 2> /dev/null
 }
 
+# play pygame snake
 snake()(
     cd "$CODING_DIR/python/PygameSnake"
     . venv/bin/activate
     silent_bg ./pysnake.py
 )
 
+# play pygame tetris
 tetris()(
     cd "$CODING_DIR/python/PyTetrisV2"
     . venv/bin/activate
     silent_bg ./pytetris.py
 )
 
+# open pygame graphing app
 graph()(
     cd "$CODING_DIR/python/graphs"
     . venv/bin/activate
