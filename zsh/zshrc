@@ -122,7 +122,7 @@ tetris()(
 graph()(
     cd "$CODING_DIR/python/graphs"
     . venv/bin/activate
-    silent_bg ./draw_graph.py
+    ./interactive
 )
 
 # calls new alias then exits
