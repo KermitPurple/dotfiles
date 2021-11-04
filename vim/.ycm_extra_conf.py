@@ -11,7 +11,6 @@ def get_pkg_config_flags(package: str) -> [str, ...]:
 def Settings(**kwargs):
     return {
         'flags': [
-            '-xc++',
             '-Iinclude',
             '-Isrc',
         ] + get_pkg_config_flags('raylib')
