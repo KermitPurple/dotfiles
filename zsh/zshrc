@@ -129,6 +129,12 @@ graph()(
 # calls new alias then exits
 newe(){new "$@"&&exit}
 
+# clock in/ clock out; timeclock
+clock()(
+    cd "$CODING_DIR/python/punchclock"
+    ./punchclock.py "$@"
+)
+
 # Open chrome with args
 alias chrome="open -a \"Google Chrome\""
 
