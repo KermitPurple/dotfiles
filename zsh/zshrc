@@ -212,3 +212,6 @@ alias refresh=". ~/.zshrc"
 
 # show code rain
 alias rain="$CODING_DIR/python/PyRain/main.py"
+
+# shape drawing program
+alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
