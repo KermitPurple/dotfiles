@@ -145,6 +145,7 @@ decode_url(){
     python3 -c "import urllib.parse as p; print(p.unquote_plus('$*'))"
 }
 
+# open wolfram alpha with search string
 walpha(){
     chrome "https://www.wolframalpha.com/input/?i=`encode_url "$*"`"
 }
