@@ -150,6 +150,28 @@ walpha(){
     chrome "https://www.wolframalpha.com/input/?i=`encode_url "$*"`"
 }
 
+# create a new virtual environment using virtualenv
+newenv(){
+    local env_name="$1" # set environment name to first arg
+    local requirements="requirements.txt"
+    if [[ -z "$1" ]]; then # if arg is empty
+        env_name="venv" # set environment name to venv
+    fi
+    if [[ -n "$2" ]]; then # if second arg isn't empty
+        requirements="$2" # set the requirements file to the second arg
+    fi
+    if [[ -d "$env_name" ]]; then # if folder exists
+        >&2 echo "A folder named \"$env_name\" already exists"
+        return 1
+    else # if this doesnt already exist
+        virtualenv "$env_name" # create it
+    fi
+    . "$env_name/bin/activate"
+    if [[ -a "$requirements" ]]; then
+        pip3 install -r "$requirements"
+    fi
+}
+
 # Open chrome with args
 alias chrome="open -a \"Google Chrome\""
 
