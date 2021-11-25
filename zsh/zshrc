@@ -172,6 +172,13 @@ newenv(){
     fi
 }
 
+# show code rain
+rain()(
+    cd "$CODING_DIR/python/PyRain"
+    . venv/bin/activate
+    ./main.py
+)
+
 # Open chrome with args
 alias chrome="open -a \"Google Chrome\""
 
@@ -209,9 +216,6 @@ alias c++_make="clang++ */*.cpp -Iinclude -o\"$TEMP_DIR/test\" && \"$TEMP_DIR/te
 
 # reload the zshrc
 alias refresh=". ~/.zshrc"
-
-# show code rain
-alias rain="$CODING_DIR/python/PyRain/main.py"
 
 # shape drawing program
 alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
