@@ -15,8 +15,6 @@ def get_pkg_config_flags(package: str) -> [str, ...]:
     return process.stdout.read().decode('utf-8').split()
 
 def Settings(**kwargs):
-    with open('/Users/shane/temp/output.txt', 'w') as f:
-        f.write(str(kwargs))
     try:
         extension = kwargs['filename'].split('.')[-1]
     except:
