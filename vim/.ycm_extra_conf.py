@@ -1,5 +1,11 @@
 import subprocess
 
+CPP_EXTENSIONS = [
+    'cpp',
+    'hpp',
+    'h',
+]
+
 def get_pkg_config_flags(package: str) -> [str, ...]:
     process = subprocess.Popen(
             f'/bin/zsh -c "pkg-config --libs --cflags {package}"',
@@ -9,11 +15,21 @@ def get_pkg_config_flags(package: str) -> [str, ...]:
     return process.stdout.read().decode('utf-8').split()
 
 def Settings(**kwargs):
+    with open('/Users/shane/temp/output.txt', 'w') as f:
+        f.write(str(kwargs))
+    try:
+        extension = kwargs['filename'].split('.')[-1]
+    except:
+        extension = ''
+    flags = [
+        '-Iinclude',
+        '-Isrc',
+    ]
+    if extension in CPP_EXTENSIONS:
+        flags.append('-xc++')
     return {
-        'flags': [
-            '-Iinclude',
-            '-Isrc',
-        ] + get_pkg_config_flags('raylib')
+        'flags': flags
+        + get_pkg_config_flags('raylib')
         + get_pkg_config_flags('ncurses')
         + get_pkg_config_flags('glut'),
     }
