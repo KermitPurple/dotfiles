@@ -12,6 +12,11 @@ set_prompt(){
 }
 set_prompt #Immediately call the function
 
+# add util-linux bins to path
+# to reinstall do brew install util-linux
+export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
+export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
+
 # Global Environment variables
 export NOTE_FOLDER="$HOME/dropbox/note_folder"
 export DOTFILES_DIR="$HOME/dotfiles"
