@@ -191,6 +191,15 @@ rain()(
     ./main.py
 )
 
+#get a random picture of a dog
+show_dog(){
+    image_url=`curl -s 'https://dog.ceo/api/breeds/image/random' |
+        sed 's/.*"message":"\([^"]*\)".*/\1/;s/\\\\\//\//g'`
+    image_path="$TMPDIR/dog.jpg"
+    curl -s "$image_url" -o "$image_path"
+    open "$image_path"
+}
+
 # Open chrome with args
 alias chrome="open -a \"Google Chrome\""
 
