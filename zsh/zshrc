@@ -157,6 +157,14 @@ walpha(){
     chrome "https://www.wolframalpha.com/input/?i=`encode_url "$*"`"
 }
 
+# open paint application
+# https://github.com/kermitpurple/pypaint
+paint()(
+    cd "$CODING_DIR/python/PyPaint"
+    . venv/bin/activate
+    silent_bg ./pypaint.py
+)
+
 # create a new virtual environment using virtualenv
 newenv(){
     local env_name="$1" # set environment name to first arg
