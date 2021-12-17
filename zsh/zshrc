@@ -234,7 +234,11 @@ my_sites(){
 
 # fzf all apps
 apps(){
-    open -a `ls -d /Applications/*.app | fzf`
+    local app=`find /Applications /System/Applications /System/Library/CoreServices /System/Applications/Utilities -maxdepth 1 -name "*.app" | fzf`
+    if [ -z "$app" ]; then # no app chosen
+        return 1
+    fi
+    open -a "$app"
 }
 
 # search for something on google and open it in chrome
