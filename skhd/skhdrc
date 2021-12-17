@@ -1,0 +1,3 @@
+cmd + alt - c : chrome
+cmd + alt - g : chrome "https://github.com"
+cmd + alt - t : new_window
