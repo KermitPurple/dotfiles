@@ -4,4 +4,4 @@ cmd + alt - g : chrome "https://github.com"
 cmd + alt - n : chrome "https://github.com/new"
 
 # terminal scripts
-cmd + alt - t : new_window
+cmd + alt - t : new_window ~
