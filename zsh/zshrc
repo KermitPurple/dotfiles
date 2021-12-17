@@ -228,6 +228,15 @@ my_sites(){
     chrome "$links[$input]"
 }
 
+# search for something on google and open it in chrome
+google(){
+    local search="$*"
+    if [ "$search" =  "" ]; then
+        vared -c -p "enter something to search: " search
+    fi
+    chrome "https://www.google.com/search?q=`encode_url \"$search\"`"
+}
+
 # Open chrome with args
 alias chrome="open -a \"Google Chrome\""
 
