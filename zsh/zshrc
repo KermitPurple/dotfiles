@@ -232,6 +232,11 @@ my_sites(){
     chrome "$links[$input]"
 }
 
+# fzf all apps
+apps(){
+    open -a `ls -d /Applications/*.app | fzf`
+}
+
 # search for something on google and open it in chrome
 google(){
     local search="$*"
