@@ -154,7 +154,11 @@ decode_url(){
 
 # open wolfram alpha with search string
 walpha(){
-    chrome "https://www.wolframalpha.com/input/?i=`encode_url "$*"`"
+    local search="$*"
+    if [ "$search" =  "" ]; then
+        vared -c -p "Enter something to evaluate: " search
+    fi
+    chrome "https://www.wolframalpha.com/input/?i=`encode_url "$search"`"
 }
 
 # open paint application
