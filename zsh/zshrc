@@ -295,3 +295,12 @@ alias refresh=". ~/.zshrc"
 
 # shape drawing program
 alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
+
+# show nerd coding welcome screen
+# reqs:
+#     new_window - in this zshrc
+#     rain - in this zshrc
+#     cowsay - brew install cowsay
+#     lolcat - brew install lolcat
+#     neofetch - brew install neofetch
+alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && cowsay -fdragon \"Welcome Shane!\" | lolcat"
