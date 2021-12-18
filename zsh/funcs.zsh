@@ -234,6 +234,8 @@ google(){
     chrome "https://www.google.com/search?q=`encode_url \"$search\"`"
 }
 
+# convert an image to ascii text
+# https://github.com/KermitPurple/pypaint
 img2ascii()(
     local dir="$CODING_DIR/python/image_to_ascii"
     . "$dir/venv/bin/activate"
