@@ -169,9 +169,9 @@ walpha(){
 # open paint application
 # https://github.com/kermitpurple/pypaint
 paint()(
-    cd "$CODING_DIR/python/PyPaint"
-    . venv/bin/activate
-    silent_bg ./pypaint.py
+    local dir="$CODING_DIR/python/PyPaint"
+    . "$dir/venv/bin/activate"
+    silent_bg "$dir/pypaint.py"
 )
 
 # create a new virtual environment using virtualenv
