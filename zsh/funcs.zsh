@@ -1,3 +1,16 @@
+# function that loads the prompt with git info
+set_prompt(){
+    # Load version control information
+    autoload -Uz vcs_info
+    zstyle ':vcs_info:*' enable git svn
+    precmd()vcs_info
+    # Format the vcs_info_msg_0_ variable
+    zstyle ':vcs_info:git:*' formats '%F{red}on %B%b%f '
+    #Set the prompt to the 
+    setopt prompt_subst
+    PROMPT='%F{magenta}%~%f ${vcs_info_msg_0_}%b%# '
+}
+
 # directory movement functions
 dotfiles()cd "$DOTFILES_DIR/$*"
 school()cd "$SCHOOL_DIR/$*"
