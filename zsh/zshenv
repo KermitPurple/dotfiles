@@ -12,6 +12,7 @@ export DOTFILES_DIR="$HOME/dotfiles"
 export SCHOOL_DIR="$HOME/dropbox/school/fall2021"
 export CODING_DIR="$HOME/coding"
 export TEMP_DIR="$HOME/temp"
+export ZDOTDIR="$DOTFILES_DIR/zsh"
 
 # show dotfiles in fzf
 export FZF_DEFAULT_COMMAND="find . -type f"
