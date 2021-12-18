@@ -303,4 +303,4 @@ alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
 #     cowsay - brew install cowsay
 #     lolcat - brew install lolcat
 #     neofetch - brew install neofetch
-alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && cowsay -fdragon \"Welcome Shane!\" | lolcat"
+alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && figlet \"Welcome Shane!\" | cowsay -n -fdragon | lolcat"
