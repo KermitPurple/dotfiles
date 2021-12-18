@@ -16,5 +16,8 @@ export TEMP_DIR="$HOME/temp"
 # show dotfiles in fzf
 export FZF_DEFAULT_COMMAND="find . -type f"
 
+# the editor of choice
+export EDITOR="/opt/homebrew/bin/vim"
+
 # source zshrc
 . "$DOTFILES_DIR/zsh/zshrc"
