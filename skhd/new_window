@@ -1,0 +1,3 @@
+#!/bin/zsh
+. "$DOTFILES_DIR/zsh/funcs.zsh"
+new_window $*

@@ -1,7 +1,7 @@
 # chrome scripts
-cmd + alt - c : chrome
-cmd + alt - g : chrome "https://github.com"
-cmd + alt - n : chrome "https://github.com/new"
+cmd + alt - c : $DOTFILES_DIR/skhd/chrome
+cmd + alt - g : $DOTFILES_DIR/skhd/chrome "https://github.com"
+cmd + alt - n : $DOTFILES_DIR/skhd/chrome "https://github.com/new"
 
 # terminal scripts
-cmd + alt - t : new_window ~
+cmd + alt - t : $DOTFILES_DIR/skhd/new_window ~
