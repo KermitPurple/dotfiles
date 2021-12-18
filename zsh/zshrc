@@ -14,18 +14,6 @@ set_prompt(){
 }
 set_prompt #Immediately call the function
 
-# add util-linux bins to path
-# to reinstall do brew install util-linux
-export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
-export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
-
-# Global Environment variables
-export NOTE_FOLDER="$HOME/dropbox/note_folder"
-export DOTFILES_DIR="$HOME/dotfiles"
-export SCHOOL_DIR="$HOME/dropbox/school/fall2021"
-export CODING_DIR="$HOME/coding"
-export TEMP_DIR="$HOME/temp"
-
 # import other zsh files
 . "$DOTFILES_DIR/zsh/iterm2_shell_integration.zsh"
 
