@@ -21,9 +21,6 @@ silent_bg $CODING_DIR/c++/TesseractV2/bin/tess"
 # make clean all TARGET=bin/fib
 alias fib="silent_bg $CODING_DIR/c++/fib/bin/fib"
 
-# command-line "rotn" tool
-alias rotn="$CODING_DIR/python/ROTN/main.py"
-
 # make a java project and run it in temp folder
 alias java_make="javac *.java -d \"$TEMP_DIR\" && java -cp \"$TEMP_DIR\""
 

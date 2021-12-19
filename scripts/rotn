@@ -1,0 +1,3 @@
+#!/bin/zsh
+$CODING_DIR/python/ROTN/main.py $*
+
