@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+from urllib.parse import unquote_plus
+from sys import argv, stdin
+
+input_string = stdin.read()
+if not input_string:
+    _ = argv.pop(0)
+    input_string = ' '.join(argv)
+print(unquote_plus(input_string))
