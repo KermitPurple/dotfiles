@@ -30,17 +30,6 @@ fd() {
         cd "$dir"
 }
 
-# run the arguments to this
-silent_bg(){
-    if [[ $# -lt 1 ]]; then # if there is less than one argument
-        print "Invalid number of arguments: $#"
-        return 1
-    fi
-    setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
-    ("$@" 2>&1 > /dev/null & disown) 2> /dev/null
-    return 0
-}
-
 # play pygame snake
 snake()(
     cd "$CODING_DIR/python/PygameSnake"
