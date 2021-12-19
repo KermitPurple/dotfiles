@@ -1,6 +1,3 @@
-# Open chrome with args
-alias chrome="open -a \"Google Chrome\""
-
 # Make a new project using a python script
 # https:/github.com/kermitpurple/AutoProj
 alias new="$CODING_DIR/python/AutoProj/main.py"
