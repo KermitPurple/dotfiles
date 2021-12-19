@@ -1,3 +1,8 @@
 #!/bin/zsh
-$CODING_DIR/python/ROTN/main.py $*
+py_file="$CODING_DIR/python/ROTN/main.py"
+if [ -p /dev/stdin ]; then
+    $py_file $* -f /dev/stdin
+else
+    $py_file $*
+fi
 
