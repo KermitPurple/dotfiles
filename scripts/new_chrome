@@ -1,17 +1,16 @@
 #!/bin/zsh
 # open a new chrome window
+homepage="https://google.com"
 app="Google Chrome"
-homepage="https://www.google.com"
 location="$*"
-if [[ -z "$location" ]]; then
-    location="$homepage"
-fi
-if [[ `osascript -e "return application \"$app\" is running"` = "false" ]]; then
-    open -a"$app" "$location"
-else
+running=`osascript -e"return application \"$app\" is running"`
+if [[ "$running" = 'true' ]]; then
+    [[ -z "$location" ]] && location="$homepage" # if location is null set to homepage
     osascript -e\
 "tell application \"$app\"
     make new window
     open location \"$location\"
 end tell"
+else
+    chrome $location
 fi
