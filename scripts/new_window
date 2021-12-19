@@ -18,9 +18,9 @@ if [[ `osascript -e "return application \"Iterm\" is running"` = "false" ]]; the
 else
     osascript -e\
 "tell application \"iterm2\"
-set newWin to (create window with default profile)
-tell current session of newWin
-    write text \"cd '$dir'$cmd\"
-end tell
+    set newWin to (create window with default profile)
+    tell current session of newWin
+        write text \"cd '$dir'$cmd\"
+    end tell
 end tell"
 fi
