@@ -1,3 +1,0 @@
-#!/bin/zsh
-. "$DOTFILES_DIR/zsh/alias.zsh"
-chrome $*
