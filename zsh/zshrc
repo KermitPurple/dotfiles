@@ -3,8 +3,8 @@ autoload -U colors && colors
 
 # import other zsh files
 . "$DOTFILES_DIR/zsh/iterm2_shell_integration.zsh"
-. "$DOTFILES_DIR/zsh/funcs.zsh"
 . "$DOTFILES_DIR/zsh/alias.zsh"
+. "$DOTFILES_DIR/zsh/funcs.zsh"
 
 # set custom prompt
 set_prompt
