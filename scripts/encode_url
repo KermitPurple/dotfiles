@@ -2,12 +2,8 @@
 from urllib.parse import quote_plus
 from sys import argv, stdin, stderr
 
-if stdin.isatty(): # if stdin is a pipe
-    _ = argv.pop(0)
-    if len(argv) == 0:
-        stderr.write('No arguments passed')
-        exit(1)
-    input_string = ' '.join(argv)
-else:
+_ = argv.pop(0)
+input_string = ' '.join(argv)
+if not input_string:
     input_string = stdin.read()
 print(quote_plus(input_string))
