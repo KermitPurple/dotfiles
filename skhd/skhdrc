@@ -8,10 +8,10 @@ tabs < cmd + alt - m ; default
 
 # new_chrome scripts
 default < cmd + alt - c : new_chrome
-default < cmd + alt - g : new_chrome "https://github.com"
+default < cmd + alt - g : new_chrome "https://github.com/kermitpurple"
 default < cmd + alt - n : new_chrome "https://github.com/new"
 tabs < cmd + alt - c : chrome "https://google.com"
-tabs < cmd + alt - g : chrome "https://github.com"
+tabs < cmd + alt - g : chrome "https://github.com/kermitpurple"
 tabs < cmd + alt - n : chrome "https://github.com/new"
 
 # terminal scripts
