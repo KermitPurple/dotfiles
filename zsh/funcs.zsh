@@ -62,12 +62,12 @@ clock()(
 
 # encode url
 encode_url(){
-    python3 -c "import urllib.parse as p; print(p.quote_plus('$*'))"
+    python3 -c "import urllib.parse as p; print(p.quote_plus(\"$*\"))"
 }
 
 # decode url
 decode_url(){
-    python3 -c "import urllib.parse as p; print(p.unquote_plus('$*'))"
+    python3 -c "import urllib.parse as p; print(p.unquote_plus(\"$*\"))"
 }
 
 # open wolfram alpha with search string
