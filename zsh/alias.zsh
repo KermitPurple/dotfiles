@@ -35,8 +35,8 @@ alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
 
 # show nerd coding welcome screen
 # reqs:
-#     new_window - in this zshrc
-#     rain - in this zshrc
+#     new_window - in this funcs.zsh
+#     rain - in this funcs.zsh
 #     cowsay - brew install cowsay
 #     lolcat - brew install lolcat
 #     neofetch - brew install neofetch
