@@ -175,3 +175,10 @@ img2ascii()(
     . "$dir/venv/bin/activate"
     $dir/img2ascii.py $*
 )
+
+# out input after running through figlet, cowsay, lolcat
+# requirements
+#   - figlet - brew install figlet
+#   - cowsay - brew install cowsay
+#   - lolcat - brew install lolcat
+gay_dragon(){figlet "$*"|cowsay -nfDragon|lolcat}
