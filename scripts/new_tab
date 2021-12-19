@@ -16,6 +16,7 @@ if [ -n "$args" ]; then
 fi
 osascript -e\
 "tell application \"iterm2\"
+    activate
     tell current window
         set newTab to (create tab with default profile)
         tell current session of newTab
