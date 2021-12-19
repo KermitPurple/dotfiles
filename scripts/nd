@@ -1,0 +1,2 @@
+#!/bin/zsh
+$CODING_DIR/python/notes/delete.py $*
