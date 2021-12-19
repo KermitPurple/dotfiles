@@ -1,7 +1,19 @@
+# modes
+:: default : notify Window "skhd mode:"
+:: tabs : notify Tab "skhd mode:"
+
+# changing modes
+default < cmd + alt - m ; tabs
+tabs < cmd + alt - m ; default
+
 # new_chrome scripts
-cmd + alt - c : new_chrome
-cmd + alt - g : new_chrome "https://github.com"
-cmd + alt - n : new_chrome "https://github.com/new"
+default < cmd + alt - c : new_chrome
+default < cmd + alt - g : new_chrome "https://github.com"
+default < cmd + alt - n : new_chrome "https://github.com/new"
+tabs < cmd + alt - c : chrome "https://google.com"
+tabs < cmd + alt - g : chrome "https://github.com"
+tabs < cmd + alt - n : chrome "https://github.com/new"
 
 # terminal scripts
-cmd + alt - t : new_window ~
+default < cmd + alt - t : new_window ~
+tabs < cmd + alt - t : new_tab ~
