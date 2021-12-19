@@ -1,0 +1,26 @@
+#!/bin/zsh
+# open a new tab in iterm
+# first arg is a path [optional]
+# other args are the command passed to the terminal
+# https://gist.github.com/vyder/96891b93f515cb4ac559e9132e1c9086
+cmd=""
+dir="$PWD"
+args="$@"
+if [ -d "$1" ]; then # if the first argument is a file
+    dir="$1"
+    args="${@:2}"
+fi
+if [ -n "$args" ]; then
+    cmd="; $args"
+fi
+if [[ `osascript -e "return application \"Iterm\" is running"` = "false" ]]; then
+    open -aIterm
+else
+    osascript -e\
+"tell application \"iterm2\"
+set newWin to (create window with default profile)
+tell current session of newWin
+    write text \"cd '$dir'$cmd\"
+end tell
+end tell"
+fi

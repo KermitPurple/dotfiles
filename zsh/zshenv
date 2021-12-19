@@ -14,6 +14,9 @@ export CODING_DIR="$HOME/coding"
 export TEMP_DIR="$HOME/temp"
 export SCRIPT_DIR="$DOTFILES_DIR/zsh/scripts"
 
+# add scripts to path
+export PATH="$SCRIPT_DIR:$PATH"
+
 # show dotfiles in fzf
 export FZF_DEFAULT_COMMAND="find . -type f"
 

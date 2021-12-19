@@ -30,61 +30,6 @@ fd() {
         cd "$dir"
 }
 
-# open a new tab in iterm
-# first arg is a path [optional]
-# other args are the command passed to the terminal
-# https://gist.github.com/vyder/96891b93f515cb4ac559e9132e1c9086
-# does nothing if not terminal not open
-new_tab(){
-    local cmd=""
-    local dir="$PWD"
-    local args="$@"
-    if [ -d "$1" ]; then # if the first argument is a file
-        dir="$1"
-        args="${@:2}"
-    fi
-    if [ -n "$args" ]; then
-        cmd="; $args"
-    fi
-    osascript -e\
-"tell application \"iterm2\"
-    tell current window
-        set newTab to (create tab with default profile)
-        tell current session of newTab
-            write text \"cd '$dir'$cmd\"
-        end tell
-    end tell
-end tell"
-}
-
-# open a new tab in iterm
-# first arg is a path [optional]
-# other args are the command passed to the terminal
-# https://gist.github.com/vyder/96891b93f515cb4ac559e9132e1c9086
-new_window(){
-    local cmd=""
-    local dir="$PWD"
-    local args="$@"
-    if [ -d "$1" ]; then # if the first argument is a file
-        dir="$1"
-        args="${@:2}"
-    fi
-    if [ -n "$args" ]; then
-        cmd="; $args"
-    fi
-    if [[ `osascript -e "return application \"Iterm\" is running"` = "false" ]]; then
-        open -aIterm
-    else
-        osascript -e\
-"tell application \"iterm2\"
-    set newWin to (create window with default profile)
-    tell current session of newWin
-        write text \"cd '$dir'$cmd\"
-    end tell
-end tell"
-    fi
-}
-
 # run the arguments to this
 silent_bg(){
     if [[ $# -lt 1 ]]; then # if there is less than one argument
