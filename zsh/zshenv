@@ -6,12 +6,13 @@
 export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
 export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
 
-# Global Environment variables
+# Directories
 export NOTE_FOLDER="$HOME/dropbox/note_folder"
 export DOTFILES_DIR="$HOME/dotfiles"
 export SCHOOL_DIR="$HOME/dropbox/school/fall2021"
 export CODING_DIR="$HOME/coding"
 export TEMP_DIR="$HOME/temp"
+export SCRIPT_DIR="$DOTFILES_DIR/zsh/scripts"
 
 # show dotfiles in fzf
 export FZF_DEFAULT_COMMAND="find . -type f"
