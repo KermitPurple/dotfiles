@@ -15,7 +15,7 @@ export TEMP_DIR="$HOME/temp"
 export SCRIPT_DIR="$DOTFILES_DIR/scripts"
 
 # add scripts to path
-export PATH="$SCRIPT_DIR:$PATH"
+export PATH="$PATH:$SCRIPT_DIR"
 
 # show dotfiles in fzf
 export FZF_DEFAULT_COMMAND="find . -type f"
