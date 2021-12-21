@@ -1,5 +1,5 @@
 #!/bin/zsh
-# open a new tab in iterm
+# open a new window in iterm
 # first arg is a path [optional]
 # other args are the command passed to the terminal
 # https://gist.github.com/vyder/96891b93f515cb4ac559e9132e1c9086
