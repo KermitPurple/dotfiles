@@ -1,10 +1,18 @@
 # modes
 :: default : notify Window "skhd mode:"
 :: tabs : notify Tab "skhd mode:"
+:: delwins : notify "Delete Window" "skhd mode:"
+:: deltabs : notify "Delete Tab" "skhd mode:"
 
 # changing modes
+delwins < cmd + alt - d ; default
+delwins < cmd + alt - m ; deltabs
+deltabs < cmd + alt - d ; tabs
+deltabs < cmd + alt - m ; delwins
+default < cmd + alt - d ; delwins
 default < cmd + alt - m ; tabs
 tabs < cmd + alt - m ; default
+tabs < cmd + alt - d ; deltabs
 
 # new_chrome scripts
 default < cmd + alt - c : new_chrome
@@ -15,7 +23,11 @@ tabs < cmd + alt - c : chrome "https://google.com"
 tabs < cmd + alt - g : chrome "https://github.com/kermitpurple"
 tabs < cmd + alt - n : chrome "https://github.com/new"
 tabs < cmd + alt - i : chrome "https://gmail.com"
+delwins < cmd + alt - c : close_chrome_window
+deltabs < cmd + alt - c : close_chrome_tab
 
 # terminal scripts
 default < cmd + alt - t : new_window ~
 tabs < cmd + alt - t : new_tab ~
+delwins < cmd + alt - t : close_iterm_window
+deltabs < cmd + alt - t : close_iterm_tab
