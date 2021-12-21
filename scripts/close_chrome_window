@@ -1,0 +1,11 @@
+#!/bin/zsh
+# close an iterm window
+if [[ `osascript -e "return application \"Google Chrome\" is running"` = "false" ]]; then
+    >&2 echo "Google Chrome is not open"
+    return 1
+else
+    osascript -e\
+"tell application \"Google Chrome\"
+    close front window
+end tell"
+fi
