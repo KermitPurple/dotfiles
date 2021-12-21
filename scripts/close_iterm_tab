@@ -1,0 +1,13 @@
+#!/bin/zsh
+# close an iterm tab
+if [[ `osascript -e "return application \"Iterm\" is running"` = "false" ]]; then
+    echo "Iterm is not open" &>2
+    return
+else
+    osascript -e\
+"tell application \"iterm2\"
+    tell current window
+        close current tab
+    end tell
+end tell"
+fi
