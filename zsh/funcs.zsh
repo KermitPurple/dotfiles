@@ -171,4 +171,8 @@ img2ascii()(
 #   - figlet - brew install figlet
 #   - cowsay - brew install cowsay
 #   - lolcat - brew install lolcat
-gay_dragon(){figlet "$*"|cowsay -nfDragon|lolcat}
+gay_dragon(){
+    local input="$*"
+    [[ -z "$input" ]] && read input
+    figlet "$input" | cowsay -nfDragon | lolcat
+}
