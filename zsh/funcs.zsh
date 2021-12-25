@@ -173,6 +173,6 @@ img2ascii()(
 #   - lolcat - brew install lolcat
 gay_dragon(){
     local input="$*"
-    [[ -z "$input" ]] && read input
+    [[ -z "$input" ]] && input=`cat`
     figlet "$input" | cowsay -nfDragon | lolcat
 }
