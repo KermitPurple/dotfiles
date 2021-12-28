@@ -176,3 +176,11 @@ gay_dragon(){
     [[ -z "$input" ]] && input=`cat`
     figlet "$input" | cowsay -nfDragon | lolcat
 }
+
+# Segments
+# https://github.com/KermitPurple/segments
+segments(){
+    cd "$CODING_DIR/python/segments"
+    . venv/bin/activate
+    silent_bg ./main.py
+}
