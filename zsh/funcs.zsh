@@ -179,8 +179,8 @@ gay_dragon(){
 
 # Segments
 # https://github.com/KermitPurple/segments
-segments(){
+segments()(
     cd "$CODING_DIR/python/segments"
     . venv/bin/activate
     silent_bg ./main.py
-}
+)
