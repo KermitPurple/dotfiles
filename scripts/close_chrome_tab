@@ -6,12 +6,13 @@ if [[ `osascript -e "return application \"Google Chrome\" is running"` = "false"
 else
     osascript -e\
 "tell application \"Google Chrome\"
-    tell front window
-        close active tab
-    end tell
-    delay 0.3
     if (count windows) < 1
         quit
+    else
+        tell front window
+            close active tab
+        end tell
+        delay 0.3
     end if
 end tell"
 fi

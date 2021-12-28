@@ -6,9 +6,10 @@ if [[ `osascript -e "return application \"Iterm\" is running"` = "false" ]]; the
 else
     osascript -e\
 "tell application \"iterm2\"
-    close current window
     if (count windows) < 1
         quit
+    else
+        close current window
     end if
 end tell"
 fi

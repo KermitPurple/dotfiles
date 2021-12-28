@@ -6,9 +6,10 @@ if [[ `osascript -e "return application \"Google Chrome\" is running"` = "false"
 else
     osascript -e\
 "tell application \"Google Chrome\"
-    close front window
     if (count windows) < 1
         quit
+    else
+        close front window
     end if
 end tell"
 fi
