@@ -9,5 +9,8 @@ else
     tell current window
         close current tab
     end tell
+    if (count windows) < 1
+        quit
+    end if
 end tell"
 fi

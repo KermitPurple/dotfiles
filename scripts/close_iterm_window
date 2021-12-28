@@ -7,5 +7,8 @@ else
     osascript -e\
 "tell application \"iterm2\"
     close current window
+    if (count windows) < 1
+        quit
+    end if
 end tell"
 fi
