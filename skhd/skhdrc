@@ -14,7 +14,7 @@ default < cmd + alt - m ; tabs
 tabs < cmd + alt - m ; default
 tabs < cmd + alt - d ; deltabs
 
-# new_chrome scripts
+# chrome scripts
 default < cmd + alt - c : new_chrome
 default < cmd + alt - g : new_chrome "https://github.com/kermitpurple"
 default < cmd + alt - n : new_chrome "https://github.com/new"
@@ -31,3 +31,7 @@ default < cmd + alt - t : new_window ~
 tabs < cmd + alt - t : new_tab ~
 delwins < cmd + alt - t : close_iterm_window
 deltabs < cmd + alt - t : close_iterm_tab
+
+# spotify scripts
+default, tabs < cmd + alt - s : open -aSpotify
+delwins, deltabs < cmd + alt - s : osascript -e"quit application \"Spotify\""
