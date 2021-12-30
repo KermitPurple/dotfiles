@@ -184,3 +184,18 @@ segments()(
     . venv/bin/activate
     silent_bg ./main.py
 )
+
+# Segments
+# https://github.com/KermitPurple/fractals
+fractals()(
+    cd "$CODING_DIR/python/fractals"
+    . venv/bin/activate
+    silent_bg ./main.py
+)
+
+# Use coinbase api to get price of bitcoin
+bitcoin_price(){
+    local price=`curl -s 'https://api.coinbase.com/v2/prices/spot?currency=USD' |\
+        sed 's/.*"amount":"\([^"]*\)".*/\1/g'`
+    echo "\$$price"
+}

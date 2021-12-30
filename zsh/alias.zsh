@@ -41,3 +41,6 @@ alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
 #     lolcat - brew install lolcat
 #     neofetch - brew install neofetch
 alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && figlet \"Welcome Shane!\" | cowsay -n -fdragon | lolcat"
+
+# dice roll function
+alias roll="/Users/shane/coding/python/dice/main.py"
