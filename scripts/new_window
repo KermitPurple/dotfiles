@@ -15,6 +15,17 @@ if [ -n "$args" ]; then
 fi
 if [[ `osascript -e "return application \"Iterm\" is running"` = "false" ]]; then
     open -aIterm
+    sleep 0.4
+    osascript -e\
+"tell application \"iterm2\"
+    tell current window
+        tell current tab
+            tell current session
+                write text \"cd '$dir'$cmd\"
+            end tell
+        end tell
+    end tell
+end tell"
 else
     osascript -e\
 "tell application \"iterm2\"
