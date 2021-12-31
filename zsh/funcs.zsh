@@ -185,10 +185,18 @@ segments()(
     silent_bg ./main.py
 )
 
-# Segments
+# Fractals
 # https://github.com/KermitPurple/fractals
 fractals()(
     cd "$CODING_DIR/python/fractals"
+    . venv/bin/activate
+    silent_bg ./main.py
+)
+#
+# polygons
+# https://github.com/KermitPurple/consentric_polygons_py
+polygons()(
+    cd "$CODING_DIR/python/polygons"
     . venv/bin/activate
     silent_bg ./main.py
 )
