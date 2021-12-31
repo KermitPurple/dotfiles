@@ -129,14 +129,15 @@ my_sites(){
         sed '/site-link link/!d;s/.*href="\([^"]*\)" class="site-link link">\([^<]*\)<.*/\1    \2/g;'`
     local lines=("${(f)sites}")
     local links=()
-    local i="1"
+    local i=1
     for line in $lines; do
         line=("${(@s/    /)line}")
         links[$i]="$line[1]"
         printf "[%2d] %s\n" "$i" "$line[2]"
         ((i+=1))
     done
-    vared -c -p "Enter a number: " input
+    local input=""
+    vared -p "Enter a number: " input
     chrome "$links[$input]"
 }
 
