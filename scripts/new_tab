@@ -26,4 +26,15 @@ if [ `osascript -e"return application \"iterm2\" is running"` = 'true' ]; then
 end tell"
 else
     open -aIterm
+    sleep 0.4
+    osascript -e\
+"tell application \"iterm2\"
+    tell current window
+        tell current tab
+            tell current session
+                write text \"cd '$dir'$cmd\"
+            end tell
+        end tell
+    end tell
+end tell"
 fi
