@@ -16,12 +16,12 @@ tabs < cmd + alt - d ; deltabs
 
 # chrome scripts
 default < cmd + alt - c : new_chrome
-default < cmd + alt - g : new_chrome "https://github.com/KermitPurple?tab=repositories"
-default < cmd + alt - n : new_chrome "https://github.com/new"
+default < cmd + alt - g : new_chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
+default < cmd + alt - n : new_chrome "https://github.com/new#repository_name"
 default < cmd + alt - i : new_chrome "https://gmail.com"
 tabs < cmd + alt - c : chrome "https://google.com"
-tabs < cmd + alt - g : chrome "https://github.com/KermitPurple?tab=repositories"
-tabs < cmd + alt - n : chrome "https://github.com/new"
+tabs < cmd + alt - g : chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
+tabs < cmd + alt - n : chrome "https://github.com/new#repository_name"
 tabs < cmd + alt - i : chrome "https://gmail.com"
 delwins < cmd + alt - c : close_chrome_window
 deltabs < cmd + alt - c : close_chrome_tab
