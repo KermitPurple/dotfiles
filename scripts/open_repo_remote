@@ -1,0 +1,16 @@
+#!/bin/sh
+# open github repo remote
+remote="$*"
+if [[ -z "$remote" ]]; then
+    remote="origin"
+fi
+browser_fn="chrome"
+url=`git remote get-url $remote 2>&1`
+if [[ "$url" == *"fatal"* ]]; then
+    >&2 echo "Not a git repo!"
+    return 1
+elif [[ "$url" == *"https"* ]]; then
+    $browser_fn $url
+elif [[ "$url" == *"git@github.com"* ]]; then
+    $browser_fn "https://github.com/`echo "$url" | sed "s/git@github.com://g"`"
+fi
