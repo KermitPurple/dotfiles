@@ -17,12 +17,19 @@ if [ `osascript -e"return application \"iterm2\" is running"` = 'true' ]; then
     osascript -e\
 "tell application \"iterm2\"
     activate
-    tell current window
-        set newTab to (create tab with default profile)
-        tell current session of newTab
+    if (count of windows) < 1 then
+        set newWin to (create window with default profile)
+        tell current session of newWin
             write text \"cd '$dir'$cmd\"
         end tell
-    end tell
+    else
+        tell current window
+            set newTab to (create tab with default profile)
+            tell current session of newTab
+                write text \"cd '$dir'$cmd\"
+            end tell
+        end tell
+    end if
 end tell"
 else
     open -aIterm
