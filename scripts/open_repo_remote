@@ -5,12 +5,15 @@ if [[ -z "$remote" ]]; then
     remote="origin"
 fi
 browser_fn="chrome"
-url=`git remote get-url $remote 2>&1`
-if [[ "$url" == *"fatal"* ]]; then
-    >&2 echo "Not a git repo!"
-    return 1
-elif [[ "$url" == *"https"* ]]; then
+url=`git remote get-url "$remote" 2>&1`
+if [[ "$url" == *"https://"* ]]; then
     $browser_fn $url
-elif [[ "$url" == *"git@github.com"* ]]; then
+elif [[ "$url" == *"git@github.com:"* ]]; then
     $browser_fn "https://github.com/`echo "$url" | sed "s/git@github.com://g"`"
+elif [[ "$url" == *"fatal"* || "$url" == *"error"* ]]; then
+    >&2 echo "$url"
+    exit 1
+else
+    >&2 echo "Unexpected output: \"$url\""
+    exit 1
 fi
