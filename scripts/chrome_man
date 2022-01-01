@@ -9,7 +9,7 @@ function help_text(){
     while IFS= read -r line; do
         echo "$line"
     done <<-EOF
-chrome_man [section_number] page
+USAGE: chrome_man [section_number] page
   - flags:
     -w - open in new window instead of new tab
 EOF
