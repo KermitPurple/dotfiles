@@ -1,10 +1,12 @@
 #!/bin/sh
+# call git command over all (most) of my get repos
+# This is done mostly because I frequently forget to push
 
 locations=("$CODING_DIR" "$DOTFILES_DIR") # locations to search
 for location in $locations; do # cycle over locations
     for repo in `find $location -name .git -not -path '*/plugged/*'`; do # cylce over repos in locations
         cd $repo/.. # go to repo
         pwd # print location
-        git $*
+        git $* # call git command
     done
 done
