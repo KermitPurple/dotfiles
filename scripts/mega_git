@@ -4,7 +4,7 @@
 
 locations=("$CODING_DIR" "$DOTFILES_DIR") # locations to search
 for location in $locations; do # cycle over locations
-    for repo in `find $location -name .git -not -path '*/plugged/*'`; do # cylce over repos in locations
+    for repo in `find $location -name .git ! -path '*/plugged/*'`; do # cylce over repos in locations
         cd $repo/.. # go to repo
         pwd # print location
         git $* # call git command
