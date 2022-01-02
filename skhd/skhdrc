@@ -9,7 +9,7 @@
 
 # changing modes
 # mode selector
-cmd + alt - m ; modesel
+default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt - m ; modesel
 modesel < s ; default
 modesel < w ; wins
 modesel < t ; tabs
