@@ -1,39 +1,49 @@
 # modes
-:: default : notify Window "skhd mode:"
+:: default : notify Select "skhd mode:"
+:: wins : notify Window "skhd mode:"
 :: tabs : notify Tab "skhd mode:"
-:: delwins : notify "Delete Window" "skhd mode:"
-:: deltabs : notify "Delete Tab" "skhd mode:"
+:: delsel : notify "Delete Select" "skhd mode:"
+:: delwin : notify "Delete Window" "skhd mode:"
+:: deltab : notify "Delete Tab" "skhd mode:"
 
 # changing modes
-delwins < cmd + alt - d ; default
-delwins < cmd + alt - m ; deltabs
-deltabs < cmd + alt - d ; tabs
-deltabs < cmd + alt - m ; delwins
-default < cmd + alt - d ; delwins
-default < cmd + alt - m ; tabs
+# cycle mode
+default < cmd + alt - m ; wins
+wins < cmd + alt - m ; tabs
 tabs < cmd + alt - m ; default
-tabs < cmd + alt - d ; deltabs
+delsel < cmd + alt - m ; delwin
+delwin < cmd + alt - m ; deltab
+deltab < cmd + alt - m ; delsel
+# toggle delete
+default < cmd + alt - d ; delsel
+wins < cmd + alt - d ; delwin
+tabs < cmd + alt - d ; deltab
+delsel < cmd + alt - d ; default
+delwin < cmd + alt - d ; wins
+deltab < cmd + alt - d ; tabs
 
 # chrome scripts
-default < cmd + alt - c : new_chrome
-default < cmd + alt - n : new_chrome "https://github.com/new#repository_name"
-default < cmd + alt - i : new_chrome "https://gmail.com"
-default < cmd + alt - g : new_chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
-default < cmd + alt + shift - g : new_chrome "https://KermitPurple.github.io"
+wins < cmd + alt - c : new_chrome
+wins < cmd + alt - n : new_chrome "https://github.com/new#repository_name"
+wins < cmd + alt - i : new_chrome "https://gmail.com"
+wins < cmd + alt - g : new_chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
+wins < cmd + alt + shift - g : new_chrome "https://KermitPurple.github.io"
+default < cmd + alt -c : chrome
 tabs < cmd + alt - c : chrome "https://google.com"
-tabs < cmd + alt - n : chrome "https://github.com/new#repository_name"
-tabs < cmd + alt - i : chrome "https://gmail.com"
-tabs < cmd + alt - g : chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
-tabs < cmd + alt + shift - g : chrome "https://KermitPurple.github.io"
-delwins < cmd + alt - c : close_chrome_window
-deltabs < cmd + alt - c : close_chrome_tab
+default, tabs < cmd + alt - n : chrome "https://github.com/new#repository_name"
+default, tabs < cmd + alt - i : chrome "https://gmail.com"
+default, tabs < cmd + alt - g : chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
+default, tabs < cmd + alt + shift - g : chrome "https://KermitPurple.github.io"
+delwin < cmd + alt - c : close_chrome_window
+delsel, deltab < cmd + alt - c : close_chrome_tab
 
-# terminal scripts
-default < cmd + alt - t : new_window ~
+# terminal (Iterm) scripts
+default < cmd + alt - t : open -a"Iterm"
+wins < cmd + alt - t : new_window ~
 tabs < cmd + alt - t : new_tab ~
-delwins < cmd + alt - t : close_iterm_window
-deltabs < cmd + alt - t : close_iterm_tab
+delwin < cmd + alt - t : close_iterm_window
+delsel, deltab < cmd + alt - t : close_iterm_tab
 
 # spotify scripts
-default, tabs < cmd + alt - s : open -aSpotify
-delwins, deltabs < cmd + alt - s : osascript -e"quit application \"Spotify\""
+default, wins, tabs < cmd + alt - s : open -aSpotify
+default, delwin, deltab < cmd + alt - s : osascript -e"quit application \"Spotify\""
