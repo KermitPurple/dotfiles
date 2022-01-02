@@ -56,7 +56,7 @@ graph()(
 new()(
     cd $CODING_DIR/python/AutoProj
     . venv/bin/activate
-    ./main.py "$*"
+    ./main.py $*
 )
 
 # calls new function then exits
