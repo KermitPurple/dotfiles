@@ -16,10 +16,13 @@ EOF
 }
 
 function try_url(){
-    if [[ "`curl -s $1`" != *"404 Not Found"* ]]; then # if page exists
+    curl -sLf $1 >/dev/null
+    code=$?
+    echo $code
+    if [[ $code = 0 ]]; then # if page exists
         $chrome_fn $1 # open page
     else
-        return 1
+        return $code
     fi
 }
 
