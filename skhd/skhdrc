@@ -5,15 +5,24 @@
 :: delsel : notify "Delete Select" "skhd mode:"
 :: delwin : notify "Delete Window" "skhd mode:"
 :: deltab : notify "Delete Tab" "skhd mode:"
+:: modesel : notify "Mode Selector" "skhd mode:"
 
 # changing modes
+# mode selector
+cmd + alt - m ; modesel
+modesel < s ; default
+modesel < w ; wins
+modesel < t ; tabs
+modesel < shift - s ; default
+modesel < shift - w ; wins
+modesel < shift - t ; tabs
 # cycle mode
-default < cmd + alt - m ; wins
-wins < cmd + alt - m ; tabs
-tabs < cmd + alt - m ; default
-delsel < cmd + alt - m ; delwin
-delwin < cmd + alt - m ; deltab
-deltab < cmd + alt - m ; delsel
+default < cmd + alt - space ; wins
+wins < cmd + alt - space ; tabs
+tabs < cmd + alt - space ; default
+delsel < cmd + alt - space ; delwin
+delwin < cmd + alt - space ; deltab
+deltab < cmd + alt - space ; delsel
 # toggle delete
 default < cmd + alt - d ; delsel
 wins < cmd + alt - d ; delwin
@@ -46,4 +55,4 @@ delsel, deltab < cmd + alt - t : close_iterm_tab
 
 # spotify scripts
 default, wins, tabs < cmd + alt - s : open -aSpotify
-default, delwin, deltab < cmd + alt - s : osascript -e"quit application \"Spotify\""
+defualt, delwin, deltab < cmd + alt - s : osascript -e"quit application \"Spotify\""
