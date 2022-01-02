@@ -60,7 +60,7 @@ new()(
 )
 
 # calls new function then exits
-newe(){new "$@"&&exit}
+newe(){new $*&&exit}
 
 # clock in/ clock out; timeclock
 clock()(
