@@ -4,9 +4,9 @@ autoload -U compinit # gh completion
 compinit -i
 
 # import other zsh files
-. "$DOTFILES_DIR/zsh/iterm2_shell_integration.zsh"
 . "$DOTFILES_DIR/zsh/alias.zsh"
 . "$DOTFILES_DIR/zsh/funcs.zsh"
+. "$DOTFILES_DIR/zsh/load_znap.zsh"
 
 # set custom prompt
 set_prompt
