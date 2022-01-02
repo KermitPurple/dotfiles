@@ -36,7 +36,7 @@ while [[ $# > 0 ]]; do
             chrome_fn="new_chrome"
             ;;
         *)
-            page="$1"
+            page=`encode_url "$1"`
             ;;
     esac
     shift
