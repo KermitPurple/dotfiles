@@ -55,4 +55,4 @@ delsel, deltab < cmd + alt - t : close_iterm_tab
 
 # spotify scripts
 default, wins, tabs < cmd + alt - s : open -aSpotify
-defualt, delwin, deltab < cmd + alt - s : osascript -e"quit application \"Spotify\""
+default, delwin, deltab < cmd + alt - s : osascript -e"quit application \"Spotify\""
