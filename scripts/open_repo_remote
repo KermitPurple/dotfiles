@@ -1,10 +1,21 @@
 #!/bin/sh
 # open github repo remote
-remote="$*"
+browser_fn="chrome"
+remote=""
+while [[ $# > 0 ]]; do
+    case $1 in
+        -w)
+            browser_fn="new_chrome"
+            ;;
+        *)
+            remote="$remote $1"
+            ;;
+    esac
+    shift
+done
 if [[ -z "$remote" ]]; then
     remote="origin"
 fi
-browser_fn="chrome"
 url=`git remote get-url "$remote" 2>&1`
 if [[ "$url" == *"https://"* ]]; then
     $browser_fn $url
