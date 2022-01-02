@@ -2,11 +2,47 @@
 # call git command over all (most) of my get repos
 # This is done mostly because I frequently forget to push
 
+less=0
+async=0
+args=""
+while [[ $# > 0 ]]; do
+    case $1 in
+        --async)
+            async=1
+            ;;
+        --no-async)
+            async=0
+            ;;
+        --less)
+            less=1
+            ;;
+        --no-less)
+            less=0
+            ;;
+        *)
+            if [[ -z "$args" ]]; then
+                args="$1"
+            else
+                args="$args $1"
+            fi
+            ;;
+    esac
+    shift
+done
+cmd="git $args"
+
 locations=("$CODING_DIR" "$DOTFILES_DIR") # locations to search
 for location in $locations; do # cycle over locations
     for repo in `find $location -name .git ! -path '*/plugged/*'`; do # cylce over repos in locations
         cd $repo/.. # go to repo
-        pwd # print location
-        git $* # call git command
+        echo "----------------------------------------------------------------------------------"
+        if [[ $less = 1 ]]; then
+            (pwd; $cmd) | less
+        elif [[ $async = 1 ]]; then
+            $cmd & # call git command asyncronus
+        else
+            pwd # print location
+            $cmd # call git commadn
+        fi
     done
 done
