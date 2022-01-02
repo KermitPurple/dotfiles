@@ -51,7 +51,15 @@ graph()(
     ./interactive.py
 )
 
-# calls new alias then exits
+# Make a new project using a python script
+# https:/github.com/kermitpurple/AutoProj
+new()(
+    cd $CODING_DIR/python/AutoProj
+    . venv/bin/activate
+    ./main.py "$*"
+)
+
+# calls new function then exits
 newe(){new "$@"&&exit}
 
 # clock in/ clock out; timeclock
