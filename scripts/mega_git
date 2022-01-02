@@ -20,27 +20,22 @@ while [[ $# > 0 ]]; do
             less=0
             ;;
         *)
-            if [[ -z "$args" ]]; then
-                args="$1"
-            else
-                args="$args $1"
-            fi
+            args="$args $1"
             ;;
     esac
     shift
 done
 cmd="git $args"
-
 locations="$CODING_DIR $DOTFILES_DIR" # locations to search
 for location in $locations; do # cycle over locations
     for repo in `find $location -name .git ! -path '*/plugged/*'`; do # cylce over repos in locations
         cd $repo/.. # go to repo
-        echo "----------------------------------------------------------------------------------"
         if [[ $less = 1 ]]; then
-            (pwd; $cmd) | less
+            (pwd; $cmd) | less # run git command and output to less
         elif [[ $async = 1 ]]; then
             $cmd & # call git command asyncronus
         else
+            echo "----------------------------------------------------------------------------------"
             pwd # print location
             $cmd # call git commadn
         fi
