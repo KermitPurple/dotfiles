@@ -31,7 +31,7 @@ while [[ $# > 0 ]]; do
 done
 cmd="git $args"
 
-locations=("$CODING_DIR" "$DOTFILES_DIR") # locations to search
+locations="$CODING_DIR $DOTFILES_DIR" # locations to search
 for location in $locations; do # cycle over locations
     for repo in `find $location -name .git ! -path '*/plugged/*'`; do # cylce over repos in locations
         cd $repo/.. # go to repo
