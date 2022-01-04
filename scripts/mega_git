@@ -69,7 +69,11 @@ for location in $locations; do # cycle over locations
     for repo in `find $location -name .git ! -path '*/plugged/*'`; do # cylce over repos in locations
         cd $repo/.. # go to repo
         if [[ $less = 1 ]]; then
-            (pwd; $cmd) | less # run git command and output to less
+            if [[ $exec_f = 0 ]]; then
+                (pwd; $cmd) | less # run git command and output to less
+            else
+                (pwd; ($cmd | $exec_arg)) | less
+            fi
         elif [[ $async = 1 && $exec_f = 0 ]]; then
             $cmd & # call git command asyncronus
         elif [[ $async = 0 && $exec_f = 1 ]]; then
