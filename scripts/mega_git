@@ -2,8 +2,33 @@
 # call git command over all (most) of my get repos
 # This is done mostly because I frequently forget to push
 
+prog="mega_git"
+
+die(){
+    >&2 echo "$*"
+    exit 1
+}
+
+show_help(){
+    while IFS= read line; do
+        printf "%s\n" "$line"
+    done <<-EOF
+$prog SUBCMD [flags]
+  Call "git SUBCMD" on each repo
+  flags:
+    --async       - Run each git command asyncronously; cannot be run with --less
+    --no-async    - Run each git command sequentally; default
+    --less        - Pipe output of git command into less
+    --no-less     - Do not pipe output into less; default
+    --exec CMD    - Pipe the output of each git command into CMD
+    --help, -h    - print this output
+EOF
+}
+
 less=0
 async=0
+exec_f=0
+exec_arg=""
 args=""
 while [[ $# > 0 ]]; do
     case $1 in
@@ -19,12 +44,25 @@ while [[ $# > 0 ]]; do
         --no-less)
             less=0
             ;;
+        --exec)
+            exec_f=1
+            if [[ $# > 1 ]]; then
+                shift
+                exec_arg="$1"
+            else
+                die "Error: --exec flag was not passed an arg"
+            fi
+            ;;
+        --help|-h)
+            show_help
+            ;;
         *)
             args="$args $1"
             ;;
     esac
     shift
 done
+[[ -z "$args" ]] && die "Error: no git args passed"
 cmd="git $args"
 locations="$CODING_DIR $DOTFILES_DIR" # locations to search
 for location in $locations; do # cycle over locations
@@ -32,8 +70,12 @@ for location in $locations; do # cycle over locations
         cd $repo/.. # go to repo
         if [[ $less = 1 ]]; then
             (pwd; $cmd) | less # run git command and output to less
-        elif [[ $async = 1 ]]; then
+        elif [[ $async = 1 && $exec_f = 0 ]]; then
             $cmd & # call git command asyncronus
+        elif [[ $async = 0 && $exec_f = 1 ]]; then
+            $cmd | $exec_arg
+        elif [[ $asnyc = 1 && $exec_f = 1 ]]; then
+            ($cmd | $exec_arg) &
         else
             echo "----------------------------------------------------------------------------------"
             pwd # print location
