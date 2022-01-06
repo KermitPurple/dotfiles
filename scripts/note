@@ -1,2 +1,3 @@
 #!/bin/zsh
+# open a new note
 $CODING_DIR/python/notes/main.py $*

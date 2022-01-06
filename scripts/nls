@@ -1,2 +1,3 @@
 #!/bin/zsh
+# list notes using ls
 $CODING_DIR/python/notes/list.py $*

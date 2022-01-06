@@ -65,6 +65,7 @@ newe(){new $*&&exit}
 # clock in/ clock out; timeclock
 clock()(
     cd "$CODING_DIR/python/punchclock"
+    . venv/bin/activate
     ./punchclock.py "$@"
 )
 
