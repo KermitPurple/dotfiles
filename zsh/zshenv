@@ -15,7 +15,11 @@ export TEMP_DIR="$HOME/temp"
 export SCRIPT_DIR="$DOTFILES_DIR/scripts"
 
 # editing fpath
-export fpath=($DOTFILES_DIR/zsh/funcs "${fpath[@]}")
+export fpath=(
+/opt/homebrew/completions/zsh
+$DOTFILES_DIR/zsh/funcs
+"${fpath[@]}"
+)
 
 # add scripts to path
 export PATH="$PATH:$SCRIPT_DIR"
