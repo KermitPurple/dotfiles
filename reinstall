@@ -9,8 +9,11 @@ xcode-select --install
 # brew packages
 brew install \
     vim\
+    skhd\
     raylib\
     ffmpeg\
+    rustup\
+    dropbox\
     spotify\
     discord\
     openjdk\
@@ -18,3 +21,11 @@ brew install \
     util-linux\
     visual-studio-code\
 
+# install rust
+rust-init
+
+# create symbolic links
+ln -s $HOME/dotfiles/vim $HOME/.vim
+ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/zsh/zshenv $HOME/.zshenv
+ln -s $HOME/dotfiles/skhd/skhdrc $HOME/.skhdrc
