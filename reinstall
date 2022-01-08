@@ -10,9 +10,9 @@ xcode-select --install
 brew install \
     vim\
     skhd\
+    rust\
     raylib\
     ffmpeg\
-    rustup\
     dropbox\
     spotify\
     discord\
@@ -20,9 +20,6 @@ brew install \
     python@3.10\
     util-linux\
     visual-studio-code\
-
-# install rust
-rust-init
 
 # clone dotfiles
 git clone https://github.com/KermitPurple/dotfiles.git $HOME/dotfiles
