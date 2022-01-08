@@ -19,13 +19,10 @@ brew install \
     openjdk\
     python@3.10\
     util-linux\
-    visual-studio-code\
+    visual-studio-code
 
 # clone dotfiles
 git clone git@github.com:KermitPurple/dotfiles.git
-
-# make vim trash files
-mkdir $HOME/dotfiles/vim/trash $HOME/dotfiles/vim/views
 
 # create symbolic links
 ln -s $HOME/dotfiles/vim $HOME/.vim
@@ -33,6 +30,9 @@ ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/zsh/zshenv $HOME/.zshenv
 ln -s $HOME/dotfiles/skhd/skhdrc $HOME/.skhdrc
 
-# reminder
-echo You still need to run :PlugInstall in vim and then:
-echo "$HOME/dotfiles/vim/plugged/YouCompleteMe/install.py" --all
+# make vim trash files
+mkdir $HOME/dotfiles/vim/trash $HOME/dotfiles/vim/views
+
+# install vim plugins
+vim -c "PlugInstall" \
+    -c "qa!"
