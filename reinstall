@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# xcode commandline tools
+xcode-select --install
+
+# brew packages
+brew install \
+    vim\
+    raylib\
+    ffmpeg\
+    spotify\
+    discord\
+    openjdk\
+    python@3.10\
+    util-linux\
+    visual-studio-code\
+
