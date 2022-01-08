@@ -16,8 +16,7 @@ export SCRIPT_DIR="$DOTFILES_DIR/scripts"
 
 # editing fpath
 export fpath=(
-/opt/homebrew/completions/zsh
-$DOTFILES_DIR/zsh/funcs
+/opt/homebrew/share/zsh/site-functions
 "${fpath[@]}"
 )
 

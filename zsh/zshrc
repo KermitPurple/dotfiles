@@ -1,7 +1,5 @@
 # allow for colors
 autoload -U colors && colors
-autoload -U compinit # gh completion
-compinit -i
 
 # import other zsh files
 . "$DOTFILES_DIR/zsh/alias.zsh"
