@@ -12,18 +12,21 @@ brew install \
     vim\
     fzf\
     skhd\
-    iterm2\
+    rustup\
     raylib\
     lolcat\
     figlet\
     ffmpeg\
+    openjdk\
+    util-linux\
+    python@3.10
+# have to be seperate or don't install correctly
+# brew casks
+brew install \
+    iterm2\
     dropbox\
     spotify\
     discord\
-    openjdk\
-    util-linux\
-    rustup-init\
-    python@3.10\
     visual-studio-code
 
 # install rust without messing with path
