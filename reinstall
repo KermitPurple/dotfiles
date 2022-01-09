@@ -13,7 +13,6 @@ brew install \
     fzf\
     skhd\
     iterm2\
-    rustup\
     raylib\
     lolcat\
     figlet\
@@ -22,8 +21,9 @@ brew install \
     spotify\
     discord\
     openjdk\
-    python@3.10\
     util-linux\
+    rustup-init\
+    python@3.10\
     visual-studio-code
 
 # install rust without messing with path
