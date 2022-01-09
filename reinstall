@@ -8,10 +8,15 @@ xcode-select --install
 
 # brew packages
 brew install \
+    ack\
     vim\
+    fzf\
     skhd\
+    iterm2\
     rustup\
     raylib\
+    lolcat\
+    figlet\
     ffmpeg\
     dropbox\
     spotify\
