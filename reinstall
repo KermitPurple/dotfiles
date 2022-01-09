@@ -10,7 +10,7 @@ xcode-select --install
 brew install \
     vim\
     skhd\
-    rust\
+    rustup\
     raylib\
     ffmpeg\
     dropbox\
@@ -20,6 +20,9 @@ brew install \
     python@3.10\
     util-linux\
     visual-studio-code
+
+# install rust without messing with path
+rustup-init --no-modify-path -y
 
 # clone dotfiles
 git clone git@github.com:KermitPurple/dotfiles.git
