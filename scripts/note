@@ -1,4 +1,5 @@
 #!/bin/zsh
-# git@github.com:KermitPurple/notes.git
+# repo: git@github.com:KermitPurple/notes.git
+# dir: $CODING_DIR/python/notes
 # open a new note
 $CODING_DIR/python/notes/main.py $*
