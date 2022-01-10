@@ -33,6 +33,7 @@ fd() {
 # play pygame snake
 # repo: git@github.com:KermitPurple/PygameSnake.git
 # dir: $CODING_DIR/python/PygameSnake
+# branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 snake()(
     cd "$CODING_DIR/python/PygameSnake"
@@ -43,6 +44,7 @@ snake()(
 # play pygame tetris
 # repo: git@github.com:KermitPurple/PyTetrisV2.git
 # dir: $CODING_DIR/python/PyTetrisV2
+# branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 tetris()(
     cd "$CODING_DIR/python/PyTetrisV2"
