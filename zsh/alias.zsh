@@ -5,11 +5,13 @@ alias rna="$CODING_DIR/rust/rename_all/target/release/rename_all"
 
 # repo: git@github.com:KermitPurple/ConwaysGameOfLifeCpp.git
 # dir: $CODING_DIR/c++/ConwaysGameOfLifeCpp
+# branch: mac
 # build: make all TARGET=bin/conway
 alias conway="silent_bg $CODING_DIR/c++/ConwaysGameOfLifeCpp/bin/conway"
 
 # repo: git@github.com:KermitPurple/TesseractV2.git
 # dir: $CODING_DIR/c++/TesseractV2
+# branch: mac
 # build: make release
 alias tess="open -a XQuartz&&\
 sleep 1&&\
@@ -33,6 +35,7 @@ alias refresh=". ~/.zshrc"
 # repo: git@github.com:KermitPurple/DrawShapes.git
 # dir: $CODING_DIR/c++/shapes
 # build: make release
+# branch: mac
 # shape drawing program
 alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
 
