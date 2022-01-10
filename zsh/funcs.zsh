@@ -31,7 +31,9 @@ fd() {
 }
 
 # play pygame snake
-# git@github.com:KermitPurple/PygameSnake.git
+# repo: git@github.com:KermitPurple/PygameSnake.git
+# dir: $CODING_DIR/python/PygameSnake
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 snake()(
     cd "$CODING_DIR/python/PygameSnake"
     . venv/bin/activate
@@ -39,7 +41,9 @@ snake()(
 )
 
 # play pygame tetris
-# git@github.com:KermitPurple/PyTetrisV2.git
+# repo: git@github.com:KermitPurple/PyTetrisV2.git
+# dir: $CODING_DIR/python/PyTetrisV2
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 tetris()(
     cd "$CODING_DIR/python/PyTetrisV2"
     . venv/bin/activate
@@ -47,7 +51,9 @@ tetris()(
 )
 
 # open pygame graphing app
-# git@github.com:KermitPurple/py-graphs.git
+# repo: git@github.com:KermitPurple/py-graphs.git
+# dir: $CODING_DIR/python/graphs
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 graph()(
     cd "$CODING_DIR/python/graphs"
     . venv/bin/activate
@@ -55,7 +61,9 @@ graph()(
 )
 
 # Make a new project using a python script
-# git@github.com:kermitpurple/AutoProj.git
+# repo: git@github.com:kermitpurple/AutoProj.git
+# dir: $CODING_DIR/python/AutoProj
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 new()(
     cd $CODING_DIR/python/AutoProj
     . venv/bin/activate
@@ -66,7 +74,9 @@ new()(
 newe(){new $*&&exit}
 
 # clock in/ clock out; timeclock
-# git@github.com:KermitPurple/punchclock.git
+# repo: git@github.com:KermitPurple/punchclock.git
+# dir: $CODING_DIR/python/punchclock
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 clock()(
     cd "$CODING_DIR/python/punchclock"
     . venv/bin/activate
@@ -123,7 +133,9 @@ newenv(){
 }
 
 # show code rain
-# git@github.com:KermitPurple/pyRain.git
+# repo: git@github.com:KermitPurple/pyRain.git
+# dir: $CODING_DIR/python/PyRain
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 rain()(
     cd "$CODING_DIR/python/PyRain"
     . venv/bin/activate
@@ -196,7 +208,9 @@ gay_dragon(){
 }
 
 # Segments
-# git@github.com:KermitPurple/segments.git
+# repo: git@github.com:KermitPurple/segments.git
+# dir: $CODING_DIR/python/segments
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 segments()(
     cd "$CODING_DIR/python/segments"
     . venv/bin/activate
@@ -204,7 +218,9 @@ segments()(
 )
 
 # Fractals
-# git@github.com:KermitPurple/fractals.git
+# repo: git@github.com:KermitPurple/fractals.git
+# dir: $CODING_DIR/python/fractals
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 fractals()(
     cd "$CODING_DIR/python/fractals"
     . venv/bin/activate
@@ -212,7 +228,9 @@ fractals()(
 )
 #
 # polygons
-# git@github.com:KermitPurple/consentric_polygons_py.git
+# repo: git@github.com:KermitPurple/consentric_polygons_py.git
+# dir: $CODING_DIR/python/fractals
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 polygons()(
     cd "$CODING_DIR/python/polygons"
     . venv/bin/activate

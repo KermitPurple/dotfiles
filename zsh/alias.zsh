@@ -1,24 +1,24 @@
-# git@github.com:kermitpurple/rename_all
-# built with:
-# cargo build --release
+# repo: git@github.com:kermitpurple/rename_all
+# dir: $CODING_DIR/rust/rename_all
+# build: cargo build --release
 alias rna="$CODING_DIR/rust/rename_all/target/release/rename_all"
 
-# git@github.com:KermitPurple/ConwaysGameOfLifeCpp.git
-# built with:
-# make clean all TARGET=bin/conway
+# repo: git@github.com:KermitPurple/ConwaysGameOfLifeCpp.git
+# dir: $CODING_DIR/c++/ConwaysGameOfLifeCpp
+# build: make all TARGET=bin/conway
 alias conway="silent_bg $CODING_DIR/c++/ConwaysGameOfLifeCpp/bin/conway"
 
-# git@github.com:KermitPurple/TesseractV2.git
-# built with:
-# make release
+# repo: git@github.com:KermitPurple/TesseractV2.git
+# dir: $CODING_DIR/c++/TesseractV2
+# build: make release
 alias tess="open -a XQuartz&&\
 sleep 1&&\
 export DISPLAY=:0&&\
 silent_bg $CODING_DIR/c++/TesseractV2/bin/tess"
 
-# git@github.com:KermitPurple/raylib_fib.git
-# built with:
-# make clean all TARGET=bin/fib
+# repo: git@github.com:KermitPurple/raylib_fib.git
+# dir: $CODING_DIR/c++/fib
+# build: make clean all TARGET=bin/fib
 alias fib="silent_bg $CODING_DIR/c++/fib/bin/fib"
 
 # make a java project and run it in temp folder
@@ -30,7 +30,9 @@ alias c++_make="clang++ */*.cpp -Iinclude -o\"$TEMP_DIR/test\" && \"$TEMP_DIR/te
 # reload the zshrc
 alias refresh=". ~/.zshrc"
 
-# git@github.com:KermitPurple/DrawShapes.git
+# repo: git@github.com:KermitPurple/DrawShapes.git
+# dir: $CODING_DIR/c++/shapes
+# build: make release
 # shape drawing program
 alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
 
@@ -43,6 +45,7 @@ alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
 #     neofetch - brew install neofetch
 alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && figlet \"Welcome Shane!\" | cowsay -n -fdragon | lolcat"
 
-# git@github.com:KermitPurple/roll_dice_py.git
+# repo: git@github.com:KermitPurple/roll_dice_py.git
+# dir: $CODING_DIR/python/dice
 # dice roll function
-alias roll="/Users/shane/coding/python/dice/main.py"
+alias roll="$CODING_DIR/python/dice/main.py"
