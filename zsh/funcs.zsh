@@ -226,7 +226,7 @@ fractals()(
     . venv/bin/activate
     silent_bg ./main.py
 )
-#
+
 # polygons
 # repo: git@github.com:KermitPurple/consentric_polygons_py.git
 # dir: $CODING_DIR/python/fractals
