@@ -1,3 +1,4 @@
 #!/bin/zsh
+# git@github.com:KermitPurple/notes.git
 # delete note
 $CODING_DIR/python/notes/delete.py $*

@@ -1,4 +1,5 @@
 #!/bin/zsh
+# git@github.com:KermitPurple/ROTN.git
 py_file="$CODING_DIR/python/ROTN/main.py"
 if [ -t 0 ]; then # if running interactive
     $py_file $*

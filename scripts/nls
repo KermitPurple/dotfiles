@@ -1,3 +1,4 @@
 #!/bin/zsh
+# git@github.com:KermitPurple/notes.git
 # list notes using ls
 $CODING_DIR/python/notes/list.py $*

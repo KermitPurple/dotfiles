@@ -1,2 +1,3 @@
 #!/bin/zsh
+# git@github.com:KermitPurple/ROTNeditor.git
 $CODING_DIR/python/ROTNeditor/main.py $*

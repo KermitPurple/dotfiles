@@ -1,3 +1,4 @@
 #!/bin/zsh
+# git@github.com:KermitPurple/notes.git
 # open a new note
 $CODING_DIR/python/notes/main.py $*
