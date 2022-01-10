@@ -1,0 +1,13 @@
+#!/bin/sh
+app="Google Chrome"
+if [[ `osascript -e "return application \"$app\" is running"` = "false" ]]; then
+    >&2 echo "Google Chrome is not open"
+    exit 1
+fi
+if [[ `osascript -e"tell application \"$app\" to return (count windows)"` < 1 ]]; then
+    >&2 echo "No tabs are open"
+    exit 1
+fi
+osascript -e\
+    "tell application \"$app\" to get URL of active tab of front window"|\
+    sed "s/\n//"

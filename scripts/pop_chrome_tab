@@ -1,0 +1,5 @@
+#!/bin/sh
+get_chrome_url
+[[ $? = 0 ]] || exit 1
+close_chrome_tab
+
