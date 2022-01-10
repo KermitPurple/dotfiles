@@ -27,6 +27,8 @@ let mapleader = ' '
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 nmap <s-space> <leader>
+nmap <F5> <leader>e
+nnoremap <leader>e :!%<CR>
 nnoremap <leader>r :%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>q :wqa<cr>
 nnoremap <leader>Q :wq<cr>
