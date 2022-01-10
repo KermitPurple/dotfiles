@@ -48,3 +48,6 @@ mkdir $HOME/dotfiles/vim/trash $HOME/dotfiles/vim/views
 vim -c "PlugInstall" \
     -c "qa!"
 $HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
+
+# reinstall script requirements
+$HOME/dotfiles/clone_reqs
