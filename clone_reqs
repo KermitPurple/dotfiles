@@ -1,0 +1,38 @@
+#!/bin/sh
+# clone requirements for scripts aliases and functions
+
+# mkdir $CODING_DIR $CODING_DIR/python $CODING_DIR/c++ $CODING_DIR/rust
+locations="$DOTFILES_DIR/zsh/funcs.zsh $DOTFILES_DIR/zsh/alias.zsh $DOTFILES_DIR/scripts/*"
+first=0
+repo=
+dir=
+build=
+
+sed -E '/^# (repo|dir|build):/!d;s/# //' $locations |\
+while read line;do
+    if [[ $line = 'repo: '* ]]; then 
+        if [[ $first = 1 ]]; then
+            echo $repo
+            echo $dir
+            echo $build
+            if [[ ! -d $dir ]]; then
+                git clone "$repo" "$dir"
+                [[ -z "$build" ]] || /bin/sh -c "cd $dir;$build"
+            fi
+        else
+            first=1
+        fi
+        repo=`echo $line|sed 's/repo: //'`
+        dir=
+        build=
+    else
+        case "$line" in
+            dir:*)
+                dir=$(/bin/sh -c "echo `echo $line|sed 's/dir: //'`")
+                ;;
+            build:*)
+                build=`echo $line|sed 's/build: //'`
+                ;;
+        esac
+    fi
+done
