@@ -102,9 +102,12 @@ newenv(){
     fi
     if [[ -d "$env_name" ]]; then # if folder exists
         echo "A folder named \"$env_name\" already exists"
-        response=""
+        local response=""
         while [[ "$response" != 'y' && "$response" != 'n' && "$response" != 'yes' && "$response" != 'no' ]]; do
-            vared -c -p "Do you want to create a new one? " response
+            echo "Do you want to create a new one(yn)? "
+            # vared response # use vared for response
+            # response=`echo "$response" | tr A-Z a-z` # lowercase
+            response=`getch | tr A-Z a-z`
         done
         if [[ "$response" = 'y' || "$response" = 'yes' ]]; then
             rm -rf venv
