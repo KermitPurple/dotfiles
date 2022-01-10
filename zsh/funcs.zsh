@@ -65,6 +65,7 @@ graph()(
 # Make a new project using a python script
 # repo: git@github.com:kermitpurple/AutoProj.git
 # dir: $CODING_DIR/python/AutoProj
+# branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 new()(
     cd $CODING_DIR/python/AutoProj
@@ -95,7 +96,8 @@ walpha(){
 }
 
 # open paint application
-# https://github.com/kermitpurple/pypaint
+# repo: git@github.com:kermitpurple/pypaint
+# dir: $CODING_DIR/python/PyPaint
 paint()(
     local dir="$CODING_DIR/python/PyPaint"
     . "$dir/venv/bin/activate"
@@ -191,7 +193,8 @@ google(){
 }
 
 # convert an image to ascii text
-# https://github.com/KermitPurple/pypaint
+# repo: git@github.com:KermitPurple/image_to_ascii.git
+# dir: $CODING_DIR/python/image_to_ascii
 img2ascii()(
     local dir="$CODING_DIR/python/image_to_ascii"
     . "$dir/venv/bin/activate"
