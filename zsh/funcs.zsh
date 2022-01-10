@@ -31,6 +31,7 @@ fd() {
 }
 
 # play pygame snake
+# git@github.com:KermitPurple/PygameSnake.git
 snake()(
     cd "$CODING_DIR/python/PygameSnake"
     . venv/bin/activate
@@ -38,6 +39,7 @@ snake()(
 )
 
 # play pygame tetris
+# git@github.com:KermitPurple/PyTetrisV2.git
 tetris()(
     cd "$CODING_DIR/python/PyTetrisV2"
     . venv/bin/activate
@@ -45,6 +47,7 @@ tetris()(
 )
 
 # open pygame graphing app
+# git@github.com:KermitPurple/py-graphs.git
 graph()(
     cd "$CODING_DIR/python/graphs"
     . venv/bin/activate
@@ -52,7 +55,7 @@ graph()(
 )
 
 # Make a new project using a python script
-# https:/github.com/kermitpurple/AutoProj
+# git@github.com:kermitpurple/AutoProj.git
 new()(
     cd $CODING_DIR/python/AutoProj
     . venv/bin/activate
@@ -63,6 +66,7 @@ new()(
 newe(){new $*&&exit}
 
 # clock in/ clock out; timeclock
+# git@github.com:KermitPurple/punchclock.git
 clock()(
     cd "$CODING_DIR/python/punchclock"
     . venv/bin/activate
@@ -116,6 +120,7 @@ newenv(){
 }
 
 # show code rain
+# git@github.com:KermitPurple/pyRain.git
 rain()(
     cd "$CODING_DIR/python/PyRain"
     . venv/bin/activate
@@ -188,7 +193,7 @@ gay_dragon(){
 }
 
 # Segments
-# https://github.com/KermitPurple/segments
+# git@github.com:KermitPurple/segments.git
 segments()(
     cd "$CODING_DIR/python/segments"
     . venv/bin/activate
@@ -196,7 +201,7 @@ segments()(
 )
 
 # Fractals
-# https://github.com/KermitPurple/fractals
+# git@github.com:KermitPurple/fractals.git
 fractals()(
     cd "$CODING_DIR/python/fractals"
     . venv/bin/activate
@@ -204,7 +209,7 @@ fractals()(
 )
 #
 # polygons
-# https://github.com/KermitPurple/consentric_polygons_py
+# git@github.com:KermitPurple/consentric_polygons_py.git
 polygons()(
     cd "$CODING_DIR/python/polygons"
     . venv/bin/activate
