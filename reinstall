@@ -50,4 +50,5 @@ vim -c "PlugInstall" \
 $HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
 
 # reinstall script requirements
+. ~/.zshenv
 $HOME/dotfiles/clone_reqs
