@@ -9,20 +9,23 @@ dir=
 branch=
 build=
 
-sed -E '/^# (repo|dir|build|branch):/!d;s/# //' $locations |\
+clone_req(){
+    # echo $repo
+    # echo $dir
+    # echo $branch
+    # echo $build
+    if [[ ! -d $dir ]]; then
+        git clone "$repo" "$dir"
+        cd $dir
+        [[ -z "$branch" ]] || git checkout $branch
+        [[ -z "$build" ]] || /bin/sh -c "$build"
+    fi
+}
+
 while read line;do
     if [[ $line = 'repo: '* ]]; then 
         if [[ $first = 1 ]]; then
-            # echo $repo
-            # echo $dir
-            # echo $branch
-            # echo $build
-            if [[ ! -d $dir ]]; then
-                git clone "$repo" "$dir"
-                cd $dir
-                [[ -z "$branch" ]] || git checkout $branch
-                [[ -z "$build" ]] || /bin/sh -c "$build"
-            fi
+            clone_req
         else
             first=1
         fi
@@ -43,4 +46,5 @@ while read line;do
                 ;;
         esac
     fi
-done
+done <<< "`sed -E '/^# (repo|dir|build|branch):/!d;s/# //' $locations`"
+clone_req
