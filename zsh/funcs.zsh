@@ -242,6 +242,17 @@ polygons()(
     silent_bg ./main.py
 )
 
+# circle illusion
+# repo: git@github.com:KermitPurple/circleillusion.git
+# dir: $CODING_DIR/python/circle_illusion
+# branch: mac
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
+circles()(
+    cd "$CODING_DIR/python/circle_illusion"
+    . venv/bin/activate
+    ./main.py &
+)
+
 # Use coinbase api to get price of bitcoin
 bitcoin_price(){
     local price=`curl -s 'https://api.coinbase.com/v2/prices/spot?currency=USD' |\
