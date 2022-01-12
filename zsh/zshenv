@@ -9,7 +9,7 @@ export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
 # Directories
 export NOTE_FOLDER="$HOME/dropbox/note_folder"
 export DOTFILES_DIR="$HOME/dotfiles"
-export SCHOOL_DIR="$HOME/dropbox/school/fall2021"
+export SCHOOL_DIR="$HOME/dropbox/school/spring2022"
 export CODING_DIR="$HOME/coding"
 export TEMP_DIR="$HOME/temp"
 export SCRIPT_DIR="$DOTFILES_DIR/scripts"
