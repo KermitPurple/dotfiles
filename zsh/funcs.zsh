@@ -98,6 +98,7 @@ walpha(){
 # open paint application
 # repo: git@github.com:kermitpurple/pypaint
 # dir: $CODING_DIR/python/PyPaint
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 paint()(
     local dir="$CODING_DIR/python/PyPaint"
     . "$dir/venv/bin/activate"
