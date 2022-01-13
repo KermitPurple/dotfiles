@@ -235,7 +235,7 @@ fractals()(
 
 # polygons
 # repo: git@github.com:KermitPurple/consentric_polygons_py.git
-# dir: $CODING_DIR/python/fractals
+# dir: $CODING_DIR/python/polygons
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 polygons()(
     cd "$CODING_DIR/python/polygons"
