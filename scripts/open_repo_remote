@@ -8,7 +8,11 @@ while [[ $# > 0 ]]; do
             browser_fn="new_chrome"
             ;;
         *)
-            remote="$remote $1"
+            if [[ -z "$remote" ]]; then
+                remote="$1"
+            else
+                remote="$remote $1"
+            fi
             ;;
     esac
     shift
