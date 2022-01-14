@@ -14,7 +14,7 @@ clone_req(){
     # echo $dir
     # echo $branch
     # echo $build
-    if [[ ! -d $dir ]]; then
+    if [[ ! -z $repo ! -z $dir && ! -d $dir ]]; then
         git clone "$repo" "$dir"
         cd $dir
         [[ -z "$branch" ]] || git checkout $branch
