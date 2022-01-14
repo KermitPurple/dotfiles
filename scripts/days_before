@@ -17,7 +17,7 @@ if len(sys.argv) != 1:
 try:
     n = int(sys.argv[0])
 except ValueError as e:
-    print('The second parameter must be a number', file=sys.stderr)
+    print('Error: The second parameter must be a number', file=sys.stderr)
     print_help(sys.stderr)
     sys.exit(1)
 print(date.today() - timedelta(n))
