@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+import sys
+from datetime import date, timedelta
+
+def print_help(file = sys.stdout):
+    print('days_before n'
+        '  calculates the days n before the currrent date'
+        '    n - number of days to go back by',
+        file=file
+    )
+
+_ = sys.argv.pop(0)
+if len(sys.argv) != 1:
+    print('ERROR: not enough arguments', file=sys.stderr)
+    print_help(sys.stderr)
+    sys.exit(1)
+try:
+    n = int(sys.argv[0])
+except ValueError as e:
+    print('The second parameter must be a number', file=sys.stderr)
+    print_help(sys.stderr)
+    sys.exit(1)
+print(date.today() - timedelta(n))
