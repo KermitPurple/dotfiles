@@ -28,3 +28,8 @@ export FZF_DEFAULT_COMMAND="find . -type f"
 
 # the editor of choice
 export EDITOR="$HOMEBREW_PREFIX/bin/vim"
+
+# chrome stash for:
+#   - $SCRIPT_DIR/pop_chrome_tab
+#   - $SCRIPT_DIR/push_chrome_tab
+export CHROME_STASH="$HOME/dropbox/chrome_stash.txt"
