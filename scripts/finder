@@ -1,8 +1,8 @@
 #!/bin/sh
-[[ -z "$*" ]] || cd "$*"
-path=`pwd`
-if [[ ! -d "$path" ]]; then
+path="$*"
+[[ -z $path ]] && path=`pwd`
+if [[ ! -d "$path" ]]; then # if the path isn't a dir
     >&2 echo "'$path' is not a directory"
     exit 1
 fi
-open -a"Finder" "$path"
+open -a"Finder" "$path" # open path in finder
