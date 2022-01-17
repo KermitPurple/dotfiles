@@ -1,0 +1,8 @@
+#!/bin/sh
+[[ -z "$*" ]] || cd "$*"
+path=`pwd`
+if [[ ! -d "$path" ]]; then
+    >&2 echo "'$path' is not a directory"
+    exit 1
+fi
+open -a"Finder" "$path"
