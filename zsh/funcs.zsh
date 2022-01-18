@@ -260,3 +260,11 @@ bitcoin_price(){
         sed 's/.*"amount":"\([^"]*\)".*/\1/g'`
     echo "\$$price"
 }
+
+# todo application
+# repo: git@github.com:kermitpurple/todo_rs
+# dir: $CODING_DIR/rust/todo_rs
+# build: cargo build --release
+todo(){
+    $CODING_DIR/rust/todo_rs/target/release/todo_rs $*
+}
