@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from typing import IO
 import os, sys, pickle
 try:
     import clipboard
@@ -27,7 +28,7 @@ def save_clips(file_name: str, clips: dict[str, str]):
     with open(file_name, 'wb') as f:
         pickle.dump(clips, f)
 
-def print_help(file = sys.stdout):
+def print_help(file: IO[any] = sys.stdout):
     print(
         '''mclip SUBCMD
   A program that can store and load multiple clipboards
