@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+import os, sys, pickle
+try:
+    import clipboard
+except ModuleNotFoundError:
+    os.system('pip3 install clipboard > /dev/null')
+    import clipboard
+
+def load_clips(file_name: str) -> dict[str, str]:
+    '''
+    load an object from a file
+    :file_name: file to load from
+    :returns: the object stored in the file
+    '''
+    try:
+        with open(file_name, 'rb') as f:
+            return pickle.load(f)
+    except FileNotFoundError:
+        return {}
+
+def save_clips(file_name: str, clips: dict[str, str]):
+    '''
+    saves an object to a file
+    :file_name: file to save the clips to
+    :clips: the clips object to save to a file
+    '''
+    with open(file_name, 'wb') as f:
+        pickle.dump(clips, f)
+
+def print_help(file = sys.stdout):
+    print(
+        '''mclip SUBCMD
+  A program that can store and load multiple clipboards
+  SUBCMDs:
+    help, h              display this text
+    list, l              display all clipboards
+    save NAME, s NAME    save to clipboard with given name
+    load NAME, l NAME    load from clipboard with given name
+    print NAME, p NAME   print from clipboard with given name
+    delete NAME, d NAME  delete clipboard with given name''',
+        file=file,
+    )
+
+def eprint(*args, **kwargs):
+    '''
+    call print with *args and **kwargs except file is always stderr
+    '''
+    if 'file' in kwargs:
+        del kwargs['file']
+    print('mclip: ERROR:', *args, **kwargs, file=sys.stderr)
+
+def die(*args, **kwargs):
+    '''
+    call eprint with *args and **kwargs and then exit with error code 1
+    '''
+    eprint(*args, **kwargs)
+    exit(1)
+
+def main():
+    '''Driver code'''
+    _ = sys.argv.pop(0) # remove first arg
+    try:
+        file_name = os.environ['MCLIP_FILE']
+    except:
+        eprint("MCLIP_FILE not found in enviornment, this variable must be set")
+        print_help(sys.stderr)
+        exit(1)
+    clips = load_clips(file_name)
+    match sys.argv:
+        case [] | ['help' | 'h']:
+            print_help()
+        case ['list' | 'l']:
+            for key, val in clips.items():
+                print(f'{key!r}: {val!r}')
+        case ['save' | 's', name]:
+            clips[name] = clipboard.paste()
+        case ['load' | 'l', name]:
+            if name not in clips:
+                die(f'no clipboard with name {name!r} exists')
+            clipboard.copy(clips[name])
+        case ['print' | 'p', name]:
+            if name not in clips:
+                die(f'no clipboard with name {name!r} exists')
+            print(clips[name], end='')
+        case ['delete' | 'd', name]:
+            if name not in clips:
+                die(f'no clipboard with name {name!r} exists')
+            del clips[name]
+    save_clips(file_name, clips)
+
+if __name__ == '__main__': # if file is being run directly
+    main()
