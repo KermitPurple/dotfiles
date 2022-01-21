@@ -66,6 +66,7 @@ def main():
         print_help(sys.stderr)
         exit(1)
     clips = load_clips(file_name)
+    piped_in = not sys.stdin.isatty()
     match sys.argv:
         case [] | ['help' | 'h']:
             print_help()
@@ -73,7 +74,10 @@ def main():
             for key, val in clips.items():
                 print(f'{key!r}: {val!r}')
         case ['save' | 's', name]:
-            clips[name] = clipboard.paste()
+            if piped_in:
+                clips[name] = sys.stdin.read()
+            else:
+                clips[name] = clipboard.paste()
         case ['load' | 'l', name]:
             if name not in clips:
                 die(f'no clipboard with name {name!r} exists')
