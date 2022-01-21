@@ -2,7 +2,7 @@
 import os
 try:
     import getch
-except:
+except ModuleNotFoundError:
     os.system('pip3 install getch > /dev/null')
     import getch
 print(getch.getch())
