@@ -62,9 +62,7 @@ def main():
     try:
         file_name = os.environ['MCLIP_FILE']
     except:
-        eprint("MCLIP_FILE not found in enviornment, this variable must be set")
-        print_help(sys.stderr)
-        exit(1)
+        die("MCLIP_FILE not found in enviornment, this variable must be set")
     clips = load_clips(file_name)
     piped_in = not sys.stdin.isatty()
     match sys.argv:
@@ -90,6 +88,8 @@ def main():
             if name not in clips:
                 die(f'no clipboard with name {name!r} exists')
             del clips[name]
+        case _:
+            die('no subcommand recognised')
     save_clips(file_name, clips)
 
 if __name__ == '__main__': # if file is being run directly
