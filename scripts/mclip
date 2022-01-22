@@ -66,6 +66,7 @@ def main():
         die("MCLIP_FILE not found in enviornment, this variable must be set")
     clips = load_clips(file_name)
     piped_in = not sys.stdin.isatty()
+    piped_out = not sys.stdout.isatty()
     match sys.argv:
         case [] | ['help' | 'h']:
             print_help()
@@ -80,7 +81,10 @@ def main():
         case ['load' | 'l', name]:
             if name not in clips:
                 die(f'no clipboard with name {name!r} exists')
-            clipboard.copy(clips[name])
+            if piped_out:
+                print(clips[name], end='')
+            else:
+                clipboard.copy(clips[name])
         case ['print' | 'p', name]:
             if name not in clips:
                 die(f'no clipboard with name {name!r} exists')
