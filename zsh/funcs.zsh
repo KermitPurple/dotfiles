@@ -14,6 +14,7 @@ set_prompt(){
 # directory movement functions
 dotfiles()cd "$DOTFILES_DIR/$*"
 school()cd "$SCHOOL_DIR/$*"
+coding()cd "$CODING_DIR/$*"
 temp()cd "$TEMP_DIR/$*"
 rust()cd "$CODING_DIR/rust/$*"
 pyth()cd "$CODING_DIR/python/$*"
