@@ -130,7 +130,7 @@ let g:ascii_art_header = [
             \ '| |____/ \___|  \____|\__,_|\__, (_) |____/ \___/   \____|_|  |_|_| |_| |_|\___(_)|',
             \ '|                           |___/                                                 |',
             \ '*---------------------------------------------------------------------------------*',
-            \]
+            \ ]
 let g:startify_custom_header = 'startify#pad(g:ascii_art_header + startify#fortune#boxed())'
 let g:startify_custom_footer = ['Also you''re gay!']
 let g:startify_bookmarks = [
