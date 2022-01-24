@@ -265,7 +265,7 @@ bitcoin_price(){
 # todo application
 # repo: git@github.com:kermitpurple/todo_rs
 # dir: $CODING_DIR/rust/todo_rs
-# build: cargo build
+# build: cargo build --release
 todo(){
-    $CODING_DIR/rust/todo_rs/target/debug/todo_rs $*
+    $CODING_DIR/rust/todo_rs/target/release/todo_rs $*
 }
