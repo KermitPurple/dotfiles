@@ -52,5 +52,6 @@ while [[ $# > 0 ]]; do
             ;;
     esac
 done
+[[ "$output" == */* ]] || output="./$output"
 
-$cc "${files[@]}" -o "$output" && $output "$@"
+$cc "${files[@]}" -o "$output" && "$output" "$@"
