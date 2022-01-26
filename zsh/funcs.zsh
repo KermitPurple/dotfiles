@@ -69,9 +69,9 @@ graph()(
 # branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 new()(
-    cd $CODING_DIR/python/AutoProj
-    . venv/bin/activate
-    ./main.py $*
+    local dir="$CODING_DIR/python/AutoProj"
+    . "$dir/venv/bin/activate""
+    "$dir/main.py"" $*
 )
 
 # calls new function then exits
