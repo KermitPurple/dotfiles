@@ -14,14 +14,14 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the debugger being run
     FLAGS:
-      c CC     - set compiler [default: "clang"]
+      c CC     - set compiler [default: "gcc"]
       d DBG    - set debugger [default: "lldb"]
       o OUTPUT - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
       h        - print this message
 EOF
 }
 
-cc="clang"
+cc="gcc"
 db="lldb"
 files=()
 output="$TEMP_DIR/ccdbg.out"
