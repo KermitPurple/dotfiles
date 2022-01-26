@@ -70,8 +70,8 @@ graph()(
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 new()(
     local dir="$CODING_DIR/python/AutoProj"
-    . "$dir/venv/bin/activate""
-    "$dir/main.py"" $*
+    . "$dir/venv/bin/activate"
+    "$dir/main.py" $*
 )
 
 # calls new function then exits
