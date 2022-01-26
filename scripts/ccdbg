@@ -1,0 +1,63 @@
+#!/bin/sh
+
+die(){
+    >&2 echo "$*"
+    exit 1
+}
+
+print_help(){
+    while IFS= read line; do
+        echo "$line"
+    done <<-EOF
+ccrun FILES [FLAGS] [-- PROG_FLAGS]
+  Compiles and runs a c family program
+    FILE       - source file to be run
+    PROG_FLAGS - flags to be passed to the debugger being run
+    FLAGS:
+      c CC     - set compiler [default: "clang"]
+      d DBG    - set debugger [default: "lldb"]
+      o OUTPUT - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
+      h        - print this message
+EOF
+}
+
+cc="clang"
+db="lldb"
+files=()
+output="$TEMP_DIR/ccdbg.out"
+while [[ $# > 0 ]]; do
+    arg="$1"
+    shift
+    case "$arg" in
+        -c)
+            [[ $# > 0 ]] || die "ccrun: ERROR: -c flag expected an arugment"
+            cc="$1"
+            shift
+            ;;
+        -d)
+            [[ $# > 0 ]] || die "ccrun: ERROR: -d flag expected an arugment"
+            db="$1"
+            shift
+            ;;
+        -o)
+            [[ $# > 0 ]] || die "ccrun: ERROR: -o flag expected an arugment"
+            output="$1"
+            shift
+            ;;
+        -h)
+            print_help
+            exit 0
+            ;;
+        --)
+            break # the rest of the args get passed to the executable
+            ;;
+        -*)
+            die "ccrun: ERROR: unexpected flag '$arg'"
+            ;;
+        *)
+            files+=($arg)
+            ;;
+    esac
+done
+
+$cc "${files[@]}" -g -o "$output" && $db $output
