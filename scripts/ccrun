@@ -14,13 +14,13 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the executable being run
     FLAGS:
-      c CC     - set compiler
-      o OUTPUT - set output executable file to OUTPUT
+      c CC     - set compiler [default: "clang"]
+      o OUTPUT - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccrun.out"]
       h        - print this message
 EOF
 }
 
-cc="cc"
+cc="clang"
 files=()
 output="$TEMP_DIR/ccrun.out"
 while [[ $# > 0 ]]; do
