@@ -10,7 +10,7 @@ print_help(){
         echo "$line"
     done <<-EOF
 ccrun FILES [FLAGS] [-- PROG_FLAGS]
-  Compiles and runs a c family program
+  Compiles and runs a debugger a c family program
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the debugger being run
     FLAGS:
