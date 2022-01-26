@@ -1,0 +1,70 @@
+#!/bin/sh
+
+die(){
+    >&2 echo "$*"
+    exit 1
+}
+
+print_help(){
+    while IFS= read line; do
+        echo "$line"
+    done <<-EOF
+ccrun FILES [FLAGS] [-- PROG_FLAGS]
+  Compiles and runs a c family program
+    FILE       - source file to be run
+    PROG_FLAGS - flags to be passed to the executable being run
+    FLAGS:
+      c CC     - set compiler
+      o OUTPUT - set output executable file to OUTPUT
+      h        - print this message
+EOF
+}
+
+cc="cc"
+prog_args=""
+prog_args_flag=0
+files=""
+output="$TEMP_DIR/ccrun.out"
+while [[ $# > 0 ]]; do
+    arg="$1"
+    shift
+    case "$arg" in
+        -c)
+            [[ $# > 0 ]] || die "ccrun: ERROR: -c flag expected an arugment"
+            cc="$1"
+            shift
+            ;;
+        -o)
+            [[ $# > 0 ]] || die "ccrun: ERROR: -o flag expected an arugment"
+            output="$1"
+            shift
+            ;;
+        -h)
+            print_help
+            exit 0
+            ;;
+        --)
+            prog_args_flag=1
+            ;;
+        -*)
+            die "ccrun: ERROR: unexpected flag '$arg'"
+            ;;
+        *)
+            if [[ $prog_args_flag == 0 ]]; then
+                if [[ -z "$files" ]]; then
+                    files="$arg"
+                else
+                    files="$files $arg"
+                fi
+            else
+                if [[ -z "$prog_args" ]]; then
+                    prog_args="$arg"
+                else
+                    prog_args="$prog_args $arg"
+                fi
+            fi
+            ;;
+    esac
+done
+
+$cc $files -o "$output" && $output $prog_args
