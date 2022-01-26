@@ -21,9 +21,7 @@ EOF
 }
 
 cc="cc"
-prog_args=""
-prog_args_flag=0
-files=""
+files=()
 output="$TEMP_DIR/ccrun.out"
 while [[ $# > 0 ]]; do
     arg="$1"
@@ -44,27 +42,15 @@ while [[ $# > 0 ]]; do
             exit 0
             ;;
         --)
-            prog_args_flag=1
+            break # the rest of the args get passed to the executable
             ;;
         -*)
             die "ccrun: ERROR: unexpected flag '$arg'"
             ;;
         *)
-            if [[ $prog_args_flag == 0 ]]; then
-                if [[ -z "$files" ]]; then
-                    files="$arg"
-                else
-                    files="$files $arg"
-                fi
-            else
-                if [[ -z "$prog_args" ]]; then
-                    prog_args="$arg"
-                else
-                    prog_args="$prog_args $arg"
-                fi
-            fi
+            files+=($arg)
             ;;
     esac
 done
 
-$cc $files -o "$output" && $output $prog_args
+$cc "${files[@]}" -o "$output" && $output "$@"
