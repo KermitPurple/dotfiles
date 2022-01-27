@@ -1,7 +1,7 @@
 #!/bin/bash
 
 die(){
-    >&2 echo "$*"
+    >&2 echo "ccrun: ERROR: $*"
     exit 1
 }
 
@@ -33,24 +33,56 @@ while [[ $# > 0 ]]; do
             no_run=1
             ;;
         -c)
-            [[ $# > 0 ]] || die "ccrun: ERROR: -c flag expected an arugment"
+            [[ $# > 0 ]] || die "-c flag expected an arugment"
             cc="$1"
             shift
             ;;
         -o)
-            [[ $# > 0 ]] || die "ccrun: ERROR: -o flag expected an arugment"
+            [[ $# > 0 ]] || die "-o flag expected an arugment"
             output="$1"
             shift
-            ;;
-        -h)
-            print_help
-            exit 0
             ;;
         --)
             break # the rest of the args get passed to the executable
             ;;
+        -)
+            die "'-' is not a valid flag"
+            ;;
         -*)
-            die "ccrun: ERROR: unexpected flag '$arg'"
+            need_arg=0
+            flags="${arg#?}" 
+            for flag in `echo "$flags" | grep -o .`; do
+                [[ $need_arg == 1 ]] && die "-$flag_n_arg flag expected an argument"
+                case "$flag" in
+                    c|o)
+                        need_arg=1
+                        flag_n_arg=$flag
+                        ;;
+                    n)
+                        no_run=1
+                        ;;
+                    h)
+                        print_help
+                        exit 0
+                        ;;
+                    *)
+                        die "unexpected flag '$flag'"
+                        ;;
+                esac
+            done
+            flag=${arg: -1}
+            if [[ $need_arg == 1 ]]; then
+                [[ $# > 0 ]] || die "-$flag flag expected an argument"
+                case $flag in
+                    c)
+                        cc="$1"
+                        ;;
+                    o)
+                        output="$1"
+                        ;;
+                esac
+                shift
+            fi
             ;;
         *)
             files+=($arg)
