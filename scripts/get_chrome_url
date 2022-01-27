@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 app="Google Chrome"
 if [[ `osascript -e "return application \"$app\" is running"` = "false" ]]; then
     >&2 echo "Google Chrome is not open"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 repo="$1"
 shift # remove first arg
 [[ $repo = *.git ]] || repo="$repo.git" # add .git if it isn't there

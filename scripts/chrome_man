@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # open the man page of the arguments in chrome
 # first arg: [optional] man section number
 # second arg: man page to find

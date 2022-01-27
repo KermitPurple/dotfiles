@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # clone requirements for scripts aliases and functions
 
 mkdir -p $CODING_DIR/python $CODING_DIR/c++ $CODING_DIR/rust
@@ -18,7 +18,7 @@ clone_req(){
         git clone "$repo" "$dir"
         cd $dir
         [[ -z "$branch" ]] || git checkout $branch
-        [[ -z "$build" ]] || /bin/sh -c "$build"
+        [[ -z "$build" ]] || /bin/bash -c "$build"
     fi
 }
 
@@ -36,7 +36,7 @@ while read line;do
     else
         case "$line" in
             dir:*)
-                dir=$(/bin/sh -c "echo `echo $line|sed 's/dir: //'`")
+                dir=$(/bin/bash -c "echo `echo $line|sed 's/dir: //'`")
                 ;;
             branch:*)
                 branch=`echo $line|sed 's/branch: //'`

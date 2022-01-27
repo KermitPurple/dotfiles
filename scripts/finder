@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 path="$*"
 [[ -z $path ]] && path=`pwd`
 if [[ ! -d "$path" ]]; then # if the path isn't a dir

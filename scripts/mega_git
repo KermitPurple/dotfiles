@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # call git command over all (most) of my get repos
 # This is done mostly because I frequently forget to push
 

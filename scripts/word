@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [[ $# = 0 ]]; then # if no arguments
     >&2 echo "need at least one argument" # error message
     exit 1 # exit with error

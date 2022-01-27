@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # gets url from listed of stored urls
 # opens it in a new chrome tab
 # removes first element
