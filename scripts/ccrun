@@ -41,7 +41,7 @@ while [[ $# > 0 ]]; do
             arg='-o'
             ;;
         --no-run)
-            arg='-n' # pass as n flag instead
+            arg='-n'
             ;;
         --help)
             arg='-h'
