@@ -28,15 +28,20 @@ output="$TEMP_DIR/ccrun.out"
 while [[ $# > 0 ]]; do
     arg="$1"
     shift
-    case "$arg" in
-        -n|--no-run)
-            no_run=1
+    case "$arg" in # convert all long flags into short
+        --no-run)
+            arg='-n' # pass as n flag instead
             ;;
+    esac
+    case "$arg" in # parse all short flags
         --)
             break # the rest of the args get passed to the executable
             ;;
+        --*)
+            die "unexpected long flag '$arg'"
+            ;;
         -)
-            die "'-' is not a valid flag"
+            die "unexpected flag '-'"
             ;;
         -*)
             need_arg=0
