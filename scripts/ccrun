@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 die(){
     >&2 echo "$*"
@@ -14,19 +14,24 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the executable being run
     FLAGS:
-      c CC     - set compiler [default: "gcc"]
-      o OUTPUT - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccrun.out"]
-      h        - print this message
+      -c CC         - set compiler [default: "gcc"]
+      -o OUTPUT     - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccrun.out"]
+      -h            - print this message
+      -n, --no-run  - don't run the executable, just compile
 EOF
 }
 
 cc="gcc"
 files=()
+no_run=0
 output="$TEMP_DIR/ccrun.out"
 while [[ $# > 0 ]]; do
     arg="$1"
     shift
     case "$arg" in
+        -n|--no-run)
+            no_run=1
+            ;;
         -c)
             [[ $# > 0 ]] || die "ccrun: ERROR: -c flag expected an arugment"
             cc="$1"
@@ -54,4 +59,4 @@ while [[ $# > 0 ]]; do
 done
 [[ "$output" == */* ]] || output="./$output"
 
-$cc "${files[@]}" -o "$output" && "$output" "$@"
+$cc "${files[@]}" -o "$output" && [[ $no_run == 0 ]] && "$output" "$@"
