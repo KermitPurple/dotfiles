@@ -99,6 +99,7 @@ while [[ $# > 0 ]]; do
             ;;
     esac
 done
+[[ "$output" == */* ]] || output="./$output"
 # if no compiler set
 [[ -z $cc ]] && if [[ "${files[@]}" == *.cpp* ]]; then # if .cpp is in files
     cc=g++
