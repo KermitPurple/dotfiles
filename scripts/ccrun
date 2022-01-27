@@ -22,7 +22,10 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
 EOF
 }
 
-[[ $# > 0 ]] || print_help && exit 0 # if no args print help and exit
+if [[ $# == 0 ]]; then # if no args
+    print_help
+    exit 0
+fi
 cc=""
 files=()
 no_run=0
@@ -103,4 +106,10 @@ else # no .cpp in files
     cc=gcc
 fi
 
-$cc "${files[@]}" -o "$output" && [[ $no_run == 0 ]] && "$output" "$@"
+$cc "${files[@]}" -o "$output" 
+code=$?
+if [[ $code == 0 && $no_run == 0 ]]; then
+    "$output" "$@"
+else
+    exit $code
+fi

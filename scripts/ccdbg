@@ -22,7 +22,10 @@ ccdbg FILES [FLAGS] [-- PROG_FLAGS]
 EOF
 }
 
-[[ $# > 0 ]] || print_help && exit 0 # if no args print help and exit
+if [[ $# == 0 ]]; then # if no args
+    print_help
+    exit 0
+fi
 cc=""
 db="lldb"
 files=()
