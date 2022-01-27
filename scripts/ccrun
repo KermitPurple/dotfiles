@@ -32,16 +32,6 @@ while [[ $# > 0 ]]; do
         -n|--no-run)
             no_run=1
             ;;
-        -c)
-            [[ $# > 0 ]] || die "-c flag expected an arugment"
-            cc="$1"
-            shift
-            ;;
-        -o)
-            [[ $# > 0 ]] || die "-o flag expected an arugment"
-            output="$1"
-            shift
-            ;;
         --)
             break # the rest of the args get passed to the executable
             ;;
@@ -50,7 +40,7 @@ while [[ $# > 0 ]]; do
             ;;
         -*)
             need_arg=0
-            flags="${arg#?}" 
+            flags="${arg#?}" # everything but first character
             for flag in `echo "$flags" | grep -o .`; do
                 [[ $need_arg == 1 ]] && die "-$flag_n_arg flag expected an argument"
                 case "$flag" in
@@ -70,7 +60,7 @@ while [[ $# > 0 ]]; do
                         ;;
                 esac
             done
-            flag=${arg: -1}
+            flag=${arg: -1} # last character
             if [[ $need_arg == 1 ]]; then
                 [[ $# > 0 ]] || die "-$flag flag expected an argument"
                 case $flag in
