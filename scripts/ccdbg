@@ -9,19 +9,20 @@ print_help(){
     while IFS= read line; do
         echo "$line"
     done <<-EOF
-ccrun FILES [FLAGS] [-- PROG_FLAGS]
+ccdbg FILES [FLAGS] [-- PROG_FLAGS]
   Compiles and runs a debugger a c family program
   If '.cpp' was found in files then it will use g++ otherwise it will use gcc
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the debugger being run
     FLAGS:
-      -c CC     - set compiler
-      -d DBG    - set debugger [default: "lldb"]
-      -o OUTPUT - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
-      -h        - print this message
+      -c CC, --compiler CC          - set compiler to CC
+      -d DBG, --debugger DBG        - set debugger to DBG [default: "lldb"]
+      -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
+      -h, --help                    - print this message
 EOF
 }
 
+[[ $# > 0 ]] || print_help && exit 0 # if no args print help and exit
 cc=""
 db="lldb"
 files=()
@@ -30,22 +31,22 @@ while [[ $# > 0 ]]; do
     arg="$1"
     shift
     case "$arg" in
-        -c)
+        -c|--compiler)
             [[ $# > 0 ]] || die "-c flag expected an arugment"
             cc="$1"
             shift
             ;;
-        -d)
+        -d|--debugger)
             [[ $# > 0 ]] || die "-d flag expected an arugment"
             db="$1"
             shift
             ;;
-        -o)
+        -o|--output)
             [[ $# > 0 ]] || die "-o flag expected an arugment"
             output="$1"
             shift
             ;;
-        -h)
+        -h|--help)
             print_help
             exit 0
             ;;
