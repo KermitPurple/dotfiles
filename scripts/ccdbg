@@ -1,7 +1,7 @@
 #!/bin/bash
 
 die(){
-    >&2 echo "$*"
+    >&2 echo "ccdbg: ERROR: $*"
     exit 1
 }
 
@@ -14,10 +14,10 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the debugger being run
     FLAGS:
-      c CC     - set compiler [default: "gcc"]
-      d DBG    - set debugger [default: "lldb"]
-      o OUTPUT - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
-      h        - print this message
+      -c CC     - set compiler [default: "gcc"]
+      -d DBG    - set debugger [default: "lldb"]
+      -o OUTPUT - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
+      -h        - print this message
 EOF
 }
 
@@ -30,17 +30,17 @@ while [[ $# > 0 ]]; do
     shift
     case "$arg" in
         -c)
-            [[ $# > 0 ]] || die "ccrun: ERROR: -c flag expected an arugment"
+            [[ $# > 0 ]] || die "-c flag expected an arugment"
             cc="$1"
             shift
             ;;
         -d)
-            [[ $# > 0 ]] || die "ccrun: ERROR: -d flag expected an arugment"
+            [[ $# > 0 ]] || die "-d flag expected an arugment"
             db="$1"
             shift
             ;;
         -o)
-            [[ $# > 0 ]] || die "ccrun: ERROR: -o flag expected an arugment"
+            [[ $# > 0 ]] || die "-o flag expected an arugment"
             output="$1"
             shift
             ;;
@@ -52,7 +52,7 @@ while [[ $# > 0 ]]; do
             break # the rest of the args get passed to the executable
             ;;
         -*)
-            die "ccrun: ERROR: unexpected flag '$arg'"
+            die "unexpected flag '$arg'"
             ;;
         *)
             files+=($arg)
