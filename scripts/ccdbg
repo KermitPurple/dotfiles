@@ -11,17 +11,18 @@ print_help(){
     done <<-EOF
 ccrun FILES [FLAGS] [-- PROG_FLAGS]
   Compiles and runs a debugger a c family program
+  If '.cpp' was found in files then it will use g++ otherwise it will use gcc
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the debugger being run
     FLAGS:
-      -c CC     - set compiler [default: "gcc"]
+      -c CC     - set compiler
       -d DBG    - set debugger [default: "lldb"]
       -o OUTPUT - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
       -h        - print this message
 EOF
 }
 
-cc="gcc"
+cc=""
 db="lldb"
 files=()
 output="$TEMP_DIR/ccdbg.out"
@@ -59,5 +60,11 @@ while [[ $# > 0 ]]; do
             ;;
     esac
 done
+# if no compiler set
+[[ -z $cc ]] && if [[ "${files[@]}" == *.cpp* ]]; then # if .cpp is in files
+    cc=g++
+else # no .cpp in files
+    cc=gcc
+fi
 
 $cc "${files[@]}" -g -o "$output" && $db $output

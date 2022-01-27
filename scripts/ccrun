@@ -11,17 +11,18 @@ print_help(){
     done <<-EOF
 ccrun FILES [FLAGS] [-- PROG_FLAGS]
   Compiles and runs a c family program
+  If '.cpp' was found in files then it will use g++ otherwise it will use gcc
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the executable being run
     FLAGS:
-      -c CC         - set compiler [default: "gcc"]
+      -c CC         - set compiler
       -o OUTPUT     - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccrun.out"]
       -h            - print this message
       -n, --no-run  - don't run the executable, just compile
 EOF
 }
 
-cc="gcc"
+cc=""
 files=()
 no_run=0
 output="$TEMP_DIR/ccrun.out"
@@ -71,6 +72,7 @@ while [[ $# > 0 ]]; do
                 case $flag in
                     c)
                         cc="$1"
+                        default_cc=1
                         ;;
                     o)
                         output="$1"
@@ -84,6 +86,11 @@ while [[ $# > 0 ]]; do
             ;;
     esac
 done
-[[ "$output" == */* ]] || output="./$output"
+# if no compiler set
+[[ -z $cc ]] && if [[ "${files[@]}" == *.cpp* ]]; then # if .cpp is in files
+    cc=g++
+else # no .cpp in files
+    cc=gcc
+fi
 
 $cc "${files[@]}" -o "$output" && [[ $no_run == 0 ]] && "$output" "$@"
