@@ -18,6 +18,7 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
       -c CC, --compiler CC          - set compiler to CC
       -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
       -n, --no-run                  - don't run the executable, just compile
+      -f CFLAGS, --cflags CFLAGS    - flags to pass to the compiler
       -h, --help                    - print this message
 EOF
 }
@@ -29,6 +30,7 @@ fi
 cc=""
 files=()
 no_run=0
+cflags=""
 output="$TEMP_DIR/ccrun.out"
 while [[ $# > 0 ]]; do
     arg="$1"
@@ -63,7 +65,7 @@ while [[ $# > 0 ]]; do
             for flag in `echo "$flags" | grep -o .`; do
                 [[ $need_arg == 1 ]] && die "-$flag_n_arg flag expected an argument"
                 case "$flag" in
-                    c|o)
+                    c|o|f)
                         need_arg=1
                         flag_n_arg=$flag
                         ;;
@@ -85,10 +87,12 @@ while [[ $# > 0 ]]; do
                 case $flag in
                     c)
                         cc="$1"
-                        default_cc=1
                         ;;
                     o)
                         output="$1"
+                        ;;
+                    f)
+                        cflags="$1"
                         ;;
                 esac
                 shift
@@ -107,7 +111,7 @@ else # no .cpp in files
     cc=gcc
 fi
 
-$cc "${files[@]}" -o "$output" 
+$cc $cflags "${files[@]}" -o "$output" 
 code=$?
 if [[ $code == 0 && $no_run == 0 ]]; then
     "$output" "$@"

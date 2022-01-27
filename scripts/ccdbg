@@ -18,6 +18,7 @@ ccdbg FILES [FLAGS] [-- PROG_FLAGS]
       -c CC, --compiler CC          - set compiler to CC
       -d DBG, --debugger DBG        - set debugger to DBG [default: "lldb"]
       -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
+      -f CFLAGS, --cflags CFLAGS    - flags to pass to the compiler
       -h, --help                    - print this message
 EOF
 }
@@ -30,28 +31,34 @@ cc=""
 db="lldb"
 files=()
 output="$TEMP_DIR/ccdbg.out"
+cflags=""
 while [[ $# > 0 ]]; do
     arg="$1"
     shift
     case "$arg" in
         -c|--compiler)
-            [[ $# > 0 ]] || die "-c flag expected an arugment"
+            [[ $# > 0 ]] || die "$arg flag expected an arugment"
             cc="$1"
             shift
             ;;
         -d|--debugger)
-            [[ $# > 0 ]] || die "-d flag expected an arugment"
+            [[ $# > 0 ]] || die "$arg flag expected an arugment"
             db="$1"
             shift
             ;;
         -o|--output)
-            [[ $# > 0 ]] || die "-o flag expected an arugment"
+            [[ $# > 0 ]] || die "$arg flag expected an arugment"
             output="$1"
             shift
             ;;
         -h|--help)
             print_help
             exit 0
+            ;;
+        -f|--cflags)
+            [[ $# > 0 ]] || die "$arg flag expected an arugment"
+            cflags="$1"
+            shift
             ;;
         --)
             break # the rest of the args get passed to the executable
@@ -71,4 +78,4 @@ else # no .cpp in files
     cc=gcc
 fi
 
-$cc "${files[@]}" -g -o "$output" && $db $output
+$cc $cflags "${files[@]}" -g -o "$output" && $db $output
