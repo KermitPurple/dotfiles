@@ -23,6 +23,11 @@ silent_bg $CODING_DIR/c++/TesseractV2/bin/tess"
 # build: make clean all TARGET=bin/fib
 alias fib="silent_bg $CODING_DIR/c++/fib/bin/fib"
 
+# repo: git@github.com:KermitPurple/ggez_fib.git
+# dir: $CODING_DIR/rust/ggez_fib
+# build: cargo build --release
+alias rfib="silent_bg $CODING_DIR/rust/ggez_fib/target/release/ggez_fib"
+
 # make a java project and run it in temp folder
 alias java_make="javac *.java -d \"$TEMP_DIR\" && java -cp \"$TEMP_DIR\""
 
