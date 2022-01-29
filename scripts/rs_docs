@@ -1,7 +1,16 @@
 #!/bin/bash
+function try_url(){
+    curl -sLf $1 >/dev/null
+    code=$?
+    if [[ $code = 0 ]]; then # if page exists
+        chrome $1 # open page
+    else
+        return $code
+    fi
+}
+
+crate="`encode_url "$*"`"
 url="https://docs.rs"
 if [[ ! -z "$*" ]]; then
-    url="$url/releases/search?query=`encode_url "$*"`"
+    try_url "$url/$crate/latest/$crate" || chrome "$url/releases/search?query=$crate"
 fi
-chrome $url
-
