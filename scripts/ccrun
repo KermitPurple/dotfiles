@@ -16,7 +16,7 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
     PROG_FLAGS - flags to be passed to the executable being run
     FLAGS:
       -c CC, --compiler CC          - set compiler to CC
-      -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
+      -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccrun.out"]
       -f CFLAGS, --cflags CFLAGS    - flags to pass to the compiler
       -D DBGR, --debugger DBGR      - set the debugger to DBGR [default: lldb]
       -d, --debug                   - debug instead of running
