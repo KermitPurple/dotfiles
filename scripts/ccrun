@@ -17,8 +17,10 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
     FLAGS:
       -c CC, --compiler CC          - set compiler to CC
       -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccdbg.out"]
-      -n, --no-run                  - don't run the executable, just compile
       -f CFLAGS, --cflags CFLAGS    - flags to pass to the compiler
+      -D DBGR, --debugger DBGR      - set the debugger to DBGR [default: lldb]
+      -d, --debug                   - debug instead of running
+      -n, --no-run                  - don't run the executable, just compile
       -h, --help                    - print this message
 EOF
 }
@@ -31,6 +33,8 @@ cc=""
 files=()
 no_run=0
 cflags=""
+debug=0
+debugger="lldb"
 output="$TEMP_DIR/ccrun.out"
 while [[ $# > 0 ]]; do
     arg="$1"
@@ -65,12 +69,15 @@ while [[ $# > 0 ]]; do
             for flag in `echo "$flags" | grep -o .`; do
                 [[ $need_arg == 1 ]] && die "-$flag_n_arg flag expected an argument"
                 case "$flag" in
-                    c|o|f)
+                    c|o|f|D)
                         need_arg=1
                         flag_n_arg=$flag
                         ;;
                     n)
                         no_run=1
+                        ;;
+                    d)
+                        debug=1
                         ;;
                     h)
                         print_help
@@ -94,6 +101,9 @@ while [[ $# > 0 ]]; do
                     f)
                         cflags="$1"
                         ;;
+                    D)
+                        debugger="$1"
+                        ;;
                 esac
                 shift
             fi
@@ -110,11 +120,12 @@ done
 else # no .cpp in files
     cc=gcc
 fi
-
-$cc $cflags "${files[@]}" -o "$output" 
+[[ $debug == 1 ]] && cflags="-g $cflags"
+"$cc" $cflags "${files[@]}" -o "$output" 
 code=$?
-if [[ $code == 0 && $no_run == 0 ]]; then
+[[ $code == 0 ]] || exit $code
+if [[ $no_run == 0 && $debug == 0 ]]; then
     "$output" "$@"
-else
-    exit $code
+elif [[ $debug == 1 ]]; then
+    "$debugger" "$output" "$@"
 fi
