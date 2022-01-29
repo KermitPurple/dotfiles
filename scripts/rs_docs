@@ -1,0 +1,7 @@
+#!/bin/bash
+url="https://docs.rs"
+if [[ ! -z "$*" ]]; then
+    url="$url/releases/search?query=`encode_url "$*"`"
+fi
+chrome $url
+
