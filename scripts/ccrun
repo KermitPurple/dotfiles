@@ -127,5 +127,5 @@ fi
 if [[ $no_run == 0 && $debug == 0 ]]; then # running not in debug
     "$output" "$@"
 elif [[ $debug == 1 ]]; then
-    "$debugger" "$output" "$@"
+    "$debugger" "$output" -- "$@"
 fi
