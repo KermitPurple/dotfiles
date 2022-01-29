@@ -18,7 +18,7 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
       -c CC, --compiler CC          - set compiler to CC
       -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccrun.out"]
       -f CFLAGS, --cflags CFLAGS    - flags to pass to the compiler
-      -D DBGR, --debugger DBGR      - set the debugger to DBGR [default: lldb]
+      -D DBGR, --debugger DBGR      - set the debugger to DBGR [default: lldb]; sets debug to true
       -d, --debug                   - debug instead of running
       -n, --no-run                  - don't run the executable, just compile
       -h, --help                    - print this message
