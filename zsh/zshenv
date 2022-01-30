@@ -34,7 +34,8 @@ export PATH="$PATH:$SCRIPT_DIR"
 export FZF_DEFAULT_COMMAND="find . -type f"
 
 # the editor of choice
-export EDITOR="$HOMEBREW_PREFIX/bin/vim"
+export EDITOR="vim"
+export VISUAL="$EDITOR"
 
 # chrome stash for:
 #   - $SCRIPT_DIR/pop_chrome_tab
