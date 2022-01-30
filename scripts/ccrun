@@ -63,11 +63,8 @@ while [[ $# > 0 ]]; do
         --)
             break # the rest of the args get passed to the executable
             ;;
-        --*)
-            die "unexpected long flag '$arg'"
-            ;;
-        -)
-            die "unexpected flag '-'"
+        --*|-)
+            die "unexpected flag '$arg'"
             ;;
         -*)
             need_arg=0
