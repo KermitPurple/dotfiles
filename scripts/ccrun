@@ -1,8 +1,8 @@
 #!/bin/bash
 
 die(){
-    >&2 echo -e "ccrun: \033[1;31merror:\033[0m \033[1;37m$*\033[0m"
-    exit 1
+    >&2 echo -e "ccrun: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+    exit 1 # exit with error
 }
 
 print_help(){
@@ -51,6 +51,12 @@ while [[ $# > 0 ]]; do
             ;;
         --help)
             arg='-h'
+            ;;
+        --debug)
+            arg="-d"
+            ;;
+        --debugger)
+            arg="-D"
             ;;
     esac
     case "$arg" in # parse all short flags
