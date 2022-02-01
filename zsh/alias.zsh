@@ -57,3 +57,6 @@ alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && f
 # dir: $CODING_DIR/python/dice
 # dice roll function
 alias roll="$CODING_DIR/python/dice/main.py"
+
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
