@@ -17,8 +17,7 @@ EOF
 
 function try_url(){
     curl -sLf $1 >/dev/null
-    code=$?
-    if [[ $code = 0 ]]; then # if page exists
+    if [[ $? = 0 ]]; then # if page exists
         $chrome_fn $1 # open page
     else
         return $code
