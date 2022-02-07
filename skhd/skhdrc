@@ -56,3 +56,6 @@ delsel, deltab < cmd + alt - t : close_iterm_tab
 # spotify scripts
 default, wins, tabs < cmd + alt - s : open -aSpotify
 delsel, delwin, deltab < cmd + alt - s : osascript -e"quit application \"Spotify\""
+
+# screenshot
+cmd + alt + shift - s : open -aScreenshot
