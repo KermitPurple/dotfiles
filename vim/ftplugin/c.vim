@@ -10,7 +10,7 @@ endif
 
 nnoremap <buffer> <F5> :wa<cr>:!make test<cr>
 nnoremap <buffer> <s-F5> :wa<cr>:!make clean test<cr>
-nnoremap <buffer> <F6> :wa<cr>!ccrun %<cr>
+nnoremap <buffer> <F6> :wa<cr>:!ccrun %<cr>
 
 " Don't load another plugin for this buffer
 let b:did_ftplugin = 1
