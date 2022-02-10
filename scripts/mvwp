@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 err(){
-    >&2 echo "mvwp: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+    >&2 echo -e "mvwp: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
 }
 
 die(){
@@ -28,20 +28,39 @@ files=()
 dry_run=0
 verbose=0
 while [ $# -gt 0 ]; do
-    case "$1" in
-        --dry-run|-d)
-            dry_run=1
-            verbose=1
-            ;;
+    arg="$1"
+    case "$arg" in
         --help|-h)
-            help
-            exit 0
+            arg='-h'
+            ;;
+        --dry-run|-d)
+            arg='-d'
             ;;
         --verbose|-v)
-            verbose=1
+            arg='-v'
             ;;
+    esac
+    case "$arg" in
         -*)
-            die "unexpected flag '$1'"
+            for (( i = 1; i < ${#arg}; i++ )); do
+                flag=${arg:$i:1}
+                case $flag in
+                    h)
+                        help
+                        exit 0
+                        ;;
+                    d)
+                        dry_run=1
+                        verbose=1
+                        ;;
+                    v)
+                        verbose=1
+                        ;;
+                    *)
+                        die "Unexpected flag '-$flag'";
+                        ;;
+                esac
+            done
             ;;
         *)
             if [ -z "$cmd" ]; then
@@ -54,8 +73,11 @@ while [ $# -gt 0 ]; do
     shift
 done
 
+[[ -z "$cmd" ]] && die "Expected argument CMD"
+[[ -z "${files[@]}" ]] && die "Expected at least 1 argument for FILES"
+
 for file in "${files[@]}"; do
     new=`echo "$file" | $cmd`
-    [ $verbose -eq 1 ] && echo "$file -> $new"
-    [ $dry_run -eq 0 ] && mv "$file" "$new"
+    [[ $verbose = 1 ]] && echo "$file -> $new"
+    [[ $dry_run = 0 ]] && mv "$file" "$new"
 done
