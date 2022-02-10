@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 err(){
     >&2 echo -e "mvwp: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
@@ -79,5 +79,7 @@ done
 for file in "${files[@]}"; do
     new=`echo "$file" | $cmd`
     [[ $verbose = 1 ]] && echo "$file -> $new"
-    [[ $dry_run = 0 ]] && mv "$file" "$new"
+    if [[ $dry_run = 0 ]]; then
+        mv "$file" "$new"
+    fi
 done
