@@ -1,0 +1,61 @@
+#!/bin/sh
+
+err(){
+    >&2 echo "mvwp: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+}
+
+die(){
+    err $*
+    exit 1
+}
+
+help(){
+    while IFS= read -r line; do
+        echo "$line"
+    done <<-EOF
+mvwp CMD FILES [FLAGS]
+  move with pipe. This script renames files by piping the name of each file through
+  CMD to get the new name of the file.
+    CMD - the command to run
+    FILES - the files to rename
+    FLAGS:
+      -d, --dry-run   show which files would be renamed but do not rename them
+      -v, --verbose   print which files are being changed
+      -h, --help      print this help message
+EOF
+}
+files=()
+dry_run=0
+verbose=0
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --dry-run|-d)
+            dry_run=1
+            verbose=1
+            ;;
+        --help|-h)
+            help
+            exit 0
+            ;;
+        --verbose|-v)
+            verbose=1
+            ;;
+        -*)
+            die "unexpected flag '$1'"
+            ;;
+        *)
+            if [ -z "$cmd" ]; then
+                cmd="$1"
+            else
+                files+=($1)
+            fi
+            ;;
+    esac
+    shift
+done
+
+for file in "${files[@]}"; do
+    new=`echo "$file" | $cmd`
+    [ $verbose -eq 1 ] && echo "$file -> $new"
+    [ $dry_run -eq 0 ] && mv "$file" "$new"
+done
