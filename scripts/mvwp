@@ -24,12 +24,12 @@ mvwp CMD FILES [FLAGS]
       -h, --help      print this help message
 EOF
 }
-files=()
+files=() # create empty bash array
 dry_run=0
 verbose=0
-while [ $# -gt 0 ]; do
+while [[ $# > 0 ]]; do # while there are still args
     arg="$1"
-    case "$arg" in
+    case "$arg" in # convert long args to short
         --help|-h)
             arg='-h'
             ;;
@@ -42,7 +42,7 @@ while [ $# -gt 0 ]; do
     esac
     case "$arg" in
         -*)
-            for (( i = 1; i < ${#arg}; i++ )); do
+            for (( i = 1; i < ${#arg}; i++ )); do # cycle over short args
                 flag=${arg:$i:1}
                 case $flag in
                     h)
@@ -63,18 +63,18 @@ while [ $# -gt 0 ]; do
             done
             ;;
         *)
-            if [ -z "$cmd" ]; then
+            if [ -z "$cmd" ]; then # if cmd is not set
                 cmd="$1"
-            else
-                files+=($1)
+            else # if cmd is set
+                files+=($1) # append to array
             fi
             ;;
     esac
     shift
 done
 
-[[ -z "$cmd" ]] && die "Expected argument CMD"
-[[ -z "${files[@]}" ]] && die "Expected at least 1 argument for FILES"
+[ -z "$cmd" ] && die "Expected argument CMD"
+[ -z "${files[@]}" ] && die "Expected at least 1 argument for FILES"
 
 for file in "${files[@]}"; do
     new=`echo "$file" | $cmd`
