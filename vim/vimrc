@@ -108,6 +108,7 @@ Plug 'rstacruz/vim-closer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dkarter/bullets.vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 let g:UltiSnipsListSnippets = "<s-tab>"
 let NERDTreeShowHidden=1
