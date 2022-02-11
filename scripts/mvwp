@@ -73,8 +73,8 @@ while [[ $# > 0 ]]; do # while there are still args
     shift
 done
 
-[ -z "$cmd" ] && die "Expected argument CMD"
-[ -z "${files[@]}" ] && die "Expected at least 1 argument for FILES"
+[[ -z "$cmd" ]] && die "Expected argument CMD"
+[[ -z "${files[@]}" ]] && die "Expected at least 1 argument for FILES"
 
 for file in "${files[@]}"; do
     new=`echo "$file" | $cmd`
