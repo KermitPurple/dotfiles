@@ -58,7 +58,7 @@ alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && f
 # dice roll function
 alias roll="$CODING_DIR/python/dice/main.py"
 
-# repo: git@github.com:KermitPurple/csnake.git
+# repo: git@github.com:KermitPurple/cnake.git
 # dir: $CODING_DIR/c++/cnake
 # build: make TARGET=bin/cnake
 # snake game written in c
