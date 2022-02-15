@@ -58,6 +58,12 @@ alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && f
 # dice roll function
 alias roll="$CODING_DIR/python/dice/main.py"
 
+# repo: git@github.com:KermitPurple/csnake.git
+# dir: $CODING_DIR/c++/cnake
+# build: make TARGET=bin/cnake
+# snake game written in c
+alias cnake="$CODING_DIR/c++/cnake/bin/cnake"
+
 # default ls to with color
 alias ls="ls --color=auto"
 
