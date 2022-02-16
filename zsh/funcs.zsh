@@ -121,11 +121,9 @@ newenv(){
         local response=""
         while [[ "$response" != 'y' && "$response" != 'n' && "$response" != 'yes' && "$response" != 'no' ]]; do
             echo "Do you want to create a new one(yn)? "
-            # vared response # use vared for response
-            # response=`echo "$response" | tr A-Z a-z` # lowercase
             response=`getch | tr A-Z a-z`
         done
-        if [[ "$response" = 'y' || "$response" = 'yes' ]]; then
+        if [[ "$response" = 'y' ]]; then
             rm -rf venv
         else
             return 1
