@@ -2,5 +2,5 @@
 
 stty raw
 read -n1 character
-echo "$character"
 stty cooked
+echo "$character"
