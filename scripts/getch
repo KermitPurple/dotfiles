@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
-import os
-try:
-    import getch
-except ModuleNotFoundError:
-    os.system('pip3 install getch > /dev/null')
-    import getch
-print(getch.getch())
+#!/bin/sh
+
+stty raw
+read -n1 character
+echo "$character"
+stty cooked
