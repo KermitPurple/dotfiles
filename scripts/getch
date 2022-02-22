@@ -1,6 +1,19 @@
 #!/bin/sh
 
+number=0
+for arg; do
+    case "$arg" in
+        -n|--number)
+            number=1
+            ;;
+    esac
+done
+
 stty raw
 read -n1 character
 stty cooked
-echo "$character"
+if [ "$number" -eq 1 ]; then
+    printf "%d\n" "'$character'" # print the number value of the character
+else
+    echo "$character"
+fi
