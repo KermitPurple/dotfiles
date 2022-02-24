@@ -11,13 +11,13 @@ print_help(){
     done <<-EOF
 ccrun FILES [FLAGS] [-- PROG_FLAGS]
   Compiles and runs a c family program
-  If '.cpp' was found in files then it will use g++ otherwise it will use gcc
+  If '.cpp' was found in files then it will use clang++ otherwise it will use clang
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the executable being run
     FLAGS:
       -c CC, --compiler CC          - set compiler to CC
       -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccrun.out"]
-      -f CFLAGS, --cflags CFLAGS    - flags to pass to the compiler
+      -f CFLAGS, --cflags CFLAGS    - flags to pass to the compiler [default: -Wextra -fsanitize=address]
       -D DBGR, --debugger DBGR      - set the debugger to DBGR [default: lldb]; sets debug to true
       -d, --debug                   - debug instead of running
       -n, --no-run                  - don't run the executable, just compile
@@ -32,7 +32,7 @@ fi
 cc=""
 files=()
 no_run=0
-cflags=""
+cflags="-Wextra -fsanitize=address"
 debug=0
 debugger="lldb"
 output="$TEMP_DIR/ccrun.out"
@@ -120,9 +120,9 @@ done
 [[ "$output" == */* ]] || output="./$output"
 # if no compiler set
 [[ -z $cc ]] && if [[ "${files[@]}" == *.cpp* ]]; then # if .cpp is in files
-    cc=g++
+    cc=clang++
 else # no .cpp in files
-    cc=gcc
+    cc=clang
 fi
 [[ $debug == 1 ]] && cflags="-g $cflags"
 "$cc" $cflags "${files[@]}" -o "$output" 
