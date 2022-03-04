@@ -1,16 +1,17 @@
 " Shane McDonough minimal vimrc
-syntax on
+syntax on " make sure syntax highlighting is on
 set hlsearch
 set relativenumber
 set number
 set nowrap
-set breakindent
-set incsearch
+set breakindent " wrapped lines are visually indented
+set incsearch " show pattern while typing in search
+set autoindent " automatically go to the correct indentation
 " Tab stuff
-set expandtab 
-set tabstop=4 
-set shiftwidth=4 
-set softtabstop=4
+set expandtab " spaces instead of tabs
+set tabstop=4 " number of spaces used in a tab
+set shiftwidth=4  " number of spaces for indentation
+set softtabstop=4 " number of spaces used in a tab while editing
 " binds
 let mapleader = ' '
 nmap <s-space> <leader>
