@@ -1,3 +1,4 @@
+" Shane McDonough vimrc with plugins
 color molokai
 source minimal.vim
 set encoding=utf-8
