@@ -1,11 +1,7 @@
 color molokai
-set hls
+source minimal.vim
 set encoding=utf-8
 set nocp
-set rnu
-set nu
-set nowrap
-set bri
 set fo-=tcq
 set undofile
 set directory=~/.vim/trash/
@@ -14,78 +10,23 @@ set backupdir=~/.vim/trash/
 set complete+=kspell
 set completeopt=menu,preview,menuone
 set shortmess+=c
-set tabstop=4 
-set expandtab 
-set shiftwidth=4 
-set softtabstop=4
 set sc
-set incsearch
 set backspace=indent,eol,start
 set timeoutlen=1000
 set ttimeoutlen=5
-let mapleader = ' '
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
-nmap <s-space> <leader>
-nmap <F5> <leader>e
-nnoremap <leader>e :!%:p<CR>
-nnoremap <leader>E :!chmod +x %<CR><CR>
-nnoremap <leader>r :%s/\<<c-r><c-w>\>//g<left><left>
-nnoremap <leader>R :bufdo %s/\<<c-r><c-w>\>//g \|up<left><left><left><left><left><left>
-nnoremap <leader>q :wqa<cr>
-nnoremap <leader>Q :wq<cr>
-nnoremap <leader>w :wa<cr>
-nnoremap <leader>W :w<cr>
 nnoremap <leader>n :!new_window<cr><cr>
 nnoremap <leader>N :!new_tab<cr><cr>
-noremap <leader>y "*y
-noremap <leader>Y "*Y
-noremap <leader>d "*d
-noremap <leader>D "*D
-noremap <leader>p "*p
-noremap <leader>P "*P
-nnoremap <leader>z :qa!<cr>
-nnoremap <leader>a :q!<cr>
-nnoremap <leader>c :!open -a "Google Chrome"<cr><cr>
-nnoremap <leader>cg :!open "https://github.com/KermitPurple?tab=repositories"<cr><cr>
-nnoremap <leader>cd :!open https://devdocs.io/<cr><cr>
-nnoremap <leader>cy :!open https://youtube.com/<cr><cr>
-nnoremap <leader>cn :!open https://github.com/new<cr><cr>
-nnoremap <leader>m :!make <cr>
-nnoremap <leader>mn :!make 
-nnoremap <leader>mt :!make test<cr>
-nnoremap <leader>mc :!make clean<cr>
-nnoremap <leader>mct :!make clean test<cr>
 nmap <leader>i <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gi :YcmCompleter GoToInclude<cr>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>bb :Buffers<cr>
-nnoremap <leader>bl :ls<cr>
-nnoremap <leader>bn :bnext<cr>
-nnoremap <leader>bN :bprev<cr>
-nnoremap <leader>bd :bd<cr>
-nnoremap <leader>b1 :b1<cr>
-nnoremap <leader>b2 :b2<cr>
-nnoremap <leader>b3 :b3<cr>
-nnoremap <leader>b4 :b4<cr>
-nnoremap <leader>b5 :b5<cr>
-nnoremap <leader>b6 :b6<cr>
-nnoremap <leader>b7 :b7<cr>
-nnoremap <leader>b8 :b8<cr>
-nnoremap <leader>b9 :b9<cr>
-nnoremap <left> 2<c-w><
-nnoremap <right> 2<c-w>>
-nnoremap <up> 2<c-w>+
-nnoremap <down> 2<c-w>-
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>T :tabnew<cr>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
 nnoremap <f2> :silent source ~/.vim/vimrc \| execute "setlocal ft=".&ft \| call SetTerminalTitle()<CR>
-nnoremap <leader>; :ter<cr>
-nnoremap <leader>: :vert ter<cr>
 nnoremap <leader>s :Startify<cr>
 nnoremap <leader>l :!new_tab live-server<cr><cr>
 call plug#begin('~/.vim/plugged')
