@@ -1,4 +1,5 @@
 " Shane McDonough minimal vimrc
+syntax on
 set hlsearch
 set relativenumber
 set number
