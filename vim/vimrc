@@ -11,8 +11,6 @@ set backupdir=~/.vim/trash/
 set complete+=kspell
 set completeopt=menu,preview,menuone
 set shortmess+=c
-set sc
-set backspace=indent,eol,start
 set timeoutlen=1000
 set ttimeoutlen=5
 autocmd BufWinLeave *.* mkview
@@ -24,12 +22,13 @@ nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gi :YcmCompleter GoToInclude<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
-nnoremap <leader>T :tabnew<cr>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
 nnoremap <f2> :silent source ~/.vim/vimrc \| execute "setlocal ft=".&ft \| call SetTerminalTitle()<CR>
 nnoremap <leader>s :Startify<cr>
 nnoremap <leader>l :!new_tab live-server<cr><cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>F :GFiles<cr>
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
@@ -96,8 +95,6 @@ let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_confirm_extra_conf = 0 " don't have to confirm ycm conf
 let g:ycm_global_ycm_extra_conf = '/Users/shane/.vim/.ycm_extra_conf.py'
 let g:tex_flavor = "latex"
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>F :GFiles<cr>
 " https://gist.github.com/bignimbus/1da46a18416da4119778
 " Set the title of the Terminal to the currently open file
 function! SetTerminalTitle()

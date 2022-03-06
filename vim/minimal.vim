@@ -1,16 +1,20 @@
 " Shane McDonough minimal vimrc
-syntax on " make sure syntax highlighting is on set hlsearch
-set relativenumber
-set number
+syntax on " make sure syntax highlighting is on
+set hlsearch
 set nowrap
 set breakindent " wrapped lines are visually indented
 set incsearch " show pattern while typing in search
 set autoindent " automatically go to the correct indentation
+set backspace=indent,eol,start " backspace over indent eol and start
+set showcmd " show partial command in bottom right
 " Tab stuff
 set expandtab " spaces instead of tabs
 set tabstop=4 " number of spaces used in a tab
 set shiftwidth=4  " number of spaces for indentation
 set softtabstop=4 " number of spaces used in a tab while editing
+" line numbers
+set relativenumber
+set number
 " binds
 let mapleader = ' '
 nmap <s-space> <leader>
@@ -58,10 +62,5 @@ nnoremap <left> 2<c-w><
 nnoremap <right> 2<c-w>>
 nnoremap <up> 2<c-w>+
 nnoremap <down> 2<c-w>-
-" clipboard stuff
-noremap <leader>y "*y
-noremap <leader>Y "*Y
-noremap <leader>d "*d
-noremap <leader>D "*D
-noremap <leader>p "*p
-noremap <leader>P "*P
+" tabs
+nnoremap <leader>T :tabnew<cr>
