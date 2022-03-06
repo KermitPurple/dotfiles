@@ -1,6 +1,5 @@
 " Shane McDonough minimal vimrc
-syntax on " make sure syntax highlighting is on
-set hlsearch
+syntax on " make sure syntax highlighting is on set hlsearch
 set relativenumber
 set number
 set nowrap

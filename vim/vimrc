@@ -1,6 +1,6 @@
 " Shane McDonough vimrc with plugins
-color molokai
 source ~/.vim/minimal.vim
+color molokai
 set encoding=utf-8
 set nocp
 set fo-=tcq
