@@ -18,11 +18,14 @@ set number
 " binds
 let mapleader = ' '
 nmap <s-space> <leader>
+" executing
 nmap <F5> <leader>e
 nnoremap <leader>e :!%:p<CR>
 nnoremap <leader>E :!chmod +x %<CR><CR>
+" Replacing
 nnoremap <leader>r :%s/\<<c-r><c-w>\>//g<left><left>
 nnoremap <leader>R :bufdo %s/\<<c-r><c-w>\>//g \|up<left><left><left><left><left><left>
+" Saving and quitting
 nnoremap <leader>q :wqa<cr>
 nnoremap <leader>Q :wq<cr>
 nnoremap <leader>w :wa<cr>
