@@ -19,12 +19,6 @@ set number
 let mapleader = ' '
 nmap <s-space> <leader>
 nmap <F5> <leader>e
-noremap <leader>y "*y
-noremap <leader>Y "*Y
-noremap <leader>d "*d
-noremap <leader>D "*D
-noremap <leader>p "*p
-noremap <leader>P "*P
 nnoremap <leader>e :!%:p<CR>
 nnoremap <leader>E :!chmod +x %<CR><CR>
 nnoremap <leader>r :%s/\<<c-r><c-w>\>//g<left><left>
@@ -64,3 +58,10 @@ nnoremap <up> 2<c-w>+
 nnoremap <down> 2<c-w>-
 " tabs
 nnoremap <leader>T :tabnew<cr>
+" System Clipboard stuff
+noremap <leader>y "*y
+noremap <leader>Y "*Y
+noremap <leader>d "*d
+noremap <leader>D "*D
+noremap <leader>p "*p
+noremap <leader>P "*P
