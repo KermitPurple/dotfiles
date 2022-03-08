@@ -1,8 +1,8 @@
 " Shane McDonough vimrc with plugins
+set nocp " should be first most of the time
 source ~/.vim/minimal.vim
 color molokai
 set encoding=utf-8
-set nocp
 set fo-=tcq
 set undofile
 set directory=~/.vim/trash/
