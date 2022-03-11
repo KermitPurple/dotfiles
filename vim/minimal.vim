@@ -68,3 +68,6 @@ noremap <leader>d "*d
 noremap <leader>D "*D
 noremap <leader>p "*p
 noremap <leader>P "*P
+" Terminal stuff
+noremap <leader>: :term<cr>
+noremap <leader>; :vert term<cr>
