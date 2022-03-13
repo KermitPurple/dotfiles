@@ -1,3 +1,5 @@
+# Functions
+
 # function that loads the prompt with git info
 set_prompt(){
     # Load version control information

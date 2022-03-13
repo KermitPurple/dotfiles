@@ -1,5 +1,5 @@
-# alias files
-#
+# Aliases
+
 # repo: git@github.com:kermitpurple/rename_all
 # dir: $CODING_DIR/rust/rename_all
 # build: cargo build --release
