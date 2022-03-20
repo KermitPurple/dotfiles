@@ -71,7 +71,7 @@ def die(*args, **kwargs):
     call eprint with *args and **kwargs and then exit with error code 1
     '''
     eprint(*args, **kwargs)
-    exit(1)
+    raise SystemExit(1)
 
 def main():
     '''Driver code'''
@@ -101,14 +101,22 @@ def main():
                 print(clips[name], end='')
             else:
                 clipboard.copy(clips[name])
-        case ['print' | 'p', name]:
-            if name not in clips:
-                die(f'no clipboard with name {name!r} exists')
-            print(clips[name], end='')
-        case ['delete' | 'd', name]:
-            if name not in clips:
-                die(f'no clipboard with name {name!r} exists')
-            del clips[name]
+        case ['print' | 'p', *names]:
+            if len(names) < 1:
+                die('expected at least one name to print')
+            else:
+                for name in names:
+                    if name not in clips:
+                        eprint(f'no clipboard with name {name!r} exists')
+                    print(clips[name], end='')
+        case ['delete' | 'd', *names]:
+            if len(names) < 1:
+                die('expected at least one name to print')
+            else:
+                for name in names:
+                    if name not in clips:
+                        eprint(f'no clipboard with name {name!r} exists')
+                    del clips[name]
         case _:
             die('no subcommand recognised')
     save_clips(file_name, clips)
