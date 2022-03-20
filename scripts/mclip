@@ -17,7 +17,7 @@ def get_yn(prompt: str) -> bool:
 try:
     import clipboard
 except ModuleNotFoundError:
-    if get_yn('You do not have clipboard installed, do you want to install it using 'pip3' [yn] '):
+    if get_yn('You do not have clipboard installed, do you want to install it using \'pip3\' [yn] '):
         os.system('pip3 install clipboard > /dev/null')
         import clipboard
     else:
