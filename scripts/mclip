@@ -1,11 +1,27 @@
 #!/usr/bin/env python3
 from typing import IO
 import os, sys, pickle
+
+def get_yn(prompt: str) -> bool:
+    '''
+    gets a yes no response
+    :returns: true for yes and false for no
+    '''
+    while 1:
+        response = input(prompt).lower()
+        if response in ['', 'y', 'yes']:
+            return True
+        elif response in ['n', 'no']:
+            return False
+
 try:
     import clipboard
 except ModuleNotFoundError:
-    os.system('pip3 install clipboard > /dev/null')
-    import clipboard
+    if get_yn('You do not have clipboard installed, do you want to install it using 'pip3' [yn] '):
+        os.system('pip3 install clipboard > /dev/null')
+        import clipboard
+    else:
+        raise SystemExit(1)
 
 def load_clips(file_name: str) -> dict[str, str]:
     '''
