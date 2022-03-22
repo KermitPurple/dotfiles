@@ -1,6 +1,6 @@
 #!/bin/zsh
 # open a new chrome window
-homepage="https://google.com"
+homepage="$SEARCH_ENGINE"
 app="Google Chrome"
 location="$*"
 running=`osascript -e"return application \"$app\" is running"`

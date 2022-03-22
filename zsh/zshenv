@@ -37,6 +37,10 @@ export FZF_DEFAULT_COMMAND="find . -type f"
 export EDITOR="vim"
 export VISUAL="$EDITOR"
 
+# search engine stuff
+export SEARCH_ENGINE="https://duckduckgo.com/"
+export SEARCH_ENGINE_QUERY="$SEARCH_ENGINE?q="
+
 # chrome stash for:
 #   - $SCRIPT_DIR/pop_chrome_tab
 #   - $SCRIPT_DIR/push_chrome_tab

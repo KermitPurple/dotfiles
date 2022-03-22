@@ -38,7 +38,7 @@ wins < cmd + alt - i : new_chrome "https://gmail.com"
 wins < cmd + alt - g : new_chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
 wins < cmd + alt + shift - g : new_chrome "https://KermitPurple.github.io"
 default < cmd + alt -c : chrome
-tabs < cmd + alt - c : chrome "https://google.com"
+tabs < cmd + alt - c : chrome "$SEARCH_ENGINE"
 default, tabs < cmd + alt - n : chrome "https://github.com/new#repository_name"
 default, tabs < cmd + alt - i : chrome "https://gmail.com"
 default, tabs < cmd + alt - g : chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
