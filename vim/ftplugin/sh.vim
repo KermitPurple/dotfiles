@@ -7,7 +7,7 @@
 if exists("b:did_ftplugin") | finish | endif
 let b:did_ftplugin = 1
 
-nnoremap <f5> :!sh %<CR>
+nnoremap <f5> :!sh "%"<CR>
 
 " Make sure the continuation lines below do not cause problems in
 " compatibility mode.

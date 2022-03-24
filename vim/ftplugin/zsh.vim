@@ -11,7 +11,7 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-nnoremap <buffer> <f5> :wa<cr>:!zsh %<cr>
+nnoremap <buffer> <f5> :wa<cr>:!zsh "%"<cr>
 
 let s:cpo_save = &cpo
 set cpo&vim

@@ -8,8 +8,8 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
-nnoremap <buffer> <F5> :wa<cr>:!go run %<cr>
-nnoremap <buffer> <s-F5> :wa<cr>:!make clean main.go<cr>
+nnoremap <buffer> <F5> :wa<cr>:!go run "%"<cr>
+nnoremap <buffer> <s-F5> :wa<cr>:!go run main.go<cr>
 
 setlocal formatoptions-=t
 

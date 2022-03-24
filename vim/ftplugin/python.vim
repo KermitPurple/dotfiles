@@ -9,7 +9,7 @@
 if exists("b:did_ftplugin") | finish | endif
 
 nnoremap <buffer> <F5> :wa<cr>:!python3 main.py<cr>
-nnoremap <buffer> <s-F5> :wa<cr>:!python3 %<cr>
+nnoremap <buffer> <s-F5> :wa<cr>:!python3 "%"<cr>
 
 fun! SetMyKeywords()
     syn keyword myKeywords match case

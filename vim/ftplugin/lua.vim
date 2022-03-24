@@ -9,7 +9,7 @@ if exists("b:did_ftplugin")
 endif
 
 nnoremap <buffer> <F5> :wa<cr>:!lua main.lua<cr>
-nnoremap <buffer> <s-F5> :wa<cr>:!lua %<cr>
+nnoremap <buffer> <s-F5> :wa<cr>:!lua "%"<cr>
 
 " Don't load another plugin for this buffer
 let b:did_ftplugin = 1
