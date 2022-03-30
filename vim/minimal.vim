@@ -39,8 +39,10 @@ nnoremap <leader>mt :!make test<cr>
 nnoremap <leader>mc :!make clean<cr>
 nnoremap <leader>mct :!make clean test<cr>
 " buffer stuff
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>bb :Buffers<cr>
+" overwritten in big vimrc
+nnoremap <leader>b :ls<cr>
+" overwritten in big vimrc
+nnoremap <leader>bb :ls<cr>
 nnoremap <leader>bl :ls<cr>
 nnoremap <leader>bn :bnext<cr>
 nnoremap <leader>bN :bprev<cr>

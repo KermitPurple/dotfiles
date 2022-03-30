@@ -29,6 +29,8 @@ nnoremap <leader>s :Startify<cr>
 nnoremap <leader>l :!new_tab live-server<cr><cr>
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>F :GFiles<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>bb :Buffers<cr>
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/luochen1990/rainbow'
 Plug 'preservim/nerdtree'
