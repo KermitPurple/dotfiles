@@ -1,5 +1,6 @@
-#!/bin/sh
-
-for file in `find .`; do # for all files in current dir
+#!/bin/bash
+maxdepth=1
+[[ -z $1 ]] || maxdepth=$1
+for file in `find . -maxdepth $maxdepth`; do # for all files in current dir
     [ -f "$file" ] && grep -nH --color='auto' TODO "$file" # find all todos in file
 done
