@@ -1,6 +1,6 @@
 " Shane McDonough minimal vimrc
 syntax on " make sure syntax highlighting is on
-filetype plugin indent on
+filetype plugin indent on " Auto indent and other file type stuff works
 set hlsearch
 set nowrap
 set breakindent " wrapped lines are visually indented
