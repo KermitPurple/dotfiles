@@ -38,6 +38,12 @@ while [[ $# > 0 ]]; do
             maxdepth="$1"
             using_depth=1
             ;;
+        --*)
+            die "Unexpected long flag '$1'"
+            ;;
+        -*)
+            die "Unexpected flag '$1'"
+            ;;
         *)
             die "Unexpected arg $1"
             ;;
