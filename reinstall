@@ -31,7 +31,7 @@ brew install \
     visual-studio-code
 
 # link gcc-11 to gcc
-ln -s `where gcc-11` /usr/local/bin/gcc
+sudo ln -s `where gcc-11` /usr/local/bin/gcc
 
 # install rust without messing with path
 rustup-init --no-modify-path -y
