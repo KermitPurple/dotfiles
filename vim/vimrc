@@ -31,8 +31,9 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>F :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>bb :Buffers<cr>
+nnoremap <leader>c :RainbowParentheses!!<cr>
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/luochen1990/rainbow'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'preservim/nerdtree'
 Plug 'ap/vim-css-color'
 Plug 'tomtom/tcomment_vim'
@@ -53,6 +54,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'dkarter/bullets.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 let g:UltiSnipsListSnippets = "<s-tab>"
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
