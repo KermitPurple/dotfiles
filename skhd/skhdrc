@@ -58,4 +58,7 @@ default, wins, tabs < cmd + alt - s : open -aSpotify
 delsel, delwin, deltab < cmd + alt - s : osascript -e"quit application \"Spotify\""
 
 # screenshot
-cmd + alt + shift - s : open -aScreenshot
+default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt + shift - s : open -aScreenshot
+
+# word count
+default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt - w : notify `pbpaste | wc -w` "word count"
