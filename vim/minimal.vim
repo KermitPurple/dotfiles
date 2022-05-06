@@ -16,6 +16,9 @@ set softtabstop=4 " number of spaces used in a tab while editing
 " line numbers
 set relativenumber
 set number
+"folds
+set foldmethod=expr
+set foldexpr=CurlyLevel()
 " binds
 let mapleader = ' '
 nmap <s-space> <leader>
@@ -74,3 +77,17 @@ noremap <leader>P "*P
 " Terminal stuff
 noremap <leader>: :term<cr>
 noremap <leader>; :vert term<cr>
+
+" fold function
+function! CurlyLevel() 
+    let line = getline(v:lnum)
+    let lcurlys = count(line, '{') 
+    let rcurlys = count(line, '}') 
+    let diff = lcurlys - rcurlys
+    if diff > 0
+        return "a" . diff
+    elseif diff < 0
+        return "s" . abs(diff)
+    endif
+    return "="
+endfunction
