@@ -6,7 +6,7 @@ die(){
 }
 
 print_help(){
-    while IFS= read line; do
+    while IFS= read -r line; do
         echo "$line"
     done <<-EOF
 ccrun FILES [FLAGS] [-- PROG_FLAGS]
@@ -113,13 +113,13 @@ while [[ $# -gt 0 ]]; do
             fi
             ;;
         *)
-            files+=($arg)
+            files+=("$arg")
             ;;
     esac
 done
 [[ "$output" == */* ]] || output="./$output"
 # if no compiler set
-[[ -z $cc ]] && if [[ "${files[@]}" == *.cpp* ]]; then # if .cpp is in files
+[[ -z $cc ]] && if [[ "${files[*]}" == *.cpp* ]]; then # if .cpp is in files
     cc=clang++
 else # no .cpp in files
     cc=clang
