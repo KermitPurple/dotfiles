@@ -36,7 +36,7 @@ cflags="-Wextra -fsanitize=address"
 debug=0
 debugger="lldb"
 output="$TEMP_DIR/ccrun.out"
-while [[ $# > 0 ]]; do
+while [[ $# -gt 0 ]]; do
     arg="$1"
     shift
     case "$arg" in # convert all long flags into short
@@ -69,7 +69,7 @@ while [[ $# > 0 ]]; do
         -*)
             need_arg=0
             flags="${arg#?}" # everything but first character
-            for flag in `echo "$flags" | grep -o .`; do
+            for flag in $(echo "$flags" | grep -o .); do
                 [[ $need_arg == 1 ]] && die "-$flag_n_arg flag expected an argument"
                 case "$flag" in
                     c|o|f|D)
@@ -93,7 +93,7 @@ while [[ $# > 0 ]]; do
             done
             flag=${arg: -1} # last character
             if [[ $need_arg == 1 ]]; then
-                [[ $# > 0 ]] || die "-$flag flag expected an argument"
+                [[ $# -gt 0 ]] || die "-$flag flag expected an argument"
                 case $flag in
                     c)
                         cc="$1"
@@ -125,8 +125,7 @@ else # no .cpp in files
     cc=clang
 fi
 [[ $debug == 1 ]] && cflags="-g $cflags"
-"$cc" $cflags "${files[@]}" -o "$output" 
-[[ $? == 0 ]] || die "could not compile" # if the compiler failed exit
+"$cc" $cflags "${files[@]}" -o "$output" || die "could not compile"
 if [[ $no_run == 0 && $debug == 0 ]]; then # running not in debug
     "$output" "$@"
 elif [[ $debug == 1 ]]; then
