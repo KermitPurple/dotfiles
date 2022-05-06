@@ -13,8 +13,6 @@ set completeopt=menu,preview,menuone
 set shortmess+=c
 set timeoutlen=1000
 set ttimeoutlen=5
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview 
 autocmd FileType c,cpp,rust,java,python,javascript,go,dart,ruby RainbowParentheses
 nnoremap <leader>n :!new_window<cr><cr>
 nnoremap <leader>N :!new_tab<cr><cr>
