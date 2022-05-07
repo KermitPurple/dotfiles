@@ -80,9 +80,21 @@ noremap <leader>; :vert term<cr>
 
 " fold function
 function! CurlyLevel() 
+    let pat = '\([^}''"]\|"[^"]*"\|''[^'']*''\)*[''"]\@!$'
     let line = getline(v:lnum)
-    let lcurlys = count(line, '{') 
-    let rcurlys = count(line, '}') 
+    " count number of valid lparens
+    let lcurlys = 1
+    while match(line, '{' . pat, 0, lcurlys) >= 0
+        let lcurlys = lcurlys + 1
+    endwhile
+    let lcurlys = lcurlys - 1
+    " count number of valid rparens
+    let rcurlys = 1
+    while match(line, '}' . pat, 0, rcurlys) >= 0
+        let rcurlys = rcurlys + 1
+    endwhile
+    let rcurlys = rcurlys - 1
+    " calculate fold
     let diff = lcurlys - rcurlys
     if diff > 0
         return "a" . diff
