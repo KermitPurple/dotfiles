@@ -86,22 +86,22 @@ function! CurlyLevel()
     let line = getline(v:lnum)
     " count number of valid lparens
     let lcurlys = 1
-    while match(line, '{' . pat, 0, lcurlys) >= 0
+    while match(line, '{' .. pat, 0, lcurlys) >= 0
         let lcurlys += 1
     endwhile
     let lcurlys -= 1
     " count number of valid rparens
     let rcurlys = 1
-    while match(line, '}' . pat, 0, rcurlys) >= 0
+    while match(line, '}' .. pat, 0, rcurlys) >= 0
         let rcurlys += 1
     endwhile
     let rcurlys -= 1
     " calculate fold
     let diff = lcurlys - rcurlys
     if diff > 0
-        return "a" . diff
+        return "a" .. diff
     elseif diff < 0
-        return "s" . -diff
+        return "s" .. -diff
     endif
     return "="
 endfunction
