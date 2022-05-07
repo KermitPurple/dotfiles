@@ -12,7 +12,7 @@ set showcmd " show partial command in bottom right
 set expandtab " spaces instead of tabs
 set tabstop=4 " number of spaces used in a tab
 set shiftwidth=0  " number of spaces for indentation (0 means use tabstop)
-set softtabstop=0 " number of spaces used in a tab while editing (0 means use tabstop)
+set softtabstop=4 " number of spaces used in a tab while editing
 let g:python_recommended_style = 0 " don't change my formatting in python
 let g:rust_recommended_style = 0 " don't change my formatting in rust
 " line numbers
