@@ -80,7 +80,7 @@ noremap <leader>; :vert term<cr>
 
 " fold function
 function! CurlyLevel() 
-    let pat = '\([^}''"]\|"[^"]*"\|''[^'']*''\)*[''"]\@!$'
+    let pat = '\([^''"`]\|"[^"]*"\|''[^'']*''\|`[^`]`\)*[''"]\@!$'
     let line = getline(v:lnum)
     " count number of valid lparens
     let lcurlys = 1
