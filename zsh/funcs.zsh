@@ -178,7 +178,7 @@ my_sites(){
 
 # fzf all apps
 apps(){
-    local app=`find /Applications /System/Applications /System/Library/CoreServices /System/Applications/Utilities -maxdepth 1 -name "*.app" ! -path "*.app/*" | sed 's/\.app//;s{/.*/{{' | fzf`
+    local app=`find /Applications /System/Applications /System/Library/CoreServices /System/Applications/Utilities -maxdepth 1 -name "*.app" ! -path "*.app/*" | sed 's/\.app//;s{/.*/{{' | sort | fzf`
     if [ -z "$app" ]; then # no app chosen
         return 1
     fi
