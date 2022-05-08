@@ -5,7 +5,7 @@
 prog="mega_git"
 
 die(){
-    >&2 echo "$*"
+    >&2 echo -e "$prog: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
     exit 1
 }
 
@@ -50,7 +50,7 @@ while [[ $# > 0 ]]; do
                 shift
                 exec_arg="$1"
             else
-                die "Error: --exec flag was not passed an arg"
+                die "--exec flag was not passed an arg"
             fi
             ;;
         --help|-h)
@@ -62,7 +62,7 @@ while [[ $# > 0 ]]; do
     esac
     shift
 done
-[[ -z "$args" ]] && die "Error: no git args passed"
+[[ -z "$args" ]] && die "no git args passed"
 cmd="git $args"
 locations="$CODING_DIR $DOTFILES_DIR" # locations to search
 for location in $locations; do # cycle over locations
