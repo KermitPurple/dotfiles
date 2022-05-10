@@ -19,7 +19,7 @@ let g:rust_recommended_style = 0 " don't change my formatting in rust
 set relativenumber
 set number
 "folds
-set foldmethod=expr
+set foldmethod=manual " not using expr because it's actually too slow in practice
 set foldexpr=CurlyLevel()
 " binds
 let mapleader = ' '
