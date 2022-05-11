@@ -1,6 +1,9 @@
 # allow for colors
 autoload -U colors && colors
 
+# enable ctrl-r to back search
+bindkey '^R' history-incremental-search-backward
+
 # import other zsh files
 . "$DOTFILES_DIR/zsh/alias.zsh"
 . "$DOTFILES_DIR/zsh/funcs.zsh"
