@@ -83,7 +83,7 @@ let g:ascii_art_header = [
             \ '*----------------------------*',
             \ ]
 let g:startify_custom_header = 'startify#pad(g:ascii_art_header + startify#fortune#boxed())'
-let g:startify_custom_footer = ['Also you''re gay!']
+let g:startify_custom_footer = ['Remember to make fun of people who use nano!']
 let g:startify_bookmarks = [
             \ {'r': '~/.vim/vimrc'},
             \ {'z': '~/.zshrc'},
