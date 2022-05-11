@@ -36,7 +36,6 @@ nnoremap <leader>q :wqa<cr>
 nnoremap <leader>Q :wq<cr>
 nnoremap <leader>w :wa<cr>
 nnoremap <leader>W :w<cr>
-nnoremap <leader>z :qa!<cr>
 nnoremap <leader>a :q!<cr>
 " Make stuff
 nnoremap <leader>m :!make <cr>
@@ -79,6 +78,9 @@ noremap <leader>P "*P
 " Terminal stuff
 noremap <leader>: :term<cr>
 noremap <leader>; :vert term<cr>
+" folds
+nnoremap <leader>z :let temp = &fdm \| set fdm=expr <cr> :let &fdm = temp <cr>
+nnoremap <leader>Z zE
 
 " fold function
 function! CurlyLevel() 
