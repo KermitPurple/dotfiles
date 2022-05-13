@@ -1,43 +1,24 @@
 #!/bin/bash
 
-# homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# xcode commandline tools
-xcode-select --install
-
-# brew packages
-brew install \
-    gcc\
-    ack\
+# apt packages
+sudo apt install \
+    build-essential\
     vim\
-    fzf\
-    skhd\
-    rustup\
-    raylib\
-    lolcat\
-    figlet\
-    ffmpeg\
-    openjdk\
-    util-linux\
-    python@3.10
-# have to be seperate or don't install correctly
-# brew casks
-brew install \
-    iterm2\
-    dropbox\
-    spotify\
-    discord\
-    visual-studio-code
+    zsh\
+    cmake\
+    golang-go\
+    -y
 
-# link gcc-11 to gcc
-sudo ln -s `where gcc-11` /usr/local/bin/gcc
-
-# install rust without messing with path
-rustup-init --no-modify-path -y
+# installing python3.10
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt install python3.10\
+    python3-pip\
+    -y
+ln -s `where python3.10` /usr/local/bin/python3
 
 # clone dotfiles
-git clone git@github.com:KermitPurple/dotfiles.git
+git clone https://github.com/KermitPurple/dotfiles.git $HOME/dotfiles
 
 # create symbolic links
 ln -s $HOME/dotfiles/vim $HOME/.vim
@@ -47,11 +28,12 @@ ln -s $HOME/dotfiles/skhd/skhdrc $HOME/.skhdrc
 ln -s $HOME/dotfiles/nvim/ $HOME/.config/nvim
 
 # make vim trash files
-mkdir $HOME/dotfiles/vim/trash $HOME/dotfiles/vim/views
+mkdir $HOME/dotfiles/vim/{trash,views}
 
 # install vim plugins
 vim -c "PlugInstall" \
     -c "qa!"
+# below requires go and cmake
 $HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
 
 pip3 install virtualenv
