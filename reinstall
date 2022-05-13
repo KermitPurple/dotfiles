@@ -8,6 +8,7 @@ xcode-select --install
 
 # brew packages
 brew install \
+    git\
     gcc\
     ack\
     vim\
@@ -29,6 +30,10 @@ brew install \
     spotify\
     discord\
     visual-studio-code
+
+# set git preferences
+git config --global user.email "shanemcdman@gmail.com"
+git config --global user.name "Shane McDonough"
 
 # link gcc-11 to gcc
 sudo ln -s `where gcc-11` /usr/local/bin/gcc
