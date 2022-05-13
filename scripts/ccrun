@@ -120,9 +120,9 @@ done
 [[ "$output" == */* ]] || output="./$output"
 # if no compiler set
 [[ -z $cc ]] && if [[ "${files[*]}" == *.cpp* ]]; then # if .cpp is in files
-    cc=clang++
+    cc=c++
 else # no .cpp in files
-    cc=clang
+    cc=cc
 fi
 [[ $debug == 1 ]] && cflags="-g $cflags"
 "$cc" $cflags "${files[@]}" -o "$output" || die "could not compile"
