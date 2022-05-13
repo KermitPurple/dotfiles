@@ -54,6 +54,8 @@ vim -c "PlugInstall" \
     -c "qa!"
 $HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
 
+pip3 install virtualenv
+
 # reinstall script requirements
 . ~/.zshenv
 $HOME/dotfiles/clone_reqs
