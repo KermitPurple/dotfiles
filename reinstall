@@ -17,7 +17,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt install python3.10\
     python3-pip\
     -y
-ln -s `which python3.10` /usr/local/bin/python3
+sudo ln -s `which python3.10` /usr/local/bin/python3
 
 # clone dotfiles
 git clone https://github.com/KermitPurple/dotfiles.git $HOME/dotfiles
