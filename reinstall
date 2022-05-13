@@ -44,7 +44,7 @@ mkdir $HOME/dotfiles/vim/{trash,views}
 vim -c "PlugInstall" \
     -c "qa!"
 # below requires go and cmake
-$HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
+/usr/bin/python3 $HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
 
 # pip3 install virtualenv
 
