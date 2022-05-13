@@ -10,7 +10,12 @@ sudo apt install \
     cmake\
     golang-go\
     build-essential\
+    chromium-browser\
     -y
+
+git config --global user.email "shanemcdman@gmail.com"
+git config --global user.name "Shane McDonough"
+
 
 # install rust
 curl https://sh.rustup.rs | sh
