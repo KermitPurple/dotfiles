@@ -1,9 +1,11 @@
 #!/bin/bash
 
+sudo apt update && sudo apt upgrade -y
 # apt packages
 sudo apt install \
     build-essential\
     vim\
+    git\
     zsh\
     cmake\
     golang-go\
@@ -15,7 +17,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt install python3.10\
     python3-pip\
     -y
-ln -s `where python3.10` /usr/local/bin/python3
+ln -s `which python3.10` /usr/local/bin/python3
 
 # clone dotfiles
 git clone https://github.com/KermitPurple/dotfiles.git $HOME/dotfiles
@@ -39,5 +41,5 @@ $HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
 pip3 install virtualenv
 
 # reinstall script requirements
-. ~/.zshenv
-$HOME/dotfiles/clone_reqs
+# . ~/.zshenv
+# $HOME/dotfiles/clone_reqs
