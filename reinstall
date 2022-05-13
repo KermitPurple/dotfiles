@@ -14,10 +14,9 @@ sudo apt install \
 # installing python3.10
 sudo apt install software-properties-common -y
 sudo add-apt-repository ppa:deadsnakes/ppa -y
-sudo apt install python3.10\
-    python3-pip\
-    -y
-sudo ln -s `which python3.10` /usr/local/bin/python3
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 2
 
 # clone dotfiles
 git clone https://github.com/KermitPurple/dotfiles.git $HOME/dotfiles
@@ -38,7 +37,7 @@ vim -c "PlugInstall" \
 # below requires go and cmake
 $HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
 
-pip3 install virtualenv
+# pip3 install virtualenv
 
 # reinstall script requirements
 # . ~/.zshenv
