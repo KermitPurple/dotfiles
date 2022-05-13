@@ -3,10 +3,11 @@
 sudo apt update && sudo apt upgrade -y
 # apt packages
 sudo apt install \
-    curl\
     vim\
     git\
     zsh\
+    npm\
+    curl\
     cmake\
     golang-go\
     python3-dev\
@@ -17,12 +18,11 @@ sudo apt install \
 git config --global user.email "shanemcdman@gmail.com"
 git config --global user.name "Shane McDonough"
 
-
 # install rust
 curl https://sh.rustup.rs | sh
 
 # clone dotfiles
-git clone https://github.com/KermitPurple/dotfiles.git $HOME/dotfiles
+git clone --branch ubuntu https://github.com/KermitPurple/dotfiles.git $HOME/dotfiles
 
 # create symbolic links
 ln -s $HOME/dotfiles/vim $HOME/.vim
