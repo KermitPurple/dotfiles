@@ -3,6 +3,7 @@
 sudo apt update && sudo apt upgrade -y
 # apt packages
 sudo apt install \
+    curl\
     build-essential\
     vim\
     git\
