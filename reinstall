@@ -47,7 +47,7 @@ vim -c "PlugInstall" \
 # below requires go and cmake
 /usr/bin/python3 $HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
 
-# pip3 install virtualenv
+pip3 install virtualenv
 
 # reinstall script requirements
 # . ~/.zshenv
