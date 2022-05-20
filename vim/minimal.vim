@@ -1,8 +1,9 @@
 " Shane McDonough minimal vimrc
 syntax on " make sure syntax highlighting is on
 filetype plugin indent on " Auto indent and other file type stuff works
-set hlsearch
-set nowrap
+set nocp " should be first most of the time
+set hlsearch " highlight texting after searching using "/"
+set nowrap " don't wrap when text overflows off screen
 set breakindent " wrapped lines are visually indented
 set incsearch " show pattern while typing in search
 set autoindent " automatically go to the correct indentation
