@@ -55,6 +55,13 @@ alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
 #     neofetch - brew install neofetch
 alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && figlet \"Welcome Shane!\" | cowsay -n -fdragon | lolcat"
 
+# show an ascii digitial clock
+# reqs:
+#     figlet - brew install figlet
+#     toilet - brew install toilet
+#     watch - brew install watch
+alias aclock="watch -n1 --color \"date '+%D%n%T' | toilet -f bigmono12 -F border --gay\""
+
 # repo: git@github.com:KermitPurple/roll_dice_py.git
 # dir: $CODING_DIR/python/dice
 # dice roll function
