@@ -55,7 +55,7 @@ alias shapes="silent_bg $CODING_DIR/c++/shapes/bin/shapes"
 #     neofetch - brew install neofetch
 alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && figlet \"Welcome Shane!\" | cowsay -n -fdragon | lolcat"
 
-# show a digitial clock
+# show an ascii digitial clock
 # reqs:
 #     figlet - brew install figlet
 #     toilet - brew install toilet
