@@ -269,3 +269,14 @@ bitcoin_price(){
 todo(){
     $CODING_DIR/rust/todo_rs/target/release/todo_rs $*
 }
+
+# workout tracker
+# repo: git@github.com:KermitPurple/WorkoutTracker.git
+# dir: $CODING_DIR/python/workout_tracker
+# branch: mac
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
+workt()(
+    cd "$CODING_DIR/python/workout_tracker"
+    . venv/bin/activate
+    silent_bg ./gui_workout_tracker.py
+)

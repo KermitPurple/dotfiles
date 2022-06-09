@@ -54,3 +54,7 @@ export TODO_DONE_LIST="$HOME/dropbox/todos/done_list.txt"
 # clipboard file for mclip script:
 #   - $SCRIPT_DIR/mclip
 export MCLIP_FILE="$HOME/dropbox/mclip_file.txt"
+
+# Workout tracker data
+#   - git@github.com:KermitPurple/WorkoutTracker.git
+export WORKOUT_DATA_PATH="$HOME/dropbox/workout_data.json"
