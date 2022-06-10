@@ -11,7 +11,7 @@ print_help(){
     done <<-EOF
 ccrun FILES [FLAGS] [-- PROG_FLAGS]
   Compiles and runs a c family program
-  If '.cpp' was found in files then it will use clang++ otherwise it will use clang
+  If '.cpp' was found in files then it will use c++ otherwise it will use cc
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the executable being run
     FLAGS:
