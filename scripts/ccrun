@@ -35,6 +35,7 @@ no_run=0
 cflags="-Wextra -fsanitize=address"
 debug=0
 debugger="lldb"
+[[ -z "$TEMP_DIR" ]] && TEMP_DIR=/tmp
 output="$TEMP_DIR/ccrun.out"
 while [[ $# -gt 0 ]]; do
     arg="$1"
