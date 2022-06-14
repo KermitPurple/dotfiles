@@ -22,6 +22,8 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
       -d, --debug                   - debug instead of running
       -n, --no-run                  - don't run the executable, just compile
       -h, --help                    - print this message
+      -w, --watch                   - watch the input files and recompile and run when there is a change
+      -W, --no-watch                    - disable watch
 EOF
 }
 
@@ -37,6 +39,7 @@ debug=0
 debugger="lldb"
 [[ -z "$TEMP_DIR" ]] && TEMP_DIR=/tmp
 output="$TEMP_DIR/ccrun.out"
+args=("$@")
 while [[ $# -gt 0 ]]; do
     arg="$1"
     shift
@@ -58,6 +61,12 @@ while [[ $# -gt 0 ]]; do
             ;;
         --debugger)
             arg="-D"
+            ;;
+        --watch)
+            arg="-w"
+            ;;
+        --no-watch)
+            arg="-W"
             ;;
     esac
     case "$arg" in # parse all short flags
@@ -82,6 +91,12 @@ while [[ $# -gt 0 ]]; do
                         ;;
                     d)
                         debug=1
+                        ;;
+                    w)
+                        watch=1
+                        ;;
+                    W)
+                        watch=0
                         ;;
                     h)
                         print_help
@@ -118,6 +133,12 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+
+if [[ $watch == 1 ]]; then
+    entr ccrun ${args[@]} -W <<< "${files[@]}"
+    exit 0
+fi
+
 [[ "$output" == */* ]] || output="./$output"
 # if no compiler set
 [[ -z $cc ]] && if [[ "${files[*]}" == *.cpp* ]]; then # if .cpp is in files
