@@ -22,8 +22,8 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
       -d, --debug                   - debug instead of running
       -n, --no-run                  - don't run the executable, just compile
       -h, --help                    - print this message
-      -w, --watch                   - watch the input files and recompile and run when there is a change
-      -W, --no-watch                    - disable watch
+      -w, --watch                   - watch the input files and recompile and run when there is a change (requires entr)
+      -W, --no-watch                - disable watch
 EOF
 }
 
