@@ -93,7 +93,7 @@ while [[ $# -gt 0 ]]; do
                         debug=1
                         ;;
                     w)
-                        watch=1
+                        [[ $watch != 0 ]] && watch=1
                         ;;
                     W)
                         watch=0
@@ -135,7 +135,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ $watch == 1 ]]; then
-    entr ccrun ${args[@]} -W <<< "${files[@]}"
+    entr ccrun -W ${args[@]} <<< "${files[@]}"
     exit 0
 fi
 
