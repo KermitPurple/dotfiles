@@ -55,6 +55,7 @@ while [[ $# > 0 ]]; do
             ;;
         --help|-h)
             show_help
+            exit 0
             ;;
         *)
             args="$args $1"
