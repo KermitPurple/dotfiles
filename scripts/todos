@@ -18,7 +18,7 @@ todos [FLAGS]
 EOF
 }
 
-using_depth=0
+using_depth=false
 target_path=.
 
 while [[ $# > 0 ]]; do
@@ -36,7 +36,7 @@ while [[ $# > 0 ]]; do
             shift
             [[ $# > 0 ]] || die "Expected an argument for -d"
             maxdepth="$1"
-            using_depth=1
+            using_depth=true
             ;;
         --*)
             die "Unexpected long flag '$1'"
@@ -52,7 +52,7 @@ while [[ $# > 0 ]]; do
 done
 
 cmd="find $target_path -type f"
-if [[ $using_depth = 1 ]]; then
+if $using_depth; then
     cmd="$cmd -maxdepth $maxdepth"
 fi
 
