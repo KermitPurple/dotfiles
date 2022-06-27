@@ -25,8 +25,8 @@ mvwp CMD FILES [FLAGS]
 EOF
 }
 files=() # create empty bash array
-dry_run=0
-verbose=0
+dry_run=false
+verbose=false
 while [[ $# > 0 ]]; do # while there are still args
     arg="$1"
     case "$arg" in # convert long args to short
@@ -50,11 +50,11 @@ while [[ $# > 0 ]]; do # while there are still args
                         exit 0
                         ;;
                     d)
-                        dry_run=1
-                        verbose=1
+                        dry_run=true
+                        verbose=true
                         ;;
                     v)
-                        verbose=1
+                        verbose=true
                         ;;
                     *)
                         die "Unexpected flag '-$flag'";
@@ -78,8 +78,8 @@ done
 
 for file in "${files[@]}"; do
     new=`echo "$file" | $cmd`
-    [[ $verbose = 1 ]] && echo "$file -> $new"
-    if [[ $dry_run = 0 ]]; then
+    $verbose && echo "$file -> $new"
+    if ! $dry_run; then
         mv "$file" "$new"
     fi
 done
