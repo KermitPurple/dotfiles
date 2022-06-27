@@ -1,10 +1,10 @@
 #!/bin/sh
 
-number=0
+number=false
 for arg; do
     case "$arg" in
         -n|--number)
-            number=1
+            number=true
             ;;
     esac
 done
@@ -12,7 +12,7 @@ done
 stty raw
 read -n1 character
 stty cooked
-if [ "$number" -eq 1 ]; then
+if $number; then
     printf "%d\n" "'$character'" # print the number value of the character
 else
     echo "$character"
