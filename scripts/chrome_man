@@ -28,7 +28,7 @@ function try_url(){
 chrome_fn="chrome"
 while [[ $# > 0 ]]; do
     case "$1" in
-        [0123456789]*)
+        [0-9])
             i=$1
             ;;
         -w)
