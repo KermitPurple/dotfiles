@@ -31,11 +31,10 @@ if [[ $# == 0 ]]; then # if no args
     print_help
     exit 0
 fi
-cc=""
 files=()
-no_run=0
+debug=false
+no_run=false
 cflags="-Wextra -fsanitize=address"
-debug=0
 debugger="lldb"
 [[ -z "$TEMP_DIR" ]] && TEMP_DIR=/tmp
 output="$TEMP_DIR/ccrun.out"
@@ -77,26 +76,26 @@ while [[ $# -gt 0 ]]; do
             die "unexpected flag '$arg'"
             ;;
         -*)
-            need_arg=0
+            need_arg=false
             flags="${arg#?}" # everything but first character
             for flag in $(echo "$flags" | grep -o .); do
-                [[ $need_arg == 1 ]] && die "-$flag_n_arg flag expected an argument"
+                $need_arg && die "-$flag_n_arg flag expected an argument"
                 case "$flag" in
                     c|o|f|D)
-                        need_arg=1
-                        flag_n_arg=$flag
+                        need_arg=true
+                        flag_n_arg="$flag"
                         ;;
                     n)
-                        no_run=1
+                        no_run=true
                         ;;
                     d)
-                        debug=1
+                        debug=true
                         ;;
                     w)
-                        [[ $watch != 0 ]] && watch=1
+                        [ -z "$watch" ] && watch=true
                         ;;
                     W)
-                        watch=0
+                        watch=false
                         ;;
                     h)
                         print_help
@@ -108,7 +107,7 @@ while [[ $# -gt 0 ]]; do
                 esac
             done
             flag=${arg: -1} # last character
-            if [[ $need_arg == 1 ]]; then
+            if $need_arg; then
                 [[ $# -gt 0 ]] || die "-$flag flag expected an argument"
                 case $flag in
                     c)
@@ -121,7 +120,7 @@ while [[ $# -gt 0 ]]; do
                         cflags="$1"
                         ;;
                     D)
-                        debug=1
+                        debug=true
                         debugger="$1"
                         ;;
                 esac
@@ -134,22 +133,22 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-if [[ $watch == 1 ]]; then
+if [ -n "$watch" ] && $watch; then
     entr ccrun -W "${args[@]}" <<< "${files[@]}"
     exit 0
 fi
 
 [[ "$output" == */* ]] || output="./$output"
 # if no compiler set
-[[ -z $cc ]] && if [[ "${files[*]}" == *.cpp* ]]; then # if .cpp is in files
+[ -z "$cc" ] && if [[ "${files[*]}" == *.cpp* ]]; then # if .cpp is in files
     cc=c++
 else # no .cpp in files
     cc=cc
 fi
-[[ $debug == 1 ]] && cflags="-g $cflags"
-"$cc" "$cflags" "${files[@]}" -o "$output" || die "could not compile"
-if [[ $no_run == 0 && $debug == 0 ]]; then # running not in debug
-    "$output" "$@"
-elif [[ $debug == 1 ]]; then
+$debug && cflags="-g $cflags"
+"$cc" $cflags "${files[@]}" -o "$output" || die "could not compile"
+if $debug; then
     "$debugger" "$output" -- "$@"
+elif ! $no_run; then # running not in debug
+    "$output" "$@"
 fi
