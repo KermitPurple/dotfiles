@@ -135,7 +135,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ $watch == 1 ]]; then
-    entr ccrun -W ${args[@]} <<< "${files[@]}"
+    entr ccrun -W "${args[@]}" <<< "${files[@]}"
     exit 0
 fi
 
@@ -147,7 +147,7 @@ else # no .cpp in files
     cc=cc
 fi
 [[ $debug == 1 ]] && cflags="-g $cflags"
-"$cc" $cflags "${files[@]}" -o "$output" || die "could not compile"
+"$cc" "$cflags" "${files[@]}" -o "$output" || die "could not compile"
 if [[ $no_run == 0 && $debug == 0 ]]; then # running not in debug
     "$output" "$@"
 elif [[ $debug == 1 ]]; then
