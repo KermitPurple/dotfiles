@@ -6,7 +6,7 @@
 
 . ~/Git/zsh-snap/znap.zsh  # Start Znap
 # `znap source` automatically downloads and starts your plugins.
-znap source marlonrichert/zsh-autocomplete # potentially causes lag
+znap source marlonrichert/zsh-autocomplete # potentially causes lag; before commenting out run `znap pull` It could fix the problem
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 # `znap eval` caches and runs any kind of command output for you.
