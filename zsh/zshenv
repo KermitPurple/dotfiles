@@ -58,3 +58,7 @@ export MCLIP_FILE="$HOME/dropbox/mclip_file.txt"
 # Workout tracker data
 #   - git@github.com:KermitPurple/WorkoutTracker.git
 export WORKOUT_DATA_PATH="$HOME/dropbox/workout_data.json"
+
+# Weight tracker data
+#   - git@github.com:KermitPurple/weight_tracker.git
+export WEIGHT_TRACKER_PATH="$HOME/dropbox/weight_data.pickle"
