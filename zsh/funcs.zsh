@@ -280,3 +280,13 @@ workt()(
     . venv/bin/activate
     silent_bg ./gui_workout_tracker.py
 )
+
+# weight tracker
+# repo: git@github.com:KermitPurple/weight_tracker.git
+# dir: $CODING_DIR/python/weight_tracker
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
+weightt()(
+    cd "$CODING_DIR/python/weight_tracker"
+    . venv/bin/activate
+    ./main.py
+)
