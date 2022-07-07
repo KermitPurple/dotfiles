@@ -73,6 +73,12 @@ alias roll="$CODING_DIR/python/dice/main.py"
 # snake game written in c
 alias cnake="$CODING_DIR/c++/cnake/bin/cnake"
 
+# repo: git@github.com:KermitPurple/typing_test
+# dir: $CODING_DIR/rust/typing_test
+# build: cargo build --release
+# Typing test written in rust
+alias typing_test="$CODING_DIR/rust/typing_test/target/release/typing_test"
+
 # default ls to with color
 alias ls="ls --color=auto"
 
