@@ -58,7 +58,7 @@ fi
 
 failed=1
 for file in `$cmd`; do # for all files in current dir
-    [ -f "$file" ] && grep -nH --color='auto' TODO "$file" # find all todos in file
+    [ -f "$file" ] && grep -nH --color='auto' "TODO\|todo!" "$file" # find all todos in file
     failed=$((failed & $?))
 done
 exit $failed
