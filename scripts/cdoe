@@ -2,6 +2,9 @@
 
 alias leave="cleanup && return"
 
+alias check_action_set='$action_set && print_error "Conflicting flags passed" && leave 1 || action_set=true'
+
+
 print_error(){
     >&2 echo -e "$prg: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
 }
@@ -21,13 +24,14 @@ $prg PATH [FLAGS]
       -e, --edit                  - open file with \$EDITOR, override default behavior
       -x, --execute               - execute file, override default behavior
       -b PATH, --base-path PATH   - The basepath to search for this path ( Include trailing "/" e.g. "/tmp/" )
+      -p PRGM., --program PRGM    - Runs the file with PRGM e.g. "cdoe /tmp/a.c -p cat" runs "cat /tmp/a.c"
       -h, --help                  - Display this help message
 EOF
 }
 
 cleanup(){
     unset -f print_error print_help cleanup change_dir edit execute
-    unalias leave
+    unalias leave check_action_set
 }
 
 change_dir(){
@@ -54,9 +58,11 @@ fi
 
 local prg=cdoe
 local target_path=''
+local program_name=''
 local force_cd=false
 local force_edit=false
 local force_execute=false
+local action_set=false
 local exit_status=0
 local base_path='./'
 [ $# -eq 0 ] && print_error "Invalid number of arguments: 0" && leave 1
@@ -79,6 +85,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --base-path)
             arg='-b'
+            ;;
+        --program)
+            arg='-p'
+            ;;
     esac
     case "$arg" in # parse all short flags
         --)
@@ -97,30 +107,21 @@ while [[ $# -gt 0 ]]; do
                     leave 1
                 fi
                 case "$flag" in
-                    b)
+                    b|p)
                         need_arg=true
                         local flag_n_arg="$flag"
                         ;;
                     c)
                         force_cd=true
-                        if $force_edit || $force_execute; then
-                            print_error "Conflicting flags passed"
-                            leave 1
-                        fi
+                        check_action_set
                         ;;
                     e)
                         force_edit=true
-                        if $force_cd || $force_execute; then
-                            print_error "Conflicting flags passed"
-                            leave 1
-                        fi
+                        check_action_set
                         ;;
                     x)
                         force_execute=true
-                        if $force_cd || $force_edit; then
-                            print_error "Conflicting flags passed"
-                            leave 1
-                        fi
+                        check_action_set
                         ;;
                     h)
                         print_help
@@ -134,12 +135,17 @@ while [[ $# -gt 0 ]]; do
             done
             flag=${arg: -1} # last character
             if $need_arg; then
-                if ! [[ $# -gt 0 ]]; then 
+                if [ ! $# -gt 0 ]; then 
                     print_error "-$flag flag expected an argument"
+                    leave 1
                 fi
                 case $flag in
                     b)
                         base_path="$1"
+                        ;;
+                    p)
+                        program_name="$1"
+                        check_action_set
                         ;;
                 esac
                 shift
@@ -158,7 +164,9 @@ done
 
 target_path="$base_path$target_path"
 
-if $force_cd; then
+if [ ! -z "$program_name" ]; then
+    $program_name "$target_path"
+elif $force_cd; then
     change_dir
 elif $force_execute; then
     execute
@@ -170,6 +178,9 @@ elif [ -x "$target_path" ]; then
     execute
 elif [ -f "$target_path" ]; then
     edit
+else
+    exit_status=1
+    print_error "The path: '$target_path' does not exist"
 fi
 
 leave $exit_status
