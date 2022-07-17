@@ -46,7 +46,7 @@ execute(){
 }
 
 # check if script is being sourced
-if !(return 0 2>/dev/null); then
+if ! ( return 0 2>/dev/null ); then
     prg=cdoe
     print_error "You have to source this script in order to run it. e.g. 'source $prg'"
     exit $?
