@@ -14,16 +14,16 @@ set_prompt(){
 }
 
 # directory movement functions
-dotfiles()cd "$DOTFILES_DIR/$*"
-school()cd "$SCHOOL_DIR/$*"
-coding()cd "$CODING_DIR/$*"
-temp()cd "$TEMP_DIR/$*"
-rust()cd "$CODING_DIR/rust/$*"
-pyth()cd "$CODING_DIR/python/$*"
-web()cd "$CODING_DIR/web/$*"
-c()cd "$CODING_DIR/c++/$*"
-j()cd "$CODING_DIR/java/$*"
-z()cd "$CODING_DIR/zsh/$*"
+dotfiles() . cdoe -b "$DOTFILES_DIR/" $@
+school() . cdoe -b "$SCHOOL_DIR/" $@
+coding() . cdoe -b "$CODING_DIR/" $@
+temp() . cdoe -b "$TEMP_DIR/" $@
+rust() . cdoe -b "$CODING_DIR/rust/" $@
+pyth() . cdoe -b "$CODING_DIR/python/" $@
+web() . cdoe -b "$CODING_DIR/web/" $@
+c() . cdoe -b "$CODING_DIR/c++/" $@
+j() . cdoe -b "$CODING_DIR/java/" $@
+z() . cdoe -b "$CODING_DIR/zsh/" $@
 
 # fd - cd to selected directory
 # http://sourabhbajaj.com/mac-setup/iTerm/fzf.html

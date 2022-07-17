@@ -1,0 +1,168 @@
+#!/bin/bash
+
+alias leave="cleanup && return"
+
+print_error(){
+    >&2 echo -e "$prg: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+}
+
+
+print_help(){
+    while IFS= read -r line; do
+        echo "$line"
+    done <<-EOF
+$prg PATH [FLAGS]
+  change directory or edit/execute
+  Interacts with a file on a given path. If the file is a directory, cd is run.
+  If the file is a normal file it is opened with a \$EDITOR. if \$EDITOR is not set, vim is used.
+    PATH - path to file to interact with
+    FLAGS:
+      -c, --cd                    - cd to path, override default behavior
+      -e, --edit                  - open file with \$EDITOR, override default behavior
+      -x, --execute               - execute file, override default behavior
+      -b PATH, --base-path PATH   - The basepath to search for this path ( Include trailing "/" e.g. "/tmp/" )
+      -h, --help                  - Display this help message
+EOF
+}
+
+cleanup(){
+    unset -f print_error print_help cleanup change_dir edit execute
+    unalias leave
+}
+
+change_dir(){
+    cd "$target_path"
+    exit_status=$?
+}
+
+edit(){
+    $EDITOR "$target_path"
+    exit_status=$?
+}
+
+execute(){
+    "$target_path"
+    exit_status=$?
+}
+
+local prg=cdoe
+local target_path=''
+local force_cd=false
+local force_edit=false
+local force_execute=false
+local exit_status=0
+local base_path='./'
+[ $# -eq 0 ] && print_error "Invalid number of arguments: 0" && leave 1
+[ -z "$EDITOR" ] && local EDITOR='vim'
+while [[ $# -gt 0 ]]; do
+    local arg="$1"
+    shift
+    case "$arg" in # convert all long flags into short
+        --cd)
+            arg='-c'
+            ;;
+        --edit)
+            arg='-e'
+            ;;
+        --execute)
+            arg='-x'
+            ;;
+        --help)
+            arg='-h'
+            ;;
+        --base-path)
+            arg='-b'
+    esac
+    case "$arg" in # parse all short flags
+        --)
+            break # the rest of the args get passed to the executable
+            ;;
+        --*|-)
+            print_error "unexpected flag '$arg'"
+            leave 1
+            ;;
+        -*)
+            local need_arg=false
+            local flags="${arg#?}" # everything but first character
+            for flag in $(echo "$flags" | grep -o .); do
+                if $need_arg; then
+                    print_error "-$flag_n_arg flag expected an argument"
+                    leave 1
+                fi
+                case "$flag" in
+                    b)
+                        need_arg=true
+                        local flag_n_arg="$flag"
+                        ;;
+                    c)
+                        force_cd=true
+                        if $force_edit || $force_execute; then
+                            print_error "Conflicting flags passed"
+                            leave 1
+                        fi
+                        ;;
+                    e)
+                        force_edit=true
+                        if $force_cd || $force_execute; then
+                            print_error "Conflicting flags passed"
+                            leave 1
+                        fi
+                        ;;
+                    x)
+                        force_execute=true
+                        if $force_cd || $force_edit; then
+                            print_error "Conflicting flags passed"
+                            leave 1
+                        fi
+                        ;;
+                    h)
+                        print_help
+                        leave 0
+                        ;;
+                    *)
+                        print_error "unexpected flag '$flag'"
+                        leave 1
+                        ;;
+                esac
+            done
+            flag=${arg: -1} # last character
+            if $need_arg; then
+                if ! [[ $# -gt 0 ]]; then 
+                    print_error "-$flag flag expected an argument"
+                fi
+                case $flag in
+                    b)
+                        base_path="$1"
+                        ;;
+                esac
+                shift
+            fi
+            ;;
+        *)
+            if [ -z "$target_path" ]; then
+                target_path="$arg"
+            else
+                print_error "unexpected argument '$arg'"
+                leave 1
+            fi
+            ;;
+    esac
+done
+
+target_path="$base_path$target_path"
+
+if $force_cd; then
+    change_dir
+elif $force_execute; then
+    execute
+elif $force_edit; then
+    edit
+elif [ -d "$target_path" ]; then
+    change_dir
+elif [ -x "$target_path" ]; then
+    execute
+elif [ -f "$target_path" ]; then
+    edit
+fi
+
+leave $exit_status
