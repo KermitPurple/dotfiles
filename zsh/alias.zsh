@@ -1,5 +1,17 @@
 # Aliases
 
+# directory movement aliases
+alias dotfiles='. cdoe -b "$DOTFILES_DIR/"'
+alias school='. cdoe -b "$SCHOOL_DIR/"'
+alias coding='. cdoe -b "$CODING_DIR/"'
+alias temp='. cdoe -b "$TEMP_DIR/"'
+alias rust='. cdoe -b "$CODING_DIR/rust/"'
+alias pyth='. cdoe -b "$CODING_DIR/python/"'
+alias web='. cdoe -b "$CODING_DIR/web/"'
+alias c='. cdoe -b "$CODING_DIR/c++/"'
+alias j='. cdoe -b "$CODING_DIR/java/"'
+alias z='. cdoe -b "$CODING_DIR/zsh/"'
+
 # repo: git@github.com:kermitpurple/rename_all
 # dir: $CODING_DIR/rust/rename_all
 # build: cargo build --release

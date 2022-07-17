@@ -13,18 +13,6 @@ set_prompt(){
     PROMPT='%F{magenta}%~%f ${vcs_info_msg_0_}%b%# '
 }
 
-# directory movement functions
-dotfiles() . cdoe -b "$DOTFILES_DIR/" $@
-school() . cdoe -b "$SCHOOL_DIR/" $@
-coding() . cdoe -b "$CODING_DIR/" $@
-temp() . cdoe -b "$TEMP_DIR/" $@
-rust() . cdoe -b "$CODING_DIR/rust/" $@
-pyth() . cdoe -b "$CODING_DIR/python/" $@
-web() . cdoe -b "$CODING_DIR/web/" $@
-c() . cdoe -b "$CODING_DIR/c++/" $@
-j() . cdoe -b "$CODING_DIR/java/" $@
-z() . cdoe -b "$CODING_DIR/zsh/" $@
-
 # fd - cd to selected directory
 # http://sourabhbajaj.com/mac-setup/iTerm/fzf.html
 fd() {
