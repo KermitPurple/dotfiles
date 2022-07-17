@@ -45,6 +45,13 @@ execute(){
     exit_status=$?
 }
 
+# check if script is being sourced
+if !(return 0 2>/dev/null); then
+    prg=cdoe
+    print_error "You have to source this script in order to run it. e.g. 'source $prg'"
+    exit $?
+fi
+
 local prg=cdoe
 local target_path=''
 local force_cd=false
