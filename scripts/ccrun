@@ -1,7 +1,7 @@
 #!/bin/bash
 
 die(){
-    >&2 echo -e "ccrun: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+    >&2 echo -e "$prg: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
     exit 1 # exit with error
 }
 
@@ -9,14 +9,14 @@ print_help(){
     while IFS= read -r line; do
         echo "$line"
     done <<-EOF
-ccrun FILES [FLAGS] [-- PROG_FLAGS]
+$prg FILES [FLAGS] [-- PROG_FLAGS]
   Compiles and runs a c family program
   If '.cpp' was found in files then it will use c++ otherwise it will use cc
     FILE       - source file to be run
     PROG_FLAGS - flags to be passed to the executable being run
     FLAGS:
       -c CC, --compiler CC          - set compiler to CC
-      -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/ccrun.out"]
+      -o OUTPUT, --output OUTPUT    - set output executable file to OUTPUT [default: "\$TEMP_DIR/$prg.out"]
       -f CFLAGS, --cflags CFLAGS    - flags to pass to the compiler [default: -Wextra -fsanitize=address]
       -D DBGR, --debugger DBGR      - set the debugger to DBGR [default: lldb]; sets debug to true
       -d, --debug                   - debug instead of running
@@ -27,6 +27,7 @@ ccrun FILES [FLAGS] [-- PROG_FLAGS]
 EOF
 }
 
+prg='ccrun'
 if [[ $# == 0 ]]; then # if no args
     print_help
     exit 0
@@ -37,7 +38,7 @@ no_run=false
 cflags="-Wextra -fsanitize=address"
 debugger="lldb"
 [[ -z "$TEMP_DIR" ]] && TEMP_DIR=/tmp
-output="$TEMP_DIR/ccrun.out"
+output="$TEMP_DIR/$prg.out"
 args=("$@")
 while [[ $# -gt 0 ]]; do
     arg="$1"
@@ -134,7 +135,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ -n "$watch" ] && $watch; then
-    entr ccrun -W "${args[@]}" <<< "${files[@]}"
+    entr "$0" -W "${args[@]}" <<< "${files[@]}"
     exit 0
 fi
 
