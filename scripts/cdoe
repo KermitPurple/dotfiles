@@ -18,6 +18,7 @@ $prg PATH [FLAGS]
   change directory or edit/execute
   Interacts with a file on a given path. If the file is a directory, cd is run.
   If the file is a normal file it is opened with a \$EDITOR. if \$EDITOR is not set, vim is used.
+  Must be sourced rather than ran directly because of directory changes used
     PATH - path to file to interact with
     FLAGS:
       -c, --cd                    - cd to path, override default behavior
