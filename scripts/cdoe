@@ -66,7 +66,6 @@ local force_execute=false
 local action_set=false
 local exit_status=0
 local base_path='./'
-[ $# -eq 0 ] && print_error "Invalid number of arguments: 0" && leave 1
 [ -z "$EDITOR" ] && local EDITOR='vim'
 while [[ $# -gt 0 ]]; do
     local arg="$1"
@@ -163,6 +162,8 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# add fwd slash at end if it doesn't have one
+[ "${base_path: -1}" = "/" ] || base_path="$base_path/"
 target_path="$base_path$target_path"
 
 if [ ! -z "$program_name" ]; then
