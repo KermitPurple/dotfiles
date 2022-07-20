@@ -57,7 +57,6 @@ mkdir $HOME/dotfiles/vim/trash $HOME/dotfiles/vim/views
 # install vim plugins
 vim -c "PlugInstall" \
     -c "qa!"
-$HOME/dotfiles/vim/plugged/YouCompleteMe/install.py --all
 
 pip3 install virtualenv
 
