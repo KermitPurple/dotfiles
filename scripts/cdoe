@@ -14,7 +14,7 @@ print_help(){
     while IFS= read -r line; do
         echo "$line"
     done <<-EOF
-$prg PATH [FLAGS]
+$prg PATH [FLAGS] [-- PRG_FLAGS]
   change directory or edit/execute
   Interacts with a file on a given path. If the file is a directory, cd is run.
   If the file is a normal file it is opened with a \$EDITOR. if \$EDITOR is not set, vim is used.
@@ -41,12 +41,12 @@ change_dir(){
 }
 
 edit(){
-    $EDITOR "$target_path"
+    $EDITOR "$target_path" $args
     exit_status=$?
 }
 
 execute(){
-    "$target_path"
+    "$target_path" $args
     exit_status=$?
 }
 
@@ -161,13 +161,14 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+local args="$*"
 
 # add fwd slash at end if it doesn't have one
 [ "${base_path: -1}" = "/" ] || base_path="$base_path/"
 target_path="$base_path$target_path"
 
 if [ ! -z "$program_name" ]; then
-    $program_name "$target_path"
+    "$program_name" "$target_path" $args
 elif $force_cd; then
     change_dir
 elif $force_execute; then
