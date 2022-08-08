@@ -1,0 +1,8 @@
+#!/bin/bash
+
+dl_dir=~/Downloads
+dest="$1"
+[ -n "$dest" ] || dest='.'
+# the most recently modified file in the downloads folder
+file="$dl_dir/$(ls -t "$dl_dir" | head -n1)"
+mv -v "$file" "$dest"
