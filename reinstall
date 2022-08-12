@@ -10,7 +10,7 @@ git clone git@github.com:KermitPurple/dotfiles.git "$HOME/dotfiles"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install homebrew formulae and casks
-brew bundle --file="$HOME/dotfiles"
+brew bundle --file="$HOME/dotfiles/Brewfile"
 
 # set git preferences
 git config --global user.email "shanemcdman@gmail.com"
