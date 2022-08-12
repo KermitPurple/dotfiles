@@ -2,4 +2,4 @@
 # repo: git@github.com:KermitPurple/notes.git
 # dir: $CODING_DIR/python/notes
 # list notes using ls
-$CODING_DIR/python/notes/list.py $*
+$CODING_DIR/python/notes/list.py "$@"

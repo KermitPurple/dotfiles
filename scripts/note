@@ -2,4 +2,4 @@
 # repo: git@github.com:KermitPurple/notes.git
 # dir: $CODING_DIR/python/notes
 # open a new note
-$CODING_DIR/python/notes/main.py $*
+$CODING_DIR/python/notes/main.py "$@"
