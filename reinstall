@@ -34,6 +34,7 @@ brew install \
 # set git preferences
 git config --global user.email "shanemcdman@gmail.com"
 git config --global user.name "Shane McDonough"
+git config --global core.editor 'vim'
 
 # link gcc-11 to gcc
 sudo ln -s `where gcc-11` /usr/local/bin/gcc
