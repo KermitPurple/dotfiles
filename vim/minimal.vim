@@ -79,6 +79,9 @@ noremap <leader>P "*P
 " Terminal stuff
 noremap <leader>: :term<cr>
 noremap <leader>; :vert term<cr>
+" moving lines one up or one down
+noremap <c-k> :m.-2<cr>
+noremap <c-j> :m.+1<cr>
 " folds
 nnoremap <leader>z :let temp = &fdm \| set fdm=expr <cr> :let &fdm = temp <cr>
 nnoremap <leader>Z zE
