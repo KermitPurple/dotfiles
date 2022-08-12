@@ -161,7 +161,7 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
-local args="$*"
+local args=("$@")
 
 # add fwd slash at end if it doesn't have one
 [ "${base_path: -1}" = "/" ] || base_path="$base_path/"
