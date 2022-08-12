@@ -1,35 +1,16 @@
-#!/bin/bash
-
-# homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#!/bin/zsh
 
 # xcode commandline tools
 xcode-select --install
 
-# brew packages
-brew install \
-    git\
-    gcc\
-    ack\
-    vim\
-    fzf\
-    skhd\
-    rustup\
-    raylib\
-    lolcat\
-    figlet\
-    ffmpeg\
-    openjdk\
-    util-linux\
-    python@3.10
-# have to be seperate or don't install correctly
-# brew casks
-brew install \
-    iterm2\
-    dropbox\
-    spotify\
-    discord\
-    visual-studio-code
+# clone dotfiles
+git clone git@github.com:KermitPurple/dotfiles.git "$HOME/dotfiles"
+
+# homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install homebrew formulae and casks
+brew bundle --file="$HOME/dotfiles"
 
 # set git preferences
 git config --global user.email "shanemcdman@gmail.com"
@@ -37,23 +18,20 @@ git config --global user.name "Shane McDonough"
 git config --global core.editor 'vim'
 
 # link gcc-11 to gcc
-sudo ln -s `where gcc-11` /usr/local/bin/gcc
+sudo ln -s $(where gcc-11) /usr/local/bin/gcc
 
 # install rust without messing with path
 rustup-init --no-modify-path -y
 
-# clone dotfiles
-git clone git@github.com:KermitPurple/dotfiles.git $HOME/dotfiles
-
 # create symbolic links
-ln -s $HOME/dotfiles/vim $HOME/.vim
-ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/zsh/zshenv $HOME/.zshenv
-ln -s $HOME/dotfiles/skhd/skhdrc $HOME/.skhdrc
-ln -s $HOME/dotfiles/nvim/ $HOME/.config/nvim
+ln -s "$HOME/dotfiles/vim" "$HOME/.vim"
+ln -s "$HOME/dotfiles/zsh/zshrc" "$HOME/.zshrc"
+ln -s "$HOME/dotfiles/zsh/zshenv" "$HOME/.zshenv"
+ln -s "$HOME/dotfiles/skhd/skhdrc" "$HOME/.skhdrc"
+ln -s "$HOME/dotfiles/nvim/" "$HOME/.config/nvim"
 
 # make vim trash files
-mkdir $HOME/dotfiles/vim/trash $HOME/dotfiles/vim/views
+mkdir "$HOME/dotfiles/vim/trash" "$HOME/dotfiles/vim/views"
 
 # install vim plugins
 vim -c "PlugInstall" \
@@ -63,4 +41,4 @@ pip3 install virtualenv
 
 # reinstall script requirements
 . ~/.zshenv
-$HOME/dotfiles/clone_reqs
+clone_reqs
