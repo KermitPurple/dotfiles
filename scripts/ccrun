@@ -44,93 +44,46 @@ while [[ $# -gt 0 ]]; do
     arg="$1"
     shift
     case "$arg" in # convert all long flags into short
-        --compiler)
-            arg='-c'
-            ;;
-        --output)
-            arg='-o'
-            ;;
-        --no-run)
-            arg='-n'
-            ;;
-        --help)
-            arg='-h'
-            ;;
-        --debug)
-            arg="-d"
-            ;;
-        --debugger)
-            arg="-D"
-            ;;
-        --watch)
-            arg="-w"
-            ;;
-        --no-watch)
-            arg="-W"
-            ;;
+        --compiler) arg='-c';;
+        --output) arg='-o';;
+        --no-run) arg='-n';;
+        --help) arg='-h';;
+        --debug) arg="-d";;
+        --debugger) arg="-D";;
+        --watch) arg="-w";;
+        --no-watch) arg="-W";;
     esac
     case "$arg" in # parse all short flags
-        --)
-            break # the rest of the args get passed to the executable
-            ;;
-        --*|-)
-            die "unexpected flag '$arg'"
-            ;;
+        --) break;; # the rest of the args get passed to the executable
+        --*|-) die "unexpected flag '$arg'";;
         -*)
             need_arg=false
             flags="${arg#?}" # everything but first character
             for flag in $(echo "$flags" | grep -o .); do
                 $need_arg && die "-$flag_n_arg flag expected an argument"
                 case "$flag" in
-                    c|o|f|D)
-                        need_arg=true
-                        flag_n_arg="$flag"
-                        ;;
-                    n)
-                        no_run=true
-                        ;;
-                    d)
-                        debug=true
-                        ;;
-                    w)
-                        [ -z "$watch" ] && watch=true
-                        ;;
-                    W)
-                        watch=false
-                        ;;
-                    h)
-                        print_help
-                        exit 0
-                        ;;
-                    *)
-                        die "unexpected flag '$flag'"
-                        ;;
+                    c|o|f|D) need_arg=true && flag_n_arg="$flag";;
+                    n) no_run=true;;
+                    d) debug=true;;
+                    w) [ -z "$watch" ] && watch=true;;
+                    W) watch=false;;
+                    h) print_help && exit 0;;
+                    *) die "unexpected flag '$flag'";;
                 esac
             done
             flag=${arg: -1} # last character
             if $need_arg; then
                 [[ $# -gt 0 ]] || die "-$flag flag expected an argument"
                 case $flag in
-                    c)
-                        cc="$1"
-                        ;;
-                    o)
-                        output="$1"
-                        ;;
-                    f)
-                        cflags="$1"
-                        ;;
-                    D)
-                        debug=true
-                        debugger="$1"
-                        ;;
+                    c) cc="$1";;
+                    o) output="$1";;
+                    f) cflags="$1";;
+                    D) debug='true' && debugger="$1";;
                 esac
                 shift
             fi
             ;;
-        *)
-            files+=("$arg")
-            ;;
+        *) files+=("$arg");;
     esac
 done
 
