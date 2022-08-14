@@ -33,8 +33,8 @@ if [[ $# == 0 ]]; then # if no args
     exit 0
 fi
 files=()
-debug=false
-no_run=false
+debug='false'
+no_run='false'
 cflags="-Wextra -fsanitize=address"
 debugger="lldb"
 [[ -z "$TEMP_DIR" ]] && TEMP_DIR=/tmp
@@ -57,16 +57,16 @@ while [[ $# -gt 0 ]]; do
         --) break;; # the rest of the args get passed to the executable
         --*|-) die "unexpected flag '$arg'";;
         -*)
-            need_arg=false
+            need_arg='false'
             flags="${arg#?}" # everything but first character
             for flag in $(echo "$flags" | grep -o .); do
                 $need_arg && die "-$flag_n_arg flag expected an argument"
                 case "$flag" in
-                    c|o|f|D) need_arg=true && flag_n_arg="$flag";;
-                    n) no_run=true;;
-                    d) debug=true;;
-                    w) [ -z "$watch" ] && watch=true;;
-                    W) watch=false;;
+                    c|o|f|D) need_arg='true' && flag_n_arg="$flag";;
+                    n) no_run='true';;
+                    d) debug='true';;
+                    w) [ -z "$watch" ] && watch='true';;
+                    W) watch='false';;
                     h) print_help && exit 0;;
                     *) die "unexpected flag '$flag'";;
                 esac
