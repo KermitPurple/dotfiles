@@ -1,8 +1,87 @@
 #!/bin/bash
 
-dl_dir=~/Downloads
-dest="$1"
-[ -n "$dest" ] || dest='.'
+die(){
+    >&2 echo -e "$prg: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+    exit 1 # exit with error
+}
+
+print_help(){
+    while IFS= read -r line; do
+        echo "$line"
+    done <<-EOF
+$prg [FLAGS] [DEST]
+  Moves the most recently modified file in the Downloads folder
+    DEST - Where the file will be moved to [Default: "."]
+    FLAGS:
+      -d, --dry-run           - Do not move file
+      -s, --silent            - Do not print to stdout
+      -f PATH, --folder PATH  - Set the downloads folder [Default: "~/Downloads"]
+      -c, --cp                - Copy instead of move the file
+      -h, --help              - Print this message
+EOF
+}
+
+read_args(){
+    while [[ $# -gt 0 ]]; do
+        arg="$1"
+        shift
+        case "$arg" in # convert all long flags into short
+            --dry-run) arg='-d';;
+            --silent) arg='-s';;
+            --folder) arg='-f';;
+            --copy) arg='-c';;
+            --help) arg='-h';;
+        esac
+        case "$arg" in # parse all short flags
+            --*|-) die "unexpected flag '$arg'";;
+            -*)
+                need_arg=false
+                flags="${arg#?}" # everything but first character
+                for flag in $(echo "$flags" | grep -o .); do
+                    $need_arg && die "-$flag_n_arg flag expected an argument"
+                    case "$flag" in
+                        f) need_arg='true' && flag_n_arg="$flag";;
+                        d) $dry_run && die "repeated flag '-$flag'" || dry_run='true';;
+                        s) $silent && die "repeated flag '-$flag'" || silent='true';;
+                        c) $copy && die "repeated flag '-$flag'" || copy='true';;
+                        h) print_help && exit 0;;
+                        *) die "unexpected flag '$flag'";;
+                    esac
+                done
+                flag=${arg: -1} # last character
+                if $need_arg; then
+                    [[ $# -gt 0 ]] || die "-$flag flag expected an argument"
+                    case $flag in
+                        f) dl_dir="$1";;
+                    esac
+                    shift
+                fi
+                ;;
+            *) 
+                if [ -z "$dest" ]; then
+                    dest="$arg"
+                else
+                    die "Unexpected arg '$arg' after DEST is already set"
+                fi
+                ;;
+        esac
+    done
+    [ -n "$dest" ] || dest='.'
+    [ -n "$dl_dir" ] || dl_dir=~/Downloads
+}
+
+prg='mvdl'
+dry_run='false'
+silent='false'
+copy='false'
+dest=''
+dl_dir=''
+
+read_args "$@"
+
+$copy && mv_prg='cp' || mv_prg='mv'
+
 # the most recently modified file in the downloads folder
 file="$dl_dir/$(ls -t "$dl_dir" | head -n1)"
-mv -v "$file" "$dest"
+$silent || echo "$file -> $dest"
+$dry_run || "$mv_prg" "$file" "$dest"
