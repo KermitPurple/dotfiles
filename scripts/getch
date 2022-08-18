@@ -10,7 +10,7 @@ for arg; do
 done
 
 stty raw
-read -n1 character
+read -rn1 character
 stty cooked
 if $number; then
     printf "%d\n" "'$character'" # print the number value of the character
