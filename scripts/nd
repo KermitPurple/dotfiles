@@ -1,5 +1,5 @@
-#!/bin/zsh
+#!/bin/sh
 # repo: git@github.com:KermitPurple/notes.git
 # dir: $CODING_DIR/python/notes
 # delete note
-$CODING_DIR/python/notes/delete.py "$@"
+"$CODING_DIR/python/notes/delete.py" "$@"
