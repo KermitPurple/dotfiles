@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 # first argument is body
 # second argument is title
 osascript -e"display notification \"$1\" with title \"$2\""
