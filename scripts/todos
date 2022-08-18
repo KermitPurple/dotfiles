@@ -6,7 +6,7 @@ die(){
 }
 
 print_help(){
-    while IFS= read line; do
+    while IFS= read -r line; do
         echo "$line"
     done <<-EOF
 todos [FLAGS]
@@ -21,7 +21,7 @@ EOF
 using_depth=false
 target_path=.
 
-while [[ $# > 0 ]]; do
+while [[ $# -gt 0 ]]; do
     case $1 in
         -h|--help)
             print_help
@@ -29,12 +29,12 @@ while [[ $# > 0 ]]; do
             ;;
         -p|--path)
             shift
-            [[ $# > 0 ]] || die "Expected an argument for -p"
+            [[ $# -gt 0 ]] || die "Expected an argument for -p"
             target_path="$1"
             ;;
         -d|--depth)
             shift
-            [[ $# > 0 ]] || die "Expected an argument for -d"
+            [[ $# -gt 0 ]] || die "Expected an argument for -d"
             maxdepth="$1"
             using_depth=true
             ;;
