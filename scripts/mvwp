@@ -5,7 +5,7 @@ err(){
 }
 
 die(){
-    err $*
+    err "$*"
     exit 1
 }
 
@@ -27,7 +27,7 @@ EOF
 files=() # create empty bash array
 dry_run=false
 verbose=false
-while [[ $# > 0 ]]; do # while there are still args
+while [[ $# -gt 0 ]]; do # while there are still args
     arg="$1"
     case "$arg" in # convert long args to short
         --help|-h)
