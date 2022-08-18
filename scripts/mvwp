@@ -74,7 +74,7 @@ while [[ $# -gt 0 ]]; do # while there are still args
 done
 
 [[ -z "$cmd" ]] && die "Expected argument CMD"
-[[ -z "${files[@]}" ]] && die "Expected at least 1 argument for FILES"
+[[ -z "${files[*]}" ]] && die "Expected at least 1 argument for FILES"
 
 for file in "${files[@]}"; do
     new=$(echo "$file" | $cmd)
