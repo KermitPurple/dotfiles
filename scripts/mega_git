@@ -79,7 +79,7 @@ for location in $locations; do # cycle over locations
             $cmd & # call git command asyncronus
         elif ! $async && $exec_f; then
             $cmd | $exec_arg
-        elif  $asnyc && $exec_f; then
+        elif $async && $exec_f; then
             ($cmd | $exec_arg) &
         else
             echo "----------------------------------------------------------------------------------"
