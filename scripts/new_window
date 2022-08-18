@@ -1,19 +1,19 @@
-#!/bin/zsh
+#!/bin/sh
 # open a new window in iterm
 # first arg is a path [optional]
 # other args are the command passed to the terminal
 # https://gist.github.com/vyder/96891b93f515cb4ac559e9132e1c9086
 cmd=""
 dir="$PWD"
-args="$@"
 if [ -d "$1" ]; then # if the first argument is a file
     dir="$1"
-    args="${@:2}"
+    shift
 fi
+args="$*"
 if [ -n "$args" ]; then
     cmd="; $args"
 fi
-if [[ $(osascript -e "return application \"Iterm\" is running") = "false" ]]; then
+if ! "$(osascript -e "return application \"Iterm\" is running")"; then
     open -aIterm
     sleep 0.4
     osascript -e\
