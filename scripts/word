@@ -4,7 +4,7 @@ if [[ $# = 0 ]]; then # if no arguments
     exit 1 # exit with error
 fi
 for file; do # cycle over arguments
-    [[ $file = *.docx ]] || file="$file.docx" # add .docx if its not already there
-    [[ -a $file ]] || touch $file # make file if it doesn't exist
-    open -a"Microsoft Word" $file # open file in microsoft word
+    [[ "$file" = *.docx ]] || file="$file.docx" # add .docx if its not already there
+    [[ -a "$file" ]] || touch $file # make file if it doesn't exist
+    open -a"Microsoft Word" "$file" # open file in microsoft word
 done
