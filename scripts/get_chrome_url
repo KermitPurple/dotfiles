@@ -4,7 +4,7 @@ if [[ $(osascript -e "return application \"$app\" is running") = "false" ]]; the
     >&2 echo "Google Chrome is not open"
     exit 1
 fi
-if [[ $(osascript -e"tell application \"$app\" to return (count windows)") < 1 ]]; then
+if [[ $(osascript -e"tell application \"$app\" to return (count windows)") -lt 1 ]]; then
     >&2 echo "No tabs are open"
     exit 1
 fi
