@@ -2,8 +2,7 @@
 # gets the url of a chrome tab
 # saves it at the end of a list
 # and then closes the tab
-url=$(get_chrome_url)
-[[ $? = 0 ]] || exit 1
-echo $url | tee -a $CHROME_STASH
+url="$(get_chrome_url)" || exit 1
+echo "$url" | tee -a "$CHROME_STASH"
 close_chrome_tab
 
