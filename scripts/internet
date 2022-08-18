@@ -1,5 +1,8 @@
 #!/bin/bash
 
-ping -c 1 "google.com" > /dev/null 2>&1 && \
-    echo "You have internet!🎉" || \
-    (echo "You do not have internet😔" && exit 1)
+if ping -c 1 "google.com" > /dev/null 2>&1; then
+    echo "You have internet!🎉"
+else
+    echo "You do not have internet😔" 
+    exit 1
+fi
