@@ -11,7 +11,7 @@ function try_url(){
 
 url="https://docs.rs"
 if [[ ! -z "$*" ]]; then
-    crate="`encode_url "$*"`"
+    crate="$(encode_url "$*")"
     try_url "$url/$crate/latest/$crate" || chrome "$url/releases/search?query=$crate"
 else
     chrome "$url"

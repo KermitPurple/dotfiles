@@ -77,7 +77,7 @@ done
 [[ -z "${files[@]}" ]] && die "Expected at least 1 argument for FILES"
 
 for file in "${files[@]}"; do
-    new=`echo "$file" | $cmd`
+    new=$(echo "$file" | $cmd)
     $verbose && echo "$file -> $new"
     if ! $dry_run; then
         mv "$file" "$new"

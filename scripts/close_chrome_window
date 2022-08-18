@@ -1,6 +1,6 @@
 #!/bin/zsh
 # close an chrome window
-if [[ `osascript -e "return application \"Google Chrome\" is running"` = "false" ]]; then
+if [[ $(osascript -e "return application \"Google Chrome\" is running") = "false" ]]; then
     >&2 echo "Google Chrome is not open"
     return 1
 else

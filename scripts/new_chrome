@@ -3,7 +3,7 @@
 homepage="$SEARCH_ENGINE"
 app="Google Chrome"
 location="$*"
-running=`osascript -e"return application \"$app\" is running"`
+running=$(osascript -e"return application \"$app\" is running")
 if [[ "$running" = 'true' ]]; then
     [[ -z "$location" ]] && location="$homepage" # if location is null set to homepage
     osascript -e\

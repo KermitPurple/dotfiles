@@ -1,6 +1,6 @@
 #!/bin/bash
 path="$*"
-[[ -z $path ]] && path=`pwd`
+[[ -z $path ]] && path=$(pwd)
 if [[ ! -d "$path" ]]; then # if the path isn't a dir
     >&2 echo "'$path' is not a directory"
     exit 1

@@ -13,7 +13,7 @@ fi
 if [ -n "$args" ]; then
     cmd="; $args"
 fi
-if [ `osascript -e"return application \"iterm2\" is running"` = 'true' ]; then
+if [ $(osascript -e"return application \"iterm2\" is running") = 'true' ]; then
     osascript -e\
 "tell application \"iterm2\"
     activate

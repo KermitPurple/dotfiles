@@ -29,22 +29,22 @@ while read line;do
         else
             first=1
         fi
-        repo=`echo $line|sed 's/repo: //'`
+        repo=$(echo $line|sed 's/repo: //')
         dir=
         branch=
         build=
     else
         case "$line" in
             dir:*)
-                dir=$(/bin/bash -c "echo `echo $line|sed 's/dir: //'`")
+                dir=$(/bin/bash -c "echo $(echo $line|sed 's/dir: //')")
                 ;;
             branch:*)
-                branch=`echo $line|sed 's/branch: //'`
+                branch=$(echo $line|sed 's/branch: //')
                 ;;
             build:*)
-                build=`echo $line|sed 's/build: //'`
+                build=$(echo $line|sed 's/build: //')
                 ;;
         esac
     fi
-done <<< "`sed -E '/^# (repo|dir|build|branch):/!d;s/# //' $locations`"
+done <<< "$(sed -E '/^# (repo|dir|build|branch):/!d;s/# //' $locations)"
 clone_req
