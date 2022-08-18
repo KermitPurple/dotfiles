@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 number=false
 for arg; do
