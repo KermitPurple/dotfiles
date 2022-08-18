@@ -2,7 +2,7 @@
 # open github repo remote
 browser_fn="chrome"
 remote=""
-while [[ $# > 0 ]]; do
+while [[ $# -gt 0 ]]; do
     case $1 in
         -w)
             browser_fn="new_chrome"
@@ -22,7 +22,7 @@ if [[ -z "$remote" ]]; then
 fi
 url=$(git remote get-url "$remote" 2>&1)
 if [[ "$url" == *"https://"* ]]; then
-    $browser_fn $url
+    $browser_fn "$url"
 elif [[ "$url" == *"git@github.com:"* ]]; then
     $browser_fn "https://github.com/${url//git@github.com:/}"
 elif [[ "$url" == *"fatal"* || "$url" == *"error"* ]]; then
