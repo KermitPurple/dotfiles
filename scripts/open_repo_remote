@@ -24,7 +24,7 @@ url=$(git remote get-url "$remote" 2>&1)
 if [[ "$url" == *"https://"* ]]; then
     $browser_fn $url
 elif [[ "$url" == *"git@github.com:"* ]]; then
-    $browser_fn "https://github.com/$(echo "$url" | sed "s/git@github.com://g")"
+    $browser_fn "https://github.com/${url//git@github.com:/}"
 elif [[ "$url" == *"fatal"* || "$url" == *"error"* ]]; then
     >&2 echo "$url"
     exit 1
