@@ -30,7 +30,7 @@ async=false
 exec_f=false
 exec_arg=""
 args=""
-while [[ $# > 0 ]]; do
+while [[ $# -gt 0 ]]; do
     case $1 in
         --async)
             async=true
@@ -46,7 +46,7 @@ while [[ $# > 0 ]]; do
             ;;
         --exec)
             exec_f=true
-            if [[ $# > 1 ]]; then
+            if [[ $# -gt 1 ]]; then
                 shift
                 exec_arg="$1"
             else
@@ -68,7 +68,7 @@ cmd="git $args"
 locations="$CODING_DIR $DOTFILES_DIR" # locations to search
 for location in $locations; do # cycle over locations
     for repo in $(find $location -name .git ! -path '*/plugged/*'); do # cylce over repos in locations
-        cd "$repo/.." # go to repo
+        cd "$repo/.." || die "Could not go to $repo/.." # go to repo
         if $less; then
             if ! $exec_f; then
                 (pwd; $cmd) | less # run git command and output to less
