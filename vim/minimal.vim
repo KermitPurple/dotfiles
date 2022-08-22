@@ -22,6 +22,8 @@ set number
 "folds
 set foldmethod=manual " not using expr because it's actually too slow in practice
 set foldexpr=CurlyLevel()
+" mouse
+set mouse=a " enable mouse on all modes
 " binds
 let mapleader = ' '
 nmap <s-space> <leader>
