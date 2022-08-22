@@ -1,0 +1,3 @@
+#!/bin/sh
+# pretty date
+date '+%m-%d-%Y'
