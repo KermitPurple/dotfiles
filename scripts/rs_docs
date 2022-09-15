@@ -1,8 +1,8 @@
-#!/bin/bash
-function try_url(){
+#!/bin/sh
+try_url(){
     curl -sLf "$1" >/dev/null
     code=$?
-    if [[ $code = 0 ]]; then # if page exists
+    if [ $code = 0 ]; then # if page exists
         chrome "$1" # open page
     else
         return $code
@@ -10,7 +10,7 @@ function try_url(){
 }
 
 url="https://docs.rs"
-if [[ -n "$*" ]]; then
+if [ -n "$*" ]; then
     crate="$(encode_url "$*")"
     try_url "$url/$crate/latest/$crate" || chrome "$url/releases/search?query=$crate"
 else
