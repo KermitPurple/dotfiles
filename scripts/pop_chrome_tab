@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # gets the url of a chrome tab
 # saves it at the end of a list
 # and then closes the tab
