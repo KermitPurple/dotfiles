@@ -5,7 +5,8 @@ if [ $# = 0 ]; then # if no arguments
 fi
 for file; do # cycle over arguments
     case "$file" in 
-        *.docx) file="$file.docx";; # add .docx if its not already there
+        *.docx);;
+        *) file="$file.docx";; # add .docx if its not already there
     esac
     [ -e "$file" ] || touch "$file" # make file if it doesn't exist
     open -a"Microsoft Word" "$file" # open file in microsoft word
