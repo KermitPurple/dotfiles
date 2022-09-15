@@ -27,18 +27,12 @@ EOF
 files=() # create empty bash array
 dry_run=false
 verbose=false
-while [[ $# -gt 0 ]]; do # while there are still args
+while [ $# -gt 0 ]; do # while there are still args
     arg="$1"
     case "$arg" in # convert long args to short
-        --help|-h)
-            arg='-h'
-            ;;
-        --dry-run|-d)
-            arg='-d'
-            ;;
-        --verbose|-v)
-            arg='-v'
-            ;;
+        --help) arg='-h';;
+        --dry-run) arg='-d';;
+        --verbose) arg='-v';;
     esac
     case "$arg" in
         -*)
@@ -53,12 +47,8 @@ while [[ $# -gt 0 ]]; do # while there are still args
                         dry_run=true
                         verbose=true
                         ;;
-                    v)
-                        verbose=true
-                        ;;
-                    *)
-                        die "Unexpected flag '-$flag'";
-                        ;;
+                    v) verbose=true;;
+                    *) die "Unexpected flag '-$flag'";;
                 esac
             done
             ;;
@@ -73,8 +63,8 @@ while [[ $# -gt 0 ]]; do # while there are still args
     shift
 done
 
-[[ -z "$cmd" ]] && die "Expected argument CMD"
-[[ -z "${files[*]}" ]] && die "Expected at least 1 argument for FILES"
+[ -z "$cmd" ] && die "Expected argument CMD"
+[ -z "${files[*]}" ] && die "Expected at least 1 argument for FILES"
 
 for file in "${files[@]}"; do
     new=$(echo "$file" | $cmd)
