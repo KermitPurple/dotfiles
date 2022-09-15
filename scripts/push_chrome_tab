@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 # gets url from listed of stored urls
 # opens it in a new chrome tab
 # removes first element
-if [[ ! -a "$CHROME_STASH" || -z "$(cat "$CHROME_STASH")" ]]; then
+if [ ! -e "$CHROME_STASH" ] ||  [ -z "$(cat "$CHROME_STASH")" ]; then
     >&2 echo "Stash of popped tabs empty"
     exit 1
 fi
