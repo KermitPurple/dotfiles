@@ -1,50 +1,52 @@
-#!/bin/bash
+#!/bin/sh
 # clone requirements for scripts aliases and functions
+# reads the following format:
+## repo: git@github.com:remote/path # MUST BE FIRST; REQUIRED
+## dir: /path/to/desired/directory # REQUIRED
+## branch: name_of_git_branch # OPTIONAL
+## build: commands to -build && compile requirements # OPTIONAL
+# additionally there cannot be anything after the data on these lines (like the comments I have written after them)
+# Only use 1 pound in actual files; 2 are used so this program doesn't attempt to download the example
 
-mkdir -p $CODING_DIR/python $CODING_DIR/c++ $CODING_DIR/rust
-locations="$DOTFILES_DIR/zsh/funcs.zsh $DOTFILES_DIR/zsh/alias.zsh $DOTFILES_DIR/scripts/*"
-first=0
-repo=
-dir=
-branch=
-build=
+first=true
+repo=''
+dir=''
+branch=''
+build=''
 
 clone_req(){
-    # echo $repo
-    # echo $dir
-    # echo $branch
-    # echo $build
-    if [[ ! -z $repo && ! -z $dir && ! -d $dir ]]; then
+    if [ -n "$repo" ] && [ -n "$dir" ] && [ ! -d "$dir" ]; then
         git clone "$repo" "$dir"
-        cd $dir
-        [[ -z "$branch" ]] || git checkout $branch
-        [[ -z "$build" ]] || /bin/bash -c "$build"
+        cd "$dir" || return 1
+        [ -z "$branch" ] || git checkout "$branch"
+        [ -z "$build" ] || bash -c "$build"
     fi
 }
 
-while read line;do
-    if [[ $line = 'repo: '* ]]; then 
-        if [[ $first = 1 ]]; then
-            clone_req
-        else
-            first=1
-        fi
-        repo=$(echo $line|sed 's/repo: //')
-        dir=
-        branch=
-        build=
-    else
-        case "$line" in
-            dir:*)
-                dir=$(/bin/bash -c "echo $(echo $line|sed 's/dir: //')")
-                ;;
-            branch:*)
-                branch=$(echo $line|sed 's/branch: //')
-                ;;
-            build:*)
-                build=$(echo $line|sed 's/build: //')
-                ;;
-        esac
-    fi
-done <<< "$(sed -E '/^# (repo|dir|build|branch):/!d;s/# //' $locations)"
+mkdir -p \
+    "$CODING_DIR/python" \
+    "$CODING_DIR/rust" \
+    "$CODING_DIR/c++"
+sed -E '/^# (repo|dir|build|branch):/!d;s/# //' \
+    "$DOTFILES_DIR/zsh/funcs.zsh" \
+    "$DOTFILES_DIR/zsh/alias.zsh" \
+    "$DOTFILES_DIR/scripts/"* | \
+while read -r line; do
+    case "$line" in
+        repo:*)
+            if $first; then
+                first=false
+            else
+                clone_req
+            fi
+            repo="$(echo "$line" | sed 's/repo: //')"
+            dir=''
+            branch=''
+            build=''
+            ;;
+        dir:*) dir="$(/bin/bash -c "echo $(echo "$line" | sed 's/dir: //')")";;
+        branch:*) branch="$(echo "$line" | sed 's/branch: //')";;
+        build:*) build="$(echo "$line" | sed 's/build: //')";;
+    esac
+done
 clone_req
