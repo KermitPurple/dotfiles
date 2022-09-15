@@ -1,10 +1,12 @@
-#!/bin/bash
-if [[ $# = 0 ]]; then # if no arguments
+#!/bin/sh
+if [ $# = 0 ]; then # if no arguments
     >&2 echo "need at least one argument" # error message
     exit 1 # exit with error
 fi
 for file; do # cycle over arguments
-    [[ "$file" = *.docx ]] || file="$file.docx" # add .docx if its not already there
-    [[ -a "$file" ]] || touch "$file" # make file if it doesn't exist
+    case "$file" in 
+        *.docx) file="$file.docx";; # add .docx if its not already there
+    esac
+    [ -e "$file" ] || touch "$file" # make file if it doesn't exist
     open -a"Microsoft Word" "$file" # open file in microsoft word
 done
