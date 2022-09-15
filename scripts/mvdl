@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 die(){
-    >&2 echo -e "$prg: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+    >&2 echo "$prg: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
     exit 1 # exit with error
 }
 
@@ -22,7 +22,7 @@ EOF
 }
 
 read_args(){
-    while [[ $# -gt 0 ]]; do
+    while [ $# -gt 0 ]; do
         arg="$1"
         shift
         case "$arg" in # convert all long flags into short
@@ -48,9 +48,9 @@ read_args(){
                         *) die "unexpected flag '$flag'";;
                     esac
                 done
-                flag=${arg: -1} # last character
+                flag="$(echo "$arg" | sed 's/.*\(.\)$/\1/')" # last character
                 if $need_arg; then
-                    [[ $# -gt 0 ]] || die "-$flag flag expected an argument"
+                    [ $# -gt 0 ] || die "-$flag flag expected an argument"
                     case $flag in
                         f) dl_dir="$1";;
                     esac
