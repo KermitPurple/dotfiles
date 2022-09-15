@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 # call git command over all (most) of my get repos
 # This is done mostly because I frequently forget to push
 
 prog="mega_git"
 
 die(){
-    >&2 echo -e "$prog: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+    >&2 echo "$prog: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
     exit 1
 }
 
@@ -30,7 +30,7 @@ async=false
 exec_f=false
 exec_arg=""
 args=""
-while [[ $# -gt 0 ]]; do
+while [ $# -gt 0 ]; do
     case $1 in
         --async)
             async=true
@@ -46,7 +46,7 @@ while [[ $# -gt 0 ]]; do
             ;;
         --exec)
             exec_f=true
-            if [[ $# -gt 1 ]]; then
+            if [ $# -gt 1 ]; then
                 shift
                 exec_arg="$1"
             else
@@ -63,11 +63,10 @@ while [[ $# -gt 0 ]]; do
     esac
     shift
 done
-[[ -z "$args" ]] && die "no git args passed"
+[ -z "$args" ] && die "no git args passed"
 cmd="git $args"
-locations="$CODING_DIR $DOTFILES_DIR" # locations to search
-for location in $locations; do # cycle over locations
-    for repo in $(find "$location" -name .git ! -path '*/plugged/*'); do # cylce over repos in locations
+find "$CODING_DIR" "$DOTFILES_DIR" -name .git ! -path '*/plugged/*' | \
+    while IFS= read -r repo; do
         cd "$repo/.." || die "Could not go to $repo/.." # go to repo
         if $less; then
             if ! $exec_f; then
@@ -87,4 +86,3 @@ for location in $locations; do # cycle over locations
             $cmd # call git commadn
         fi
     done
-done
