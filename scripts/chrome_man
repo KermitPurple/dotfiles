@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 # open the man page of the arguments in chrome
 # first arg: [optional] man section number
 # second arg: man page to find
 # flags:
 #   -w - open in new window instead of new tab
 
-function help_text(){
+help_text(){
     while IFS= read -r line; do
         echo "$line"
     done <<-EOF
@@ -15,10 +15,10 @@ USAGE: chrome_man [section_number] page
 EOF
 }
 
-function try_url(){
+try_url(){
     curl -sLf "$1" >/dev/null
     code=$?
-    if [[ $code = 0 ]]; then # if page exists
+    if [ $code -eq 0 ]; then # if page exists
         $chrome_fn "$1" # open page
     else
         return $code
@@ -26,7 +26,7 @@ function try_url(){
 }
 
 chrome_fn="chrome"
-while [[ $# > 0 ]]; do
+while [ $# -gt 0 ]; do
     case "$1" in
         [0-9])
             i=$1
@@ -40,12 +40,11 @@ while [[ $# > 0 ]]; do
     esac
     shift
 done
-if [[ ! -z "$i" && ! -z "$page" ]]; then # i and page aren't blank
+if [ -n "$i" ] && [ -n  "$page" ]; then # i and page aren't blank
     try_url "https://man7.org/linux/man-pages/man$i/$page.$i.html"
-elif [[ -z "$i" && ! -z "$page" ]]; then # i is blank
+elif [ -z "$i" ] && [ -n "$page" ]; then # i is blank
     for i in $(seq 8); do
-        try_url "https://man7.org/linux/man-pages/man$i/$page.$i.html"
-        [[ $? = 0 ]] && break
+        try_url "https://man7.org/linux/man-pages/man$i/$page.$i.html" && break
     done
 else # page is blank
     >&2 echo "A page must be passed"
