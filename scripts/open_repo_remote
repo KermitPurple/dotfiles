@@ -1,14 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 # open github repo remote
 browser_fn="chrome"
 remote=""
-while [[ $# -gt 0 ]]; do
+while [ $# -gt 0 ]; do
     case $1 in
         -w)
             browser_fn="new_chrome"
             ;;
         *)
-            if [[ -z "$remote" ]]; then
+            if [ -z "$remote" ]; then
                 remote="$1"
             else
                 remote="$remote $1"
@@ -17,18 +17,13 @@ while [[ $# -gt 0 ]]; do
     esac
     shift
 done
-if [[ -z "$remote" ]]; then
+if [ -z "$remote" ]; then
     remote="origin"
 fi
 url=$(git remote get-url "$remote" 2>&1)
-if [[ "$url" == *"https://"* ]]; then
-    $browser_fn "$url"
-elif [[ "$url" == *"git@github.com:"* ]]; then
-    $browser_fn "https://github.com/${url//git@github.com:/}"
-elif [[ "$url" == *"fatal"* || "$url" == *"error"* ]]; then
-    >&2 echo "$url"
-    exit 1
-else
-    >&2 echo "Unexpected output: \"$url\""
-    exit 1
-fi
+case "$url" in
+    *https://*) $browser_fn "$url";;
+    *git@github.com:*) $browser_fn "https://github.com/$(echo "$url" | sed 's/git@github.com://')";;
+    *fatal*|*error*) >&2 echo "$url"; exit 1;;
+    *) >&2 echo "Unexpected output: \"$url\""; exit 1;;
+esac
