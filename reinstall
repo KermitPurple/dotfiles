@@ -34,8 +34,8 @@ ln -s "$HOME/dotfiles/nvim/" "$HOME/.config/nvim"
 mkdir "$HOME/dotfiles/vim/trash" "$HOME/dotfiles/vim/views"
 
 # install vim plugins
-vim -c "PlugInstall" \
-    -c "qa!"
+vim -c 'PlugInstall' \
+    -c 'qa!'
 
 pip3 install virtualenv
 
