@@ -147,7 +147,7 @@ show_dog(){
 
 # scrape https://kermitpurple.github.io/ to get current sites
 my_sites(){
-    local url=https://kermitpurple.github.io/
+    local url="https://kermitpurple.github.io"
     local sites=`curl -s "$url" |
         sed '/site-link link/!d;s/.*href="\([^"]*\)" class="site-link link">\([^<]*\)<.*/\1    \2/g;'`
     local lines=("${(f)sites}")
@@ -161,7 +161,7 @@ my_sites(){
     done
     local input=""
     vared -p "Enter a number: " input
-    chrome "$links[$input]"
+    chrome "$url$links[$input]"
 }
 
 # fzf all apps
