@@ -278,3 +278,13 @@ weightt()(
     . venv/bin/activate
     ./main.py
 )
+
+# just some easy tools for cmake
+# run this to set dir to go to
+mk-cmake-tools() {
+    alias proj="cd $PWD"
+    alias comp="proj && mkdir -p build && cd build && cmake .. && make"
+    alias bin="comp && cd bin"
+    alias clean="proj && rm -rf build"
+    echo "proj, comp, bin, and clean are now set"
+}
