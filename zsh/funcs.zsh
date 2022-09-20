@@ -287,4 +287,8 @@ mk-cmake-tools() {
     alias bin="comp && cd bin"
     alias clean="proj && rm -rf build"
     echo "proj, comp, bin, and clean are now set"
+    echo "proj: cd to '$PWD'"
+    echo "comp: make and move to build folder and compile program"
+    echo "bin: compile and move to bin"
+    echo "clean: remove build folder"
 }
