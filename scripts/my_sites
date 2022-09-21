@@ -10,5 +10,5 @@ url="https://kermitpurple.github.io"
 input="$(curl -s "$url" \
     | sed '/site-link link/!d;s/.*href="\([^"]*\)" class="site-link link">\([^<]*\)<.*/\1\t\2/g;' \
     | fzf --with-nth 2 -d "\t" \
-    | cut -f 1)"
-chrome "$url$input" 
+    | cut -f 1)" 
+[ -z "$input" ] || chrome "$url$input" 
