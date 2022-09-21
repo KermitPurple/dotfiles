@@ -1,7 +1,8 @@
 #!/bin/sh
 
-[ $# -lt 1 ] && (echo "Enter filenames to process" && exit 1)
+[ $# -lt 1 ] && echo "Enter filenames to process" && exit 1
 for old; do
     new="$(basename -s '.txt' "$old")-processed.txt"
     perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' < "$old" | col -b > "$new"
+    echo "$old -> $new"
 done
