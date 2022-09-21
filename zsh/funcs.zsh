@@ -148,20 +148,12 @@ show_dog(){
 # scrape https://kermitpurple.github.io/ to get current sites
 my_sites(){
     local url="https://kermitpurple.github.io"
-    local sites=`curl -s "$url" |
-        sed '/site-link link/!d;s/.*href="\([^"]*\)" class="site-link link">\([^<]*\)<.*/\1    \2/g;'`
-    local lines=("${(f)sites}")
-    local links=()
-    local i=1
-    for line in $lines; do
-        line=("${(@s/    /)line}")
-        links[$i]="$line[1]"
-        printf "[%2d] %s\n" "$i" "$line[2]"
-        ((i+=1))
-    done
-    local input=""
-    vared -p "Enter a number: " input
-    chrome "$url$links[$input]"
+    curl -s "$url" \
+        | sed '/site-link link/!d;s/.*href="\([^"]*\)" class="site-link link">\([^<]*\)<.*/\1\t\2/g;' \
+        | fzf --with-nth 2 -d "\t" \
+        | cut -f 1 \
+        | read input
+    chrome "$url$input" 
 }
 
 # fzf all apps
