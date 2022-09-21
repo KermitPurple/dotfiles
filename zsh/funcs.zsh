@@ -263,13 +263,13 @@ weightt()(
 # just some easy tools for cmake
 # run this to set dir to go to
 mk-cmake-tools() {
-    alias proj="cd '$PWD'"
-    alias comp="proj && mkdir -p build && cd build && cmake .. && make"
-    alias bin="comp && cd bin"
-    alias clean="proj && rm -rf build"
-    echo "proj, comp, bin, and clean are now set"
-    echo "proj: cd to '$PWD'"
-    echo "comp: make and move to build folder and compile program"
-    echo "bin: compile and move to bin"
-    echo "clean: remove build folder"
+    proj="$PWD"
+    alias proj='cd "$proj"'
+    build="$proj/build"
+    alias build='mkdir -p "$build" && cd "$build" && cmake .. && make && cd -'
+    bin="$build/bin"
+    alias bin='build && cd "$bin" 2> /dev/null || cd "$build"'
+    alias clean='rm -rf "$build"'
+    echo "proj, build, bin, & clean aliases are now set"
+    echo "proj, build, & bin variables are now set"
 }
