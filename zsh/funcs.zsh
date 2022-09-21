@@ -282,7 +282,7 @@ weightt()(
 # just some easy tools for cmake
 # run this to set dir to go to
 mk-cmake-tools() {
-    alias proj="cd $PWD"
+    alias proj="cd '$PWD'"
     alias comp="proj && mkdir -p build && cd build && cmake .. && make"
     alias bin="comp && cd bin"
     alias clean="proj && rm -rf build"
