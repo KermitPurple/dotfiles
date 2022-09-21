@@ -145,17 +145,6 @@ show_dog(){
     open "$image_path"
 }
 
-# scrape https://kermitpurple.github.io/ to get current sites
-my_sites(){
-    local url="https://kermitpurple.github.io"
-    curl -s "$url" \
-        | sed '/site-link link/!d;s/.*href="\([^"]*\)" class="site-link link">\([^<]*\)<.*/\1\t\2/g;' \
-        | fzf --with-nth 2 -d "\t" \
-        | cut -f 1 \
-        | read input
-    chrome "$url$input" 
-}
-
 # fzf all apps
 apps(){
     local app=`find /Applications /System/Applications /System/Library/CoreServices /System/Applications/Utilities -maxdepth 1 -name "*.app" ! -path "*.app/*" | sed 's/\.app//;s{/.*/{{' | sort | fzf`
