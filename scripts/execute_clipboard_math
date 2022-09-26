@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pbpaste | xargs -I {} python3 -c 'print({})' | pbcopy

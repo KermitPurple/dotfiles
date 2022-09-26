@@ -62,3 +62,7 @@ default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt + shift - s : o
 
 # word count
 default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt - w : notify `pbpaste | wc -w` "Word Count:"
+
+# execute clipboard
+default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt - e : execute_clipboard
+default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt - c : execute_clipboard_math
