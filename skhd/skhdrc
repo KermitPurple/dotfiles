@@ -65,4 +65,4 @@ default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt - w : notify `p
 
 # execute clipboard
 default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt - e : execute_clipboard
-default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt - E : execute_clipboard_math
+default, wins, tabs, delsel, delwin, deltab, modesel < cmd + alt + shift - e : execute_clipboard_math
