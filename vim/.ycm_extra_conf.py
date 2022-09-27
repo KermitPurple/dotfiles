@@ -21,6 +21,7 @@ def Settings(**kwargs):
         extension = ''
     flags = [
         '-Iinclude',
+        '-Iinc',
         '-Isrc',
     ]
     if extension in CPP_EXTENSIONS:
