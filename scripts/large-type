@@ -1,3 +1,3 @@
 #/bin/sh
 
-chrome "https://large-type.com/#$(encode_url "$*" | sed 's/+/%20/' )"
+chrome "https://large-type.com/#$(encode_url "$*" | sed 's/+/%20/g' )"

@@ -145,6 +145,15 @@ show_dog(){
     open "$image_path"
 }
 
+#get random pictures of dogs
+show_dogs(){
+    local count=0
+    while show_dog; do
+        printf "\rDogs shown: %d" $(( ++count ))
+        sleep 10
+    done
+}
+
 # fzf all apps
 apps(){
     local app=`find /Applications /System/Applications /System/Library/CoreServices /System/Applications/Utilities -maxdepth 1 -name "*.app" ! -path "*.app/*" | sed 's/\.app//;s{/.*/{{' | sort | fzf`
