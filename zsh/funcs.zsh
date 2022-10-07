@@ -192,9 +192,11 @@ gif2ascii()(
         output="$dir/$(basename -s ".jpg" "$input").txt"
         img2ascii "$input" -o "$output" "$@"
     done
+    hide_cursor
+    clear
     while true; do
         for file in "$dir/"*.txt; do
-            clear
+            printf "\e[1;1H"
             cat "$file"
             sleep "$delay"
         done
