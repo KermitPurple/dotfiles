@@ -196,7 +196,7 @@ gif2ascii()(
         for file in "$dir/"*.txt; do
             clear
             cat "$file"
-            sleep 0.05
+            sleep "$delay"
         done
     done
 )
