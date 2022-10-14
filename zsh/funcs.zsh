@@ -181,28 +181,6 @@ img2ascii()(
     $dir/img2ascii.py $*
 )
 
-gif2ascii()(
-    delay="$1"
-    shift
-    [[ -z "$delay" ]] && delay=0.1
-    dir="${TMPDIR}gif2ascii-imgs"
-    rm -rf "$dir"
-    mkdir "$dir"
-    for input in *.jpg; do
-        output="$dir/$(basename -s ".jpg" "$input").txt"
-        img2ascii "$input" -o "$output" "$@"
-    done
-    hide_cursor
-    clear
-    while true; do
-        for file in "$dir/"*.txt; do
-            printf "\e[1;1H"
-            cat "$file"
-            sleep "$delay"
-        done
-    done
-)
-
 # out input after running through figlet, cowsay, lolcat
 # requirements
 #   - figlet - brew install figlet
