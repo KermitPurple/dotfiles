@@ -1,3 +1,9 @@
 #!/bin/sh
+# optionally pass a name for the file
 
-curl -O "$(pbpaste)"
+name="$*"
+if [ -z "$name" ]; then
+    curl -O "$(pbpaste)"
+else
+    curl "$(pbpaste)" -o "$name"
+fi
