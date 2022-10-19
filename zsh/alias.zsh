@@ -105,3 +105,9 @@ alias hide_cursor='printf "\e[?25l"'
 
 # show cursor
 alias show_cursor='printf "\e[?25h"'
+
+# show a spiral gif using img2ascii
+# pass args such as -c, -r, -b to alter presentation
+# reqs:
+#     img2ascii - earlier in this file
+alias spiral='img2ascii "https://media0.giphy.com/media/WZrOaNjFPKT5e/200.webp?cid=ecf05e474on4akhylpple3glrvfu7t10iszmjr11gntbz3i1&rid=200.webp&ct=g" -S'
