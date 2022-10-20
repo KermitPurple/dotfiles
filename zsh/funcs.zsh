@@ -282,3 +282,10 @@ mk-cmake-tools() {
     echo "proj, build, bin, & clean aliases are now set"
     echo "proj, build, & bin variables are now set"
 }
+
+# open xcode
+xcode() {
+    args="$@"
+    [ -z "$args" ] && args='.'
+    open -a 'xcode' "$args"
+}

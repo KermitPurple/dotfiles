@@ -97,9 +97,6 @@ alias ls="ls --color=auto"
 # default grep to with color
 alias grep="grep --color=auto"
 
-# open xcode
-alias xcode="open -a xcode"
-
 # hide cursor
 alias hide_cursor='printf "\e[?25l"'
 
