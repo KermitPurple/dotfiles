@@ -1,0 +1,31 @@
+#!/bin/sh
+
+prg='md2pdf'
+
+#!/bin/bash
+
+die(){
+    >&2 echo "$prg: \033[1;31merror:\033[0m \033[1;37m$*\033[0m" # print colored output to sterr
+    exit 1 # exit with error
+}
+
+print_help(){
+    while IFS= read -r line; do
+        echo "$line"
+    done <<-EOF
+$prg FILENAME
+  Compiles a markdown file into pdf
+  Examples:
+    md2pdf file.md
+      Creates file.pdf from file.md
+    md2pdf file
+      Creates file.pdf from file.md
+EOF
+}
+
+
+[ $# -lt 1 ] && print_help && exit 0
+base="$(basename -s '.md' "$1")"
+in="$base.md"
+out="$base.pdf"
+pandoc -f markdown+pandoc_title_block "$in" -t pdf -o "$out" -s;
