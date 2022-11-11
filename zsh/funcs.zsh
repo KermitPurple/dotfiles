@@ -172,15 +172,6 @@ google(){
     chrome "https://www.google.com/search?q=`encode_url \"$search\"`"
 }
 
-# convert an image to ascii text
-# repo: git@github.com:KermitPurple/image_to_ascii.git
-# dir: $CODING_DIR/python/image_to_ascii
-img2ascii()(
-    local dir="$CODING_DIR/python/image_to_ascii"
-    . "$dir/venv/bin/activate"
-    $dir/img2ascii.py $*
-)
-
 # out input after running through figlet, cowsay, lolcat
 # requirements
 #   - figlet - brew install figlet

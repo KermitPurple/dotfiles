@@ -1,0 +1,8 @@
+#!/bin/sh
+# convert an image to ascii text
+# repo: git@github.com:KermitPurple/image_to_ascii.git
+# dir: $CODING_DIR/python/image_to_ascii
+
+dir="$CODING_DIR/python/image_to_ascii"
+source "$dir/venv/bin/activate"
+$dir/img2ascii.py "$@"

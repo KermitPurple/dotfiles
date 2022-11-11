@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+from os import system
+from sys import argv, exit, stderr
+
+program_name = 'img2ascii'
+gifs = {
+    'pikachu': '"https://media1.giphy.com/media/dJYoOVAWf2QkU/giphy.gif" -ca',
+    'spiral': '"https://media0.giphy.com/media/WZrOaNjFPKT5e/200.webp?cid=ecf05e474on4akhylpple3glrvfu7t10iszmjr11gntbz3i1&rid=200.webp&ct=g" -S',
+}
+
+def die(message):
+    print(f'gifs: \033[1;31merror:\033[0m \033[1;37m{message}\033[0m', file = stderr)
+    exit(1)
+
+def print_help():
+    '''Print the help message to display to the user'''
+    print(
+        'gifs SUBCMD'
+    )
+
+def list_gifs():
+    '''List all of the saved gifs'''
+    for name in gifs:
+        print(name)
+
+
+def show_gif(name: str):
+    '''Show the gif with the given name'''
+    if name not in gifs:
+        die(f'Cannot find gif with name {name!r}')
+    system(f'{program_name} {gifs[name]}')
+
+def main():
+    '''Driver code'''
+    _ = argv.pop(0)
+    if len(argv) < 1:
+        print_help()
+        return
+    match argv:
+        case ['list' | 'l']:
+            list_gifs()
+        case ['show' | 's', name]:
+            show_gif(name)
+
+if __name__ == '__main__':
+    main()
