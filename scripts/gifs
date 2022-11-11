@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from typing import Iterable
 from os import system
 from sys import argv, exit, stderr
 
@@ -7,7 +8,14 @@ program_name = 'img2ascii'
 gifs = {
     'pikachu': '"https://media1.giphy.com/media/dJYoOVAWf2QkU/giphy.gif" -ca',
     'spiral': '"https://media0.giphy.com/media/WZrOaNjFPKT5e/200.webp?cid=ecf05e474on4akhylpple3glrvfu7t10iszmjr11gntbz3i1&rid=200.webp&ct=g" -S',
+    'pepe': '"https://c.tenor.com/9yRPtiavay4AAAAC/tenor.gif" -a',
+    'hmm': '"https://clipartix.com/wp-content/uploads/2018/03/thinking-gif-2018-40.gif" -abr',
 }
+
+def join(it: Iterable[str]) -> str:
+    if len(it) == 0:
+        return ''
+    return ' '.join(it)
 
 def die(message):
     print(f'gifs: \033[1;31merror:\033[0m \033[1;37m{message}\033[0m', file = stderr)
@@ -17,6 +25,9 @@ def print_help():
     '''Print the help message to display to the user'''
     print(
         'gifs SUBCMD'
+        '  SUBCMDs:\n'
+        '    - list, l             - List all of the names of the saved gifs\n'
+        '    - show NAME, s NAME   - Show a specific gif with the given NAME\n'
     )
 
 def list_gifs():
@@ -25,11 +36,11 @@ def list_gifs():
         print(name)
 
 
-def show_gif(name: str):
+def show_gif(name: str, flags: list[str]):
     '''Show the gif with the given name'''
     if name not in gifs:
         die(f'Cannot find gif with name {name!r}')
-    system(f'{program_name} {gifs[name]}')
+    system(f'{program_name} {gifs[name]} {join(flags)}')
 
 def main():
     '''Driver code'''
@@ -40,8 +51,10 @@ def main():
     match argv:
         case ['list' | 'l']:
             list_gifs()
-        case ['show' | 's', name]:
-            show_gif(name)
+        case ['show' | 's', name, *flags]:
+            show_gif(name, flags)
+        case _:
+            die(f'Unexpected subcmd {join(argv)!r}')
 
 if __name__ == '__main__':
     main()
