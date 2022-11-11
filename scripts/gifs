@@ -25,9 +25,10 @@ def print_help():
     '''Print the help message to display to the user'''
     print(
         'gifs SUBCMD'
+        '  run img2ascii with a set of presaved input\n'
         '  SUBCMDs:\n'
-        '    - list, l             - List all of the names of the saved gifs\n'
-        '    - show NAME, s NAME   - Show a specific gif with the given NAME\n'
+        '    - list, l                           - List all of the names of the saved gifs\n'
+        '    - show NAME [FLAGS], s NAME [FLAGS] - Show a specific gif with the given NAME and with extra optional FLAGS\n'
     )
 
 def list_gifs():
