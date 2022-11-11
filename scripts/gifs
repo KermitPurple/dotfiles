@@ -24,7 +24,7 @@ def die(message):
 def print_help():
     '''Print the help message to display to the user'''
     print(
-        'gifs SUBCMD'
+        'gifs SUBCMD\n'
         '  run img2ascii with a set of presaved input\n'
         '  SUBCMDs:\n'
         '    - list, l                           - List all of the names of the saved gifs\n'
