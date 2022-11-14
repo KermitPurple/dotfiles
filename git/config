@@ -1,0 +1,15 @@
+[user]
+	name = Shane McDonough
+	email = shanemcdman@gmail.com
+[init]
+	defaultBranch = main
+[maintenance]
+	repo = /Users/shane/Git/zsh-autocomplete
+	repo = /Users/shane/Git/zsh-autosuggestions
+	repo = /Users/shane/Git/zsh-snap
+	repo = /Users/shane/Git/zsh-syntax-highlighting
+[core]
+	editor = vim
+	ignorecase = false
+[push]
+	autoSetupRemote = true
