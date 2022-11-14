@@ -13,9 +13,11 @@ git clone git@github.com:KermitPurple/dotfiles.git "$HOME/dotfiles"
 brew bundle --file="$HOME/dotfiles/Brewfile"
 
 # set git preferences
-git config --global user.email "shanemcdman@gmail.com"
-git config --global user.name "Shane McDonough"
+git config --global user.email 'shanemcdman@gmail.com'
+git config --global user.name 'Shane McDonough'
 git config --global core.editor 'vim'
+git config --global core.ignorecase 'false'
+git config --global push.autoSetupRemote 'true'
 
 # link gcc-11 to gcc
 sudo ln -s $(where gcc-11) /usr/local/bin/gcc
