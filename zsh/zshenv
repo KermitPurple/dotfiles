@@ -16,7 +16,7 @@ export PATH="/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/
 # Directories
 export NOTE_FOLDER="$HOME/dropbox/note_folder"
 export DOTFILES_DIR="$HOME/dotfiles"
-export SCHOOL_DIR="$HOME/dropbox/school/fall2022"
+export SCHOOL_DIR="$HOME/dropbox/school/winter2022"
 export CODING_DIR="$HOME/coding"
 export TEMP_DIR="$HOME/temp"
 export SCRIPT_DIR="$DOTFILES_DIR/scripts"
