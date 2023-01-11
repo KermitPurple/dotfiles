@@ -6,10 +6,10 @@ placeholder_img_url='https://img.spoilerhat.com/img/?url=https://i.imgur.com/bUq
 base_url='https://read.chainsaw-man.net/manga/chainsaw-man-chapter-'
 site_url="$base_url$chapter_number/"
 
-if curl "$site_url" | grep "$placeholder_img_url" > /dev/null; then
-    echo "There is not a new chainsaw man chapter"
+if curl "$site_url" -s | grep "$placeholder_img_url" > /dev/null; then
+    echo "There is not a new chainsaw man chapter😔"
 else
-    echo "There is a new chainsaw man chapter!"
+    echo "There is a new chainsaw man chapter!🎉"
     chrome "$site_url"
     echo "$chapter_number + 1" | bc > "$CSM_CH_PATH"
 fi
