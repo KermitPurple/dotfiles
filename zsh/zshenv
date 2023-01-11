@@ -62,3 +62,7 @@ export WORKOUT_DATA_PATH="$HOME/dropbox/workout_data.json"
 # Weight tracker data
 #   - git@github.com:KermitPurple/weight_tracker.git
 export WEIGHT_TRACKER_PATH="$HOME/dropbox/weight_data.pickle"
+
+# chain saw man tracker
+# - $SCRIPT_DOR/csm
+export CSM_CH_PATH="$HOME/dropbox/csm_ch.txt"
