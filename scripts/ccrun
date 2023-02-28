@@ -65,7 +65,10 @@ while [[ $# -gt 0 ]]; do
                     c|o|f|D) need_arg='true' && flag_n_arg="$flag";;
                     n) no_run='true';;
                     d) debug='true';;
-                    w) [ -z "$watch" ] && watch='true';;
+                    w)
+                        [ -z "$(which entr)" ] && die "entr is not installed"
+                        [ -z "$watch" ] && watch='true'
+                        ;;
                     W) watch='false';;
                     h) print_help && exit 0;;
                     *) die "unexpected flag '$flag'";;
