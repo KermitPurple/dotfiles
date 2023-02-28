@@ -272,8 +272,8 @@ if &t_Co > 255
 end
 
 " indent guides plugin
-hi IndentGuidesOdd ctermbg=darkgrey guibg=#606060
-hi IndentGuidesEven ctermbg=lightgrey guibg=white
+hi IndentGuidesOdd ctermbg=234 guibg=#606060
+hi IndentGuidesEven ctermbg=236 guibg=white
 
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
