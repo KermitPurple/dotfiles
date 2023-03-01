@@ -10,7 +10,7 @@ set autoindent " automatically go to the correct indentation
 set backspace=indent,eol,start " backspace over indent eol and start
 set showcmd " show partial command in bottom right
 " Tab stuff
-set expandtab " spaces instead of tabs
+set noexpandtab " tabs instead of spaces
 set tabstop=4 " number of spaces used in a tab
 set shiftwidth=0  " number of spaces for indentation (0 means use tabstop)
 set softtabstop=0 " number of spaces used in a tab while editing
