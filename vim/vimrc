@@ -120,6 +120,9 @@ function! SetTerminalTitle()
     endif
 endfunction
 autocmd BufEnter * call SetTerminalTitle()
+" Commands for changing ts cleanly
+command FixIG IndentGuidesDisable | IndentGuidesEnable
+command -nargs=1 SetTS let &ts=<args> | FixIG
 " https://hamberg.no/erlend/posts/2014-03-09-change-vim-cursor-in-iterm.html 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
