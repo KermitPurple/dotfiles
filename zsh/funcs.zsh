@@ -280,3 +280,14 @@ xcode() {
     [ -z "$args" ] && args='.'
     open -a 'xcode' "$args"
 }
+
+# gimme + cd
+gimmecd() {
+    local dir="$(gimme "$*" | head -n1)"
+    if [ -z "$dir" ]; then
+        >&2 echo "Cannot find dir"
+        return 1
+    else
+        cd "$dir"
+    fi
+}
