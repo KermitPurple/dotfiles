@@ -88,6 +88,9 @@ noremap <c-j> :m.+1<cr>
 nnoremap <leader>z :let temp = &fdm \| set fdm=expr <cr> :let &fdm = temp <cr>
 nnoremap <leader>Z zE
 
+" Load the man plugin
+runtime ftplugin/man.vim
+
 " fold function
 function! CurlyLevel() 
     let pat = '\([^''"`]\|"[^"]*"\|''[^'']*''\|`[^`]`\)*[''"]\@!$'
