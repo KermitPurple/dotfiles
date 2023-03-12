@@ -287,7 +287,7 @@ gimmecd() {
     if [ -z "$dir" ]; then
         >&2 echo "Cannot find dir"
         return 1
-    else
-        cd "$dir"
     fi
+    [ -d "$dir" ] || dir="$(dirname "$dir")"
+    cd "$dir"
 }
