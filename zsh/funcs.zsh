@@ -291,3 +291,8 @@ gimmecd() {
     [ -d "$dir" ] || dir="$(dirname "$dir")"
     cd "$dir"
 }
+
+# make and change directory
+mcd() {
+    mkdir "$1" && cd "$1"
+}
