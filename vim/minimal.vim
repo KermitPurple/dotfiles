@@ -87,6 +87,8 @@ noremap <c-j> :m.+1<cr>
 " folds
 nnoremap <leader>z :let temp = &fdm \| set fdm=expr <cr> :let &fdm = temp <cr>
 nnoremap <leader>Z zE
+" Man pages
+nnoremap <leader>k :Man <c-r><c-w><cr>
 
 " Load the man plugin
 runtime ftplugin/man.vim
