@@ -17,6 +17,7 @@ $prg [FLAGS] [DEST]
       -s, --silent            - Do not print to stdout
       -f PATH, --folder PATH  - Set the downloads folder [Default: "~/Downloads"]
       -c, --cp                - Copy instead of move the file
+      -e, --extension         - Use the extension of the file being copied
       -h, --help              - Print this message
 EOF
 }
@@ -30,6 +31,7 @@ read_args(){
             --silent) arg='-s';;
             --folder) arg='-f';;
             --copy) arg='-c';;
+            --extension) arg='-e';;
             --help) arg='-h';;
         esac
         case "$arg" in # parse all short flags
@@ -44,6 +46,7 @@ read_args(){
                         d) $dry_run && die "repeated flag '-$flag'" || dry_run='true';;
                         s) $silent && die "repeated flag '-$flag'" || silent='true';;
                         c) $copy && die "repeated flag '-$flag'" || copy='true';;
+                        e) $use_extension && die "repeated flag '-$flag'" || use_extension='true';;
                         h) print_help && exit 0;;
                         *) die "unexpected flag '$flag'";;
                     esac
@@ -74,14 +77,18 @@ prg='mvdl'
 dry_run='false'
 silent='false'
 copy='false'
+use_extension='false'
 dest=''
 dl_dir=''
 
 read_args "$@"
-
 $copy && mv_prg='cp' || mv_prg='mv'
 
 # the most recently modified file in the downloads folder
 file="$dl_dir/$(ls -t "$dl_dir" | head -n1)"
+if $use_extension; then
+    [ "$dest" = '.' ] && die "Cannot use '--extension' flag without giving a file name"
+    dest="$dest.${file##*.}"
+fi
 $silent || echo "$file -> $dest"
 $dry_run || "$mv_prg" "$file" "$dest"
