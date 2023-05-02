@@ -21,9 +21,10 @@ $prg FILES [FLAGS] [-- PROG_FLAGS]
       -D DBGR, --debugger DBGR      - set the debugger to DBGR [default: lldb]; sets debug to true
       -d, --debug                   - debug instead of running
       -n, --no-run                  - don't run the executable, just compile
-      -h, --help                    - print this message
+      -t, --time                    - Time how long the executable takes to run with "time"
       -w, --watch                   - watch the input files and recompile and run when there is a change (requires entr)
       -W, --no-watch                - disable watch
+      -h, --help                    - print this message
 EOF
 }
 
@@ -35,6 +36,7 @@ fi
 files=()
 debug='false'
 no_run='false'
+time_run='false'
 cflags="-Wextra -fsanitize=address"
 debugger="lldb"
 [[ -z "$TEMP_DIR" ]] && TEMP_DIR=/tmp
@@ -52,6 +54,7 @@ while [[ $# -gt 0 ]]; do
         --debugger) arg="-D";;
         --watch) arg="-w";;
         --no-watch) arg="-W";;
+        --time) arg="-t";;
     esac
     case "$arg" in # parse all short flags
         --) break;; # the rest of the args get passed to the executable
@@ -65,6 +68,7 @@ while [[ $# -gt 0 ]]; do
                     c|o|f|D) need_arg='true' && flag_n_arg="$flag";;
                     n) no_run='true';;
                     d) debug='true';;
+                    t) time_run='true';;
                     w)
                         [ -z "$(which entr)" ] && die "entr is not installed"
                         [ -z "$watch" ] && watch='true'
@@ -107,5 +111,9 @@ $debug && cflags="-g $cflags"
 if $debug; then
     "$debugger" "$output" -- "$@"
 elif ! $no_run; then # running not in debug
-    "$output" "$@"
+    if $time_run; then
+        time "$output" "$@"
+    else
+        "$output" "$@"
+    fi
 fi
