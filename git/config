@@ -13,3 +13,5 @@
 	ignorecase = false
 [push]
 	autoSetupRemote = true
+[alias]
+	lol = log --oneline
