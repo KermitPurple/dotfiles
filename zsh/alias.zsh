@@ -109,3 +109,6 @@ alias gimme='find . -name'
 # cdfl - change directory from list
 # requires fzf
 alias cdfl=". cdfl"
+
+# copy current working directory
+alias cpwd="pwd | pbcopy"
