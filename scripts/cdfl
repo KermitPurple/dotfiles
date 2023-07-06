@@ -42,18 +42,10 @@ show_list() {
 }
 
 case "$1" in
-	add|a )
-		add_to_list "$2"
-		;;
-	delete|del|d )
-		delete_from_list
-		;;
-	cd|'' )
-		change_directory
-		;;
-	list|ls|l )
-		show_list
-		;;
+	add|a ) add_to_list "$2" ;;
+	delete|del|d ) delete_from_list ;;
+	cd|'' ) change_directory ;;
+	list|ls|l ) show_list ;;
 	help|h|-h|--help )
 		show_help
 		return 0
