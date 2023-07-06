@@ -66,3 +66,7 @@ export WEIGHT_TRACKER_PATH="$HOME/dropbox/weight_data.pickle"
 # chain saw man tracker
 # - $SCRIPT_DOR/csm
 export CSM_CH_PATH="$HOME/dropbox/csm_ch.txt"
+
+# cdfl - change directory from list
+# - $SCRIPT_DIR/cdfl
+export CDFL_LIST_PATH="$HOME/dropbox/cdfl.txt"

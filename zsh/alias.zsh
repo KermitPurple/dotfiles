@@ -105,3 +105,7 @@ alias show_cursor='printf "\e[?25h"'
 
 # simplified find command
 alias gimme='find . -name'
+
+# cdfl - change directory from list
+# requires fzf
+alias cdfl=". cdfl"

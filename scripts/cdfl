@@ -1,0 +1,66 @@
+#!/bin/sh
+# Change directory from list
+# needs to be sourced
+# requires fzf
+
+show_help() {
+	while IFS= read -r line; do
+		echo "$line"
+	done <<-EOF
+cdfl [add|a|delete|del|d|cd|help|h]
+	add, a                 - Add the current new_path to the list
+	add PATH, a PATH       - Add the the argument to the list
+	delete, del, d         - Delete an element from the list
+	cd, <BLANK>            - Go to an element in the list
+	list,ls,l              - Display the contents of the list
+	help, h, -h, --help    - Display this message
+EOF
+}
+
+add_to_list() {
+	new_path="$1"
+	[ -z "$new_path" ] && new_path="$(pwd)"
+	[ -z "$new_path" ] && return
+	echo $new_path >> "$CDFL_LIST_PATH"
+	sort -u "$CDFL_LIST_PATH" -o "$CDFL_LIST_PATH"
+}
+
+delete_from_list() {
+	path_to_delete="$(cat "$CDFL_LIST_PATH" | fzf)"
+	[ -z "$path_to_delete" ] && return
+	sed -EI '' "\\;^$path_to_delete$;d" "$CDFL_LIST_PATH" 
+}
+
+change_directory() {
+	new_cwd="$(cat "$CDFL_LIST_PATH" | fzf)"
+	[ -z "$new_cwd" ] && return
+	cd "$new_cwd"
+}
+
+show_list() {
+	cat "$CDFL_LIST_PATH"
+}
+
+case "$1" in
+	add|a )
+		add_to_list "$2"
+		;;
+	delete|del|d )
+		delete_from_list
+		;;
+	cd|'' )
+		change_directory
+		;;
+	list|ls|l )
+		show_list
+		;;
+	help|h|-h|--help )
+		show_help
+		return 0
+		;;
+	* )
+		echo "Unrecognized Argument '$1'"
+		show_help
+		return 1
+		;;
+esac
