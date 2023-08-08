@@ -15,3 +15,4 @@
 	autoSetupRemote = true
 [alias]
 	lol = log --oneline
+	cam = commit -am
