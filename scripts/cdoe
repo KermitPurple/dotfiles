@@ -65,6 +65,7 @@ local force_cd=false
 local force_edit=false
 local force_execute=false
 local action_set=false
+local print_path=false
 local exit_status=0
 local base_path='./'
 [ -z "$EDITOR" ] && local EDITOR='vim'
