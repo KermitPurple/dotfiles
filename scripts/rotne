@@ -1,4 +1,4 @@
 #!/bin/sh
-# repo: git@github.com:KermitPurple/ROTNeditor.git
+# repo: git@github.com:shanemcdo/ROTNeditor.git
 # dir: $CODING_DIR/python/ROTNeditor
 "$CODING_DIR/python/ROTNeditor/main.py" "$@"

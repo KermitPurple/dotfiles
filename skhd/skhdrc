@@ -35,14 +35,14 @@ deltab < cmd + alt - d ; tabs
 wins < cmd + alt - c : new_chrome
 wins < cmd + alt - n : new_chrome "https://github.com/new#repository_name"
 wins < cmd + alt - i : new_chrome "https://gmail.com"
-wins < cmd + alt - g : new_chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
-wins < cmd + alt + shift - g : new_chrome "https://KermitPurple.github.io"
+wins < cmd + alt - g : new_chrome "https://github.com/shanemcdo?tab=repositories#your-repos-filter"
+wins < cmd + alt + shift - g : new_chrome "https://shanemcdo.github.io"
 default < cmd + alt -c : chrome
 tabs < cmd + alt - c : chrome "$SEARCH_ENGINE"
 default, tabs < cmd + alt - n : chrome "https://github.com/new#repository_name"
 default, tabs < cmd + alt - i : chrome "https://gmail.com"
-default, tabs < cmd + alt - g : chrome "https://github.com/KermitPurple?tab=repositories#your-repos-filter"
-default, tabs < cmd + alt + shift - g : chrome "https://KermitPurple.github.io"
+default, tabs < cmd + alt - g : chrome "https://github.com/shanemcdo?tab=repositories#your-repos-filter"
+default, tabs < cmd + alt + shift - g : chrome "https://shanemcdo.github.io"
 delwin < cmd + alt - c : close_chrome_window
 delsel, deltab < cmd + alt - c : close_chrome_tab
 

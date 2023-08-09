@@ -47,7 +47,7 @@ export SEARCH_ENGINE_QUERY="$SEARCH_ENGINE?q="
 export CHROME_STASH="$HOME/dropbox/chrome_stash.txt"
 
 # list of todo items, done and not done for:
-#   - git@github.com:kermitpurple/todo_rs
+#   - git@github.com:shanemcdo/todo_rs
 export TODO_LIST="$HOME/dropbox/todos/list.txt"
 export TODO_DONE_LIST="$HOME/dropbox/todos/done_list.txt"
 
@@ -56,11 +56,11 @@ export TODO_DONE_LIST="$HOME/dropbox/todos/done_list.txt"
 export MCLIP_FILE="$HOME/dropbox/mclip_file.txt"
 
 # Workout tracker data
-#   - git@github.com:KermitPurple/WorkoutTracker.git
+#   - git@github.com:shanemcdo/WorkoutTracker.git
 export WORKOUT_DATA_PATH="$HOME/dropbox/workout_data.json"
 
 # Weight tracker data
-#   - git@github.com:KermitPurple/weight_tracker.git
+#   - git@github.com:shanemcdo/weight_tracker.git
 export WEIGHT_TRACKER_PATH="$HOME/dropbox/weight_data.pickle"
 
 # chain saw man tracker

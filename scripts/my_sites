@@ -1,12 +1,12 @@
 #!/bin/sh
-# scrape https://kermitpurple.github.io/ to get current sites
+# scrape https://shanemcdo.github.io/ to get current sites
 # requires:
 #  - fzf
 #  - sed
 #  - cut
 #  - curl
 
-url="https://kermitpurple.github.io"
+url="https://shanemcdo.github.io"
 input="$(curl -s "$url" \
     | sed '/site-link link/!d;s/.*href="\([^"]*\)" class="site-link link">\([^<]*\)<.*/\1\t\2/g;' \
     | fzf --with-nth 2 -d "\t" \

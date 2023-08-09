@@ -1,5 +1,5 @@
 #!/bin/sh
-# repo: git@github.com:KermitPurple/ROTN.git
+# repo: git@github.com:shanemcdo/ROTN.git
 # dir: $CODING_DIR/python/ROTN
 # branch: mac
 "$CODING_DIR/python/ROTN/main.py" "$@"

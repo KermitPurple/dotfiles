@@ -1,5 +1,5 @@
 #!/bin/sh
-username="KermitPurple"
+username="shanemcdo"
 repo="$1"
 shift # remove first arg
 

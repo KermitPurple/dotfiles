@@ -22,7 +22,7 @@ fd() {
 }
 
 # play pygame snake
-# repo: git@github.com:KermitPurple/PygameSnake.git
+# repo: git@github.com:shanemcdo/PygameSnake.git
 # dir: $CODING_DIR/python/PygameSnake
 # branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
@@ -33,7 +33,7 @@ snake()(
 )
 
 # play pygame tetris
-# repo: git@github.com:KermitPurple/PyTetrisV2.git
+# repo: git@github.com:shanemcdo/PyTetrisV2.git
 # dir: $CODING_DIR/python/PyTetrisV2
 # branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
@@ -44,7 +44,7 @@ tetris()(
 )
 
 # open pygame graphing app
-# repo: git@github.com:KermitPurple/py-graphs.git
+# repo: git@github.com:shanemcdo/py-graphs.git
 # dir: $CODING_DIR/python/graphs
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 graph()(
@@ -54,7 +54,7 @@ graph()(
 )
 
 # Make a new project using a python script
-# repo: git@github.com:kermitpurple/AutoProj.git
+# repo: git@github.com:shanemcdo/AutoProj.git
 # dir: $CODING_DIR/python/AutoProj
 # branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
@@ -68,7 +68,7 @@ new()(
 newe(){new $*&&exit}
 
 # clock in/ clock out; timeclock
-# repo: git@github.com:KermitPurple/punchclock.git
+# repo: git@github.com:shanemcdo/punchclock.git
 # dir: $CODING_DIR/python/punchclock
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 clock()(
@@ -87,7 +87,7 @@ walpha(){
 }
 
 # open paint application
-# repo: git@github.com:kermitpurple/pypaint
+# repo: git@github.com:shanemcdo/pypaint
 # dir: $CODING_DIR/python/PyPaint
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 paint()(
@@ -127,7 +127,7 @@ newenv(){
 }
 
 # show code rain
-# repo: git@github.com:KermitPurple/pyRain.git
+# repo: git@github.com:shanemcdo/pyRain.git
 # dir: $CODING_DIR/python/PyRain
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 rain()(
@@ -184,7 +184,7 @@ gay_dragon(){
 }
 
 # Segments
-# repo: git@github.com:KermitPurple/segments.git
+# repo: git@github.com:shanemcdo/segments.git
 # dir: $CODING_DIR/python/segments
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 segments()(
@@ -194,7 +194,7 @@ segments()(
 )
 
 # Fractals
-# repo: git@github.com:KermitPurple/fractals.git
+# repo: git@github.com:shanemcdo/fractals.git
 # dir: $CODING_DIR/python/fractals
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 fractals()(
@@ -204,7 +204,7 @@ fractals()(
 )
 
 # polygons
-# repo: git@github.com:KermitPurple/consentric_polygons_py.git
+# repo: git@github.com:shanemcdo/consentric_polygons_py.git
 # dir: $CODING_DIR/python/polygons
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 polygons()(
@@ -214,7 +214,7 @@ polygons()(
 )
 
 # circle illusion
-# repo: git@github.com:KermitPurple/circleillusion.git
+# repo: git@github.com:shanemcdo/circleillusion.git
 # dir: $CODING_DIR/python/circle_illusion
 # branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
@@ -232,7 +232,7 @@ bitcoin_price(){
 }
 
 # todo application
-# repo: git@github.com:kermitpurple/todo_rs
+# repo: git@github.com:shanemcdo/todo_rs
 # dir: $CODING_DIR/rust/todo_rs
 # build: cargo build --release
 todo(){
@@ -240,7 +240,7 @@ todo(){
 }
 
 # workout tracker
-# repo: git@github.com:KermitPurple/WorkoutTracker.git
+# repo: git@github.com:shanemcdo/WorkoutTracker.git
 # dir: $CODING_DIR/python/workout_tracker
 # branch: mac
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
@@ -251,7 +251,7 @@ workt()(
 )
 
 # weight tracker
-# repo: git@github.com:KermitPurple/weight_tracker.git
+# repo: git@github.com:shanemcdo/weight_tracker.git
 # dir: $CODING_DIR/python/weight_tracker
 # build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
 weightt()(

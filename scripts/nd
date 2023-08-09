@@ -1,5 +1,5 @@
 #!/bin/sh
-# repo: git@github.com:KermitPurple/notes.git
+# repo: git@github.com:shanemcdo/notes.git
 # dir: $CODING_DIR/python/notes
 # delete note
 "$CODING_DIR/python/notes/delete.py" "$@"

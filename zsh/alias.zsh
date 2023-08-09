@@ -12,18 +12,18 @@ alias c='. cdoe -b "$CODING_DIR/c++/"'
 alias j='. cdoe -b "$CODING_DIR/java/"'
 alias z='. cdoe -b "$CODING_DIR/zsh/"'
 
-# repo: git@github.com:kermitpurple/rename_all
+# repo: git@github.com:shanemcdo/rename_all
 # dir: $CODING_DIR/rust/rename_all
 # build: cargo build --release
 alias rna="$CODING_DIR/rust/rename_all/target/release/rename_all"
 
-# repo: git@github.com:KermitPurple/ConwaysGameOfLifeCpp.git
+# repo: git@github.com:shanemcdo/ConwaysGameOfLifeCpp.git
 # dir: $CODING_DIR/c++/ConwaysGameOfLifeCpp
 # branch: mac
 # build: make all TARGET=bin/conway
 alias conway="silent_bg $CODING_DIR/c++/ConwaysGameOfLifeCpp/bin/conway"
 
-# repo: git@github.com:KermitPurple/TesseractV2.git
+# repo: git@github.com:shanemcdo/TesseractV2.git
 # dir: $CODING_DIR/c++/TesseractV2
 # branch: mac
 # build: make release
@@ -32,12 +32,12 @@ sleep 1&&\
 export DISPLAY=:0&&\
 silent_bg $CODING_DIR/c++/TesseractV2/bin/tess"
 
-# repo: git@github.com:KermitPurple/raylib_fib.git
+# repo: git@github.com:shanemcdo/raylib_fib.git
 # dir: $CODING_DIR/c++/fib
 # build: make clean all TARGET=bin/fib
 alias fib="silent_bg $CODING_DIR/c++/fib/bin/fib"
 
-# repo: git@github.com:KermitPurple/ggez_fib.git
+# repo: git@github.com:shanemcdo/ggez_fib.git
 # dir: $CODING_DIR/rust/ggez_fib
 # build: cargo build --release
 alias rfib="silent_bg $CODING_DIR/rust/ggez_fib/target/release/ggez_fib"
@@ -51,7 +51,7 @@ alias c++_make="clang++ */*.cpp -Iinclude -o\"$TEMP_DIR/test\" && \"$TEMP_DIR/te
 # reload the zshrc
 alias refresh=". ~/.zshrc"
 
-# repo: git@github.com:KermitPurple/DrawShapes.git
+# repo: git@github.com:shanemcdo/DrawShapes.git
 # dir: $CODING_DIR/c++/shapes
 # build: make release
 # branch: mac
@@ -74,18 +74,18 @@ alias welcome="new_window \"clear && neofetch\" && new_window rain && clear && f
 #     watch - brew install watch
 alias aclock="watch -n1 --color \"date '+%D%n%T' | toilet -f bigmono12 -F border --gay\""
 
-# repo: git@github.com:KermitPurple/roll_dice_py.git
+# repo: git@github.com:shanemcdo/roll_dice_py.git
 # dir: $CODING_DIR/python/dice
 # dice roll function
 alias roll="$CODING_DIR/python/dice/main.py"
 
-# repo: git@github.com:KermitPurple/cnake.git
+# repo: git@github.com:shanemcdo/cnake.git
 # dir: $CODING_DIR/c++/cnake
 # build: make TARGET=bin/cnake
 # snake game written in c
 alias cnake="$CODING_DIR/c++/cnake/bin/cnake"
 
-# repo: git@github.com:KermitPurple/typing_test
+# repo: git@github.com:shanemcdo/typing_test
 # dir: $CODING_DIR/rust/typing_test
 # build: cargo build --release
 # Typing test written in rust
