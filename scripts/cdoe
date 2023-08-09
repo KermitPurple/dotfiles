@@ -26,6 +26,7 @@ $prg PATH [FLAGS] [-- PRG_FLAGS]
       -x, --execute               - execute file, override default behavior
       -b PATH, --base-path PATH   - The basepath to search for this path ( Include trailing "/" e.g. "/tmp/" )
       -p PRGM., --program PRGM    - Runs the file with PRGM e.g. "cdoe /tmp/a.c -p cat" runs "cat /tmp/a.c"
+      -P, --print                 - prints the found path instead
       -h, --help                  - Display this help message
 EOF
 }
@@ -71,24 +72,13 @@ while [[ $# -gt 0 ]]; do
     local arg="$1"
     shift
     case "$arg" in # convert all long flags into short
-        --cd)
-            arg='-c'
-            ;;
-        --edit)
-            arg='-e'
-            ;;
-        --execute)
-            arg='-x'
-            ;;
-        --help)
-            arg='-h'
-            ;;
-        --base-path)
-            arg='-b'
-            ;;
-        --program)
-            arg='-p'
-            ;;
+        --cd) arg='-c';;
+        --edit) arg='-e';;
+        --execute) arg='-x';;
+        --help) arg='-h';;
+        --base-path) arg='-b';;
+        --program) arg='-p';;
+        --print) arg='-P';;
     esac
     case "$arg" in # parse all short flags
         --)
@@ -121,6 +111,10 @@ while [[ $# -gt 0 ]]; do
                         ;;
                     x)
                         force_execute=true
+                        check_action_set
+                        ;;
+                    P)
+                        print_path=true
                         check_action_set
                         ;;
                     h)
@@ -173,6 +167,8 @@ elif $force_cd; then
     change_dir
 elif $force_execute; then
     execute
+elif $print_path; then
+    echo $target_path
 elif $force_edit; then
     edit
 elif [ -d "$target_path" ]; then
