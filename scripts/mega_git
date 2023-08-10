@@ -21,6 +21,7 @@ $prog SUBCMD [flags]
     --less        - Pipe output of git command into less
     --no-less     - Do not pipe output into less; default
     --exec CMD    - Pipe the output of each git command into CMD
+    --interactive - Run interactively
     --help, -h    - print this output
 EOF
 }
@@ -28,6 +29,7 @@ EOF
 less=false
 async=false
 exec_f=false
+interactive=false
 exec_arg=""
 args=""
 while [ $# -gt 0 ]; do
@@ -43,6 +45,9 @@ while [ $# -gt 0 ]; do
             ;;
         --no-less)
             less=false
+            ;;
+        --interactive)
+            interactive=true
             ;;
         --exec)
             exec_f=true
@@ -65,24 +70,27 @@ while [ $# -gt 0 ]; do
 done
 [ -z "$args" ] && die "no git args passed"
 cmd="git $args"
-find "$CODING_DIR" "$DOTFILES_DIR" -name .git ! -path '*/plugged/*' | \
-    while IFS= read -r repo; do
-        cd "$repo/.." || die "Could not go to $repo/.." # go to repo
-        if $less; then
-            if ! $exec_f; then
-                (pwd; $cmd) | less # run git command and output to less
-            else
-                (pwd; ($cmd | $exec_arg)) | less
-            fi
-        elif $async && ! $exec_f; then
-            $cmd & # call git command asyncronus
-        elif ! $async && $exec_f; then
-            $cmd | $exec_arg
-        elif $async && $exec_f; then
-            ($cmd | $exec_arg) &
+repos=$(find "$CODING_DIR" "$DOTFILES_DIR" -name .git ! -path '*/plugged/*')
+for repo in $repos; do
+    cd "$repo/.." || die "Could not go to $repo/.." # go to repo
+    if $less; then
+        if ! $exec_f; then
+            (pwd; $cmd) | less # run git command and output to less
         else
-            echo "----------------------------------------------------------------------------------"
-            pwd # print location
-            $cmd # call git commadn
+            (pwd; ($cmd | $exec_arg)) | less
         fi
-    done
+    elif $async && ! $exec_f; then
+        $cmd & # call git command asyncronus
+    elif ! $async && $exec_f; then
+        $cmd | $exec_arg
+    elif $async && $exec_f; then
+        ($cmd | $exec_arg) &
+    else
+        echo "----------------------------------------------------------------------------------"
+        pwd # print location
+        $cmd # call git commadn
+    fi
+    if $interactive; then
+        $SHELL
+    fi
+done
