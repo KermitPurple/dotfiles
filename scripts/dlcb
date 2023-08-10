@@ -1,4 +1,5 @@
 #!/bin/sh
+# download clipboard
 # optionally pass a name for the file
 
 name="$*"
