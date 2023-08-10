@@ -1,0 +1,5 @@
+#!/bin/sh
+# change branch in git
+
+choice="$(git branch | sed -e 's/^[ *]*//' | fzf)"
+[ -z "$choice" ] || git checkout "$choice"
