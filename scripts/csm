@@ -2,11 +2,10 @@
 
 chapter_number="$(head -n 1 "$CSM_CH_PATH")"
 [ -z "$chapter_number" ] && chapter_number='1'
-placeholder_img_url='https://img.spoilerhat.com/img/?url=https://i.imgur.com/bUqKp0v.png'
-base_url='https://read.chainsaw-man.net/manga/chainsaw-man-chapter-'
+base_url='https://w2.chainsawmanga.com/manga/chainsaw-man-chapter-'
 site_url="$base_url$chapter_number/"
 
-if curl "$site_url" -s | grep "$placeholder_img_url" > /dev/null; then
+if [ -z "$(curl "$site_url" -s)" ]; then
     echo "There is not a new chainsaw man chapter😔"
     exit 1
 else
