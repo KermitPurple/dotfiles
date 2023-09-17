@@ -113,3 +113,6 @@ alias cdfl=". cdfl"
 
 # copy current working directory
 alias cpwd="pwd | pbcopy"
+
+# open all chainsaw man chapters
+alias csma="while csm; do ; done"
