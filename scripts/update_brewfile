@@ -1,6 +1,6 @@
 #!/bin/sh
 
-brewfile="./Brewfile"
+brewfile="$DOTFILES_DIR/Brewfile"
 rm -f "$brewfile"
 brew bundle dump --file="$brewfile"
 
