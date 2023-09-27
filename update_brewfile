@@ -1,0 +1,7 @@
+#!/bin/sh
+
+brewfile="./Brewfile"
+rm -f "$brewfile"
+brew bundle dump --file="$brewfile"
+
+
