@@ -43,6 +43,16 @@ tetris()(
     silent_bg ./pytetris.py
 )
 
+# play pygame pong
+# repo: git@github.com:shanemcdo/pyong.git
+# dir: $CODING_DIR/python/pyong
+# build: virtualenv venv && . venv/bin/activate && pip3 install -r requirements.txt
+pyong()(
+    cd "$CODING_DIR/python/pyong"
+    . venv/bin/activate
+    silent_bg ./pyong.py
+)
+
 # open pygame graphing app
 # repo: git@github.com:shanemcdo/py-graphs.git
 # dir: $CODING_DIR/python/graphs
