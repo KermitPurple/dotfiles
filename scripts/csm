@@ -2,7 +2,7 @@
 
 chapter_number="$(head -n 1 "$CSM_CH_PATH")"
 [ -z "$chapter_number" ] && chapter_number='1'
-base_url='https://w2.chainsawmanga.com/manga/chainsaw-man-chapter-'
+base_url='https://ww2.chainsaw-man-manga.online/manga/chainsaw-man-chapter-'
 site_url="$base_url$chapter_number/"
 
 if [ -z "$(curl "$site_url" -s)" ]; then
