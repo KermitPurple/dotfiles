@@ -17,3 +17,4 @@
 	lol = log --oneline
 	cam = commit -am
 	ca = commit -a
+	url = !git remote get-url \"$(git remote | head -n 1)\"
