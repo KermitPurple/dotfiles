@@ -22,6 +22,7 @@ nmap <leader>i <plug>(YCMHover)
 nnoremap <leader>gg :YcmCompleter GoTo<cr>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<cr>
 nnoremap <leader>gi :YcmCompleter GoToInclude<cr>
+nnoremap <leader>g= :YcmCompleter FixIt<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
 map <leader><leader> gc
 nmap <leader><leader><leader> gcc
