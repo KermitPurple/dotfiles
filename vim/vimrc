@@ -49,8 +49,7 @@ Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-" Plug 'rstacruz/vim-closer'
-Plug 'shanemcdo/vim-closer' " temporary until or if my pr is merged
+Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-endwise'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
