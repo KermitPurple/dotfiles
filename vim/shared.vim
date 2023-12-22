@@ -8,6 +8,7 @@ set completeopt=menu,preview,menuone
 set shortmess+=c
 set timeoutlen=1000
 set ttimeoutlen=5
+set notermguicolors " TODO: Decide if this is good or not
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent! loadview
 " in dotfiles/scripts
