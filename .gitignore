@@ -1,5 +1,4 @@
 vim/plugged
-vim/trash
-vim/view
-nvim/trash
+vim/trash/*
+nvim/trash/*
 .DS_Store
