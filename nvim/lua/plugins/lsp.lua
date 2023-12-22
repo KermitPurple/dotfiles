@@ -1,15 +1,18 @@
 require('mason').setup()
+local servers = {
+	'lua_ls',
+	'rust_analyzer',
+	'tsserver',
+	'clangd',
+	'bashls',
+	'cmake',
+	'pyright',
+	'cssls',
+	'html',
+}
 local mason_lsp = require('mason-lspconfig')
 mason_lsp.setup {
-	ensure_installed = {
-		'lua_ls',
-		'rust_analyzer',
-		'tsserver',
-		'clangd',
-		'bashls',
-		'cmake',
-		'pyright',
-	},
+	ensure_installed = servers,
 	automatic_installation = true,
 }
 -- mason_lsp.setup_handlers()
@@ -21,12 +24,8 @@ local on_attach = function(_, _)
 end
 
 local lsp = require('lspconfig')
-lsp.lua_ls.setup {
-	on_attach = on_attach
-}
-lsp.rust_analyzer.setup {}
-lsp.tsserver.setup {}
-lsp.clangd.setup {}
-lsp.bashls.setup {}
-lsp.cmake.setup {}
-lsp.pyright.setup {}
+for _, server in pairs(servers) do
+	lsp[server].setup {
+		on_attach = on_attach,
+	}
+end
