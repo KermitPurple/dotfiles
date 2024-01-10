@@ -31,10 +31,7 @@ local plugins = {
 	},
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
-	{
-		'neovim/nvim-lspconfig',
-		event = { 'BufReadPre', 'BufNewFile' }
-	},
+	'neovim/nvim-lspconfig',
 	'stevearc/dressing.nvim', -- better renaming prompts
 }
 
