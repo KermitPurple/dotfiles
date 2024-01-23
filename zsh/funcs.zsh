@@ -306,3 +306,13 @@ gimmecd() {
 mcd() {
     mkdir "$1" && cd "$1"
 }
+
+# change directory recent
+cdr() {
+	local dir="$(ls -dt */ | head -n1)"
+	if [ -z "$dir" ]; then
+		>&2 echo "Cannot find dir"
+		return 1
+	fi
+	cd "$dir"
+}
