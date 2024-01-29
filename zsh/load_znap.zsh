@@ -6,6 +6,7 @@
 
 . ~/Git/zsh-snap/znap.zsh  # Start Znap
 # `znap source` automatically downloads and starts your plugins.
+# This plugin makes ^R different and arguably worse
 znap source marlonrichert/zsh-autocomplete # potentially causes lag; before commenting out run `znap pull` It could fix the problem
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
