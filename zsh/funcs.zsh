@@ -322,3 +322,9 @@ cdr() {
 gcam() {
 	git commit -am "$*"
 }
+
+# git commit -m
+# no need for quotes
+gcm() {
+	git commit -m "$*"
+}
