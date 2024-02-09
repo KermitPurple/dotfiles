@@ -41,6 +41,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dkarter/bullets.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'zah/nim.vim'
 call plug#end()
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 let g:UltiSnipsListSnippets = "<s-tab>"
