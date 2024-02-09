@@ -316,3 +316,9 @@ cdr() {
 	fi
 	cd "$dir"
 }
+
+# git commit -am
+# no need for quotes 
+gcam() {
+	git commit -am "$*"
+}
