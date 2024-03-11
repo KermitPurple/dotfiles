@@ -9,5 +9,8 @@ bindkey '^R' history-incremental-search-backward
 . "$DOTFILES_DIR/zsh/funcs.zsh"
 . "$DOTFILES_DIR/zsh/load_znap.zsh"
 
+# load zoxide
+eval "$(zoxide init zsh)"
+
 # set custom prompt
 set_prompt
