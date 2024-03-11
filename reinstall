@@ -25,6 +25,7 @@ ln -s "$HOME/dotfiles/zsh/zshenv" "$HOME/.zshenv"
 ln -s "$HOME/dotfiles/skhd/skhdrc" "$HOME/.skhdrc"
 ln -s "$HOME/dotfiles/nvim/" "$HOME/.config/nvim"
 ln -s "$HOME/dotfiles/git/config" "$HOME/.gitconfig"
+ln -s "$HOME/dotfiles/tmux/" "$HOME/.config/tmux"
 
 # make vim trash files
 mkdir "$HOME/dotfiles/vim/trash" "$HOME/dotfiles/vim/views"
