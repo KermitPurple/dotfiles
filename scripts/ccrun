@@ -37,7 +37,7 @@ files=()
 debug='false'
 no_run='false'
 time_run='false'
-cflags="-Wextra -fsanitize=address"
+cflags="-Wextra"
 debugger="lldb"
 [[ -z "$TEMP_DIR" ]] && TEMP_DIR=/tmp
 output="$TEMP_DIR/$prg.out"
