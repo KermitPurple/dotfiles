@@ -328,3 +328,36 @@ gcam() {
 gcm() {
 	git commit -m "$*"
 }
+
+# use find to search path & sub-directories of path
+gib() {
+	local search_directory='.'
+	case "$1" in 
+		*/* | ~*)
+			search_directory="$1"
+			shift
+		;;
+	esac
+	local files=()
+	while [ $# -gt 0 ]; do 
+		[ -z "$files" ] || files+=("-o")
+		files+=("-name")
+		files+=("$1")
+		shift
+	done
+	find "$search_directory" "${files[@]}"
+}
+
+# use find to search path & sub-directories of path
+fim() {
+	local args=()
+	local flags=()
+	while [ $# -gt 0 ]; do 
+		case "$1" in
+			-*) flags+=("$1");;
+			*) args+=("$1");;
+		esac
+		shift
+	done
+	vim "${flags[@]}" $( gib "${args[@]}" )
+}
